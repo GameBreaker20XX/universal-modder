@@ -5,7 +5,7 @@ exe = r"C:\Users\gmbad\Downloads\teardown\Crash Time 0 (Alarm for Cobra 11 Nitro
 with open(exe, 'rb') as f:
     data = f.read()
 
-print("=== CRASH TIME 0 (Alarm for Cobra 11 Nitro) - TEARDOWN ===\n")
+print("=== Alarm für Cobra 11 Nitro (Crash Time 0) - TEARDOWN ===\n")
 print(f"Executable: gC11_PC.exe ({len(data)} bytes, {len(data)/1024/1024:.2f} MB)")
 
 # PE Header
