@@ -95,19 +95,43 @@ def test_zengin_detected(tmp_path):
     assert key == "zengin"
 
 
-def test_mt_framework_detected(tmp_path):
-    # DMC4 layout: .arc archives under nativePC/
-    key, _ = engine_of(tmp_path, {"DevilMayCry4_DX9.exe": _pe(False),
-                                  "nativePC/rom/gameplay.arc": b"ARC\x00"})
+@pytest.mark.parametrize("files", [
+    {"DDDA.exe": _pe(False), "nativePC/rom/game_main.arc": b"ARC\x00"},              # Dragon's Dogma: Dark Arisen
+    {"RE5DX9.exe": _pe(False), "nativePC_MT/Image/Archive/s506.arc": b"ARC\x00"},    # Resident Evil 5
+    {"DevilMayCry4SpecialEdition.exe": _pe(False), "nativeDX10/rom/player/costume.arc": b"ARC\x00"},
+    {"DeadRising.exe": _pe(False, arch=0x8664), "nativeWin64/rom/ui.arc": b"ARC\x00"},
+])
+def test_mt_framework_detected(tmp_path, files):
+    # the native* folder is named per port; the .arc archives under it are the signature
+    key, _ = engine_of(tmp_path, files)
     assert key == "mt-framework"
 
 
-def test_hedgehog_detected(tmp_path):
-    # Unleashed/Generations layout: split .ar archives with .arl lists
-    key, _ = engine_of(tmp_path, {"UnleashedRecomp.exe": _pe(False, arch=0x8664),
-                                  "game/#ActD_Africa.ar.00": b"x",
-                                  "game/#ActD_Africa.arl": b"x"})
+def test_re_engine_natives_is_not_mt_framework(tmp_path):
+    make(tmp_path, {"re2.exe": _pe(False, arch=0x8664), "re_chunk_000.pak": b"KPKA",
+                    "natives/STM/streaming/x.tex.10": b"x"})
+    hits, _ = scan.detect(scan.Index(tmp_path))
+    assert hits[0][0] == "re-engine" and all(k != "mt-framework" for k, *_ in hits)
+
+
+@pytest.mark.parametrize("files", [
+    # Unleashed Recompiled: the installer copies the raw Xbox 360 files into game/ (split .ar + .arl lists)
+    {"UnleashedRecomp.exe": _pe(False, arch=0x8664), "game/#ActD_Africa.ar.00": b"x", "game/#ActD_Africa.arl": b"x",
+     "update/default.xexp": b"x", "patched/default.xex": b"x"},
+    # Sonic Generations (Steam): the .ar archives live inside CRI .cpk packfiles, so only the exe tells
+    {"SonicGenerations.exe": _pe(False), "disk/bb.cpk": b"CPK "},
+    # Sonic Forces (HE2): the exe sits deep under build/
+    {"build/main/projects/exec/Sonic Forces.exe": _pe(False, arch=0x8664)},
+])
+def test_hedgehog_detected(tmp_path, files):
+    key, _ = engine_of(tmp_path, files)
     assert key == "hedgehog"
+
+
+def test_lone_ar_archive_is_not_hedgehog(tmp_path):
+    make(tmp_path, {"Game.exe": _pe(False), "lib/libgame.ar": b"!<arch>\n"})
+    hits, _ = scan.detect(scan.Index(tmp_path))
+    assert all(k != "hedgehog" for k, *_ in hits)
 
 
 def test_blackrock_detected(tmp_path):

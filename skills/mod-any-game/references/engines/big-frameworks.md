@@ -16,12 +16,17 @@ reinvent it. Check each one's GitHub/Nexus page for the version matching the gam
 - Online components (SF6 ranked, MH lobbies): cosmetic-only local mods are the norm. Never gameplay-affecting
   mods online.
 
-## Capcom MT Framework (Devil May Cry 4, Resident Evil 5, Lost Planet, Dead Rising 2)
-- **Archives:** game data lives in `.arc` files under `nativePC/`. Unpack/repack with ARCtool (or
-  uArcTool); most content mods are `.arc` replacements.
+## Capcom MT Framework (Resident Evil 5/6, Devil May Cry 4, Dragon's Dogma: Dark Arisen, Dead Rising, Lost Planet)
+- **Archives:** game data lives in `.arc` files under a `native*` folder named per port: `nativePC/` (Dragon's
+  Dogma: Dark Arisen), `nativePC_MT/` (Resident Evil 5), `nativeDX10/` (Devil May Cry 4 Special Edition),
+  `nativeWin64/` (Dead Rising). Most content mods replace or repack `.arc` files.
+- **Tools:** FluffyQuack's ARCtool unpacks and repacks `.arc` (and converts textures and some data formats) for
+  most PC MT Framework games, and Fluffy Mod Manager installs `.arc` mods for the games it supports; both are at
+  [fluffyquack.com/tools](https://www.fluffyquack.com/tools/). Dead Rising has an unofficial patch and SDK,
+  [DeadRisingEx](https://github.com/grimdoomer/DeadRisingEx).
 - **Code:** no official SDK; native mods are DLL hooks. Read the exe with Ghidra/IDA, verify with Cheat
   Engine, same as any native target (`native.md`).
-- DMC4 ships `dx9` and `dx10` exes (both x86); mod against the one you actually launch.
+- The 2008 Devil May Cry 4 ships separate DX9 and DX10 exes; mod against the one you actually launch.
 
 ## FromSoftware (Elden Ring, Dark Souls, Sekiro, Armored Core 6, Nightreign)
 - **Loaders:** ModEngine2 (archived but widely used) or its successor **me3**. They load mods from a folder
@@ -54,25 +59,32 @@ reinvent it. Check each one's GitHub/Nexus page for the version matching the gam
   - **Camera timing:** a script reads the camera for the frame being prepared, one frame ahead of what's on
     screen.
 
-## Sonic Hedgehog Engine (Unleashed, Generations, Lost World, Forces)
-- **Archives:** split `.ar` files with `.arl` lists (e.g. `#ActD_Africa.ar.00` + `#ActD_Africa.arl`).
-  Generations-era titles are modded with Hedgehog Mod Manager (codes + file replacements).
-- **Unleashed Recompiled** (Xbox 360 recompiled for PC) keeps the same layout under `game/` plus `dlc/`,
-  `update/`, `patched/` and `save/` folders. It loads loose files/mods from its own folders, so prefer
-  file replacement over repacking archives. Snapshot `save/` with `um backup` before modded launches.
+## Sonic Team's Hedgehog Engine (Unleashed, Generations, Lost World, Forces, Frontiers)
+- **Mod manager:** [Hedge Mod Manager](https://github.com/hedge-dev/HedgeModManager) installs mods (folders with
+  a `mod.ini` and loose replacement files, plus code mods) through HE1ModLoader (Generations, Lost World) or
+  HE2ModLoader (Forces, Frontiers, Sonic X Shadow Generations). Guides and tools:
+  [HedgeDocs](https://hedgedocs.com).
+- **Archives:** Unleashed and Generations use split `.ar` files with `.arl` lists (e.g. `#ActD_Africa.ar.00` +
+  `#ActD_Africa.arl`); Generations on PC packs them inside CRI `bb*.cpk` packfiles. Lost World and the HE2
+  games use `.pac` (PACx). HedgeArcPack ([HedgeLib](https://github.com/Radfordhound/HedgeLib)) unpacks and
+  repacks both.
+- **[Unleashed Recompiled](https://github.com/hedge-dev/UnleashedRecomp)** (the Xbox 360 game statically
+  recompiled for PC, from the user's own copy) installs `game/`, `update/`, `dlc/` and `patched/` next to its
+  exe. Saves go to `%APPDATA%\UnleashedRecomp\save` (`~/.config/UnleashedRecomp/save` on Linux), or to `save/`
+  next to the exe when a `portable.txt` is there; back them up with `um backup` before modded launches. Its
+  built-in loader reads Hedge Mod Manager's mod list, so prefer loose file replacement over repacking archives.
 - **Animation:** HKX packfiles across these generations, see
   `knowledge/techniques/havok-hkx-chunked-packfile-family.md`.
 
-## Black Rock Engine (Split/Second, Pure)
-- **Lineage:** Black Rock Studio's in-house engine, built on the studio's `Blimey` core libraries and
-  the renderer lineage MotoGP '06 → Pure → Split/Second (gamma-correct deferred shading, heavy
-  post-processing and VFX). No public engine name; "Black Rock Engine" is this toolkit's label for it.
-- **Layout:** level content in `.ark` packs under `data/` (e.g. `docks.ark`,
-  `downtownpowerplays.ark`), assets as `.model` + `.textures` with `.shaderinst`/`.shaders`/`.fxc`
-  shaders, and plaintext `.params` config (e.g. `splitsecond.params`).
-- **Modding:** no official tools or major framework; the usual route is asset replacement inside the
-  packs plus `.params` tweaks, native code via DLL hooks (`native.md`). Small community, so expect to
-  reverse formats yourself and prove each one with a round trip.
+## Black Rock Studio's engine (Split/Second)
+- Black Rock Studio's in-house engine for Split/Second (2010); Pure (2008), the studio's previous game, likely
+  shares it (not checked). It has no public name, so `um scan` calls it `blackrock`. The studio closed in 2011:
+  no official tools and no community framework.
+- **Layout** (as reported from a Split/Second PC install): level packs as `.ark` files under `data/` (e.g.
+  `docks.ark`), assets as `.model` + `.textures` with `.shaderinst`/`.shaders`/`.fxc` shaders, and plaintext
+  `.params` config (e.g. `splitsecond.params`).
+- **Modding:** `.params` tweaks and asset replacement inside the packs; native code via DLL hooks
+  (`native.md`). Expect to reverse the formats yourself and prove each one with a round trip.
 
 ## CD Projekt REDengine
 - **Cyberpunk 2077:**
