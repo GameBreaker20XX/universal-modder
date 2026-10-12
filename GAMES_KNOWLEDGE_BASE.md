@@ -105,25 +105,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 
 ---
 
-## 6. Metal Gear Rising Revengeance (PC) — PC/PS3/X360 (2013)
-| Field | Value |
-|---|---|
-| **Title** | Metal Gear Rising Revengeance |
-| **Platform** | PC (Steam), PS3, Xbox 360 |
-| **Developer** | PlatinumGames |
-| **Publisher** | Konami |
-| **Year** | 2013 |
-| **Engine** | PlatinumGames proprietary (Bayonetta/Vanquish lineage) |
-| **Middleware** | **Havok** (physics/animation `.hkx`), **Wwise** (audio `.bnk`) |
-| **Asset Formats** | `.fbx` (models), `.hkx` (anim/physics), `.dds` (textures), `.bnk` (Wwise audio), `.dat` (custom container), `.eff` (effects), `.bxm` (binary XML) |
-| **Archive Layout** | 12x 7z category archives → `.dat` + `.eff` per model → `dattool.exe` unpacks |
-| **Tools Provided** | `dattool.exe`, `bxmtool.exe`, `mcdtool.exe`, `texconv.exe`, `wtbtool.exe`, `txttool.exe` |
-
-**Key Finding:** Clean PlatinumGames proprietary engine. Only Havok + Wwise as middleware. Standard modern formats (FBX/HKX/DDS/BNK). Tools included.
-
----
-
-## 7. MotorStorm: Arctic Edge (PSP) — PSP (2009) [Re-analyzed]
+## 6. MotorStorm: Arctic Edge (PSP) — PSP (2009) [Re-analyzed]
 | Field | Value |
 |---|---|
 | **Title** | MotorStorm: Arctic Edge (PSP) |
@@ -192,6 +174,29 @@ Maintained from teardown analyses. Updated 2026-10-12.
 
 ---
 
+## 6. Bionic Commando Rearmed (PC) — Win32 (2008/2009)
+
+| Field | Value |
+|---|---|
+| **Title** | Bionic Commando Rearmed |
+| **Platform** | PC (Windows), also PS3/Xbox 360 |
+| **Developer** | GRIN (Firebrand Games) — *had access to Octane engine* |
+| **Publisher** | Capcom |
+| **Year** | 2008 (consoles), 2009 (PC) |
+| **Engine** | **Diesel Engine** (GRIN/Firebrand proprietary, Octane lineage) |
+| **Middleware** | **Bink Video**, **PhysX (cooking)**, **Steamworks** |
+| **Executable** | `bcr.exe` (Win32 PE, ~15 MB), `dieselx.cfg` config |
+| **Container** | `quick.bundle` (BNDL, 216 MB, 262k logical files) |
+| **Main Archive** | `vfs.zip` (ZIP, 27 MB, 4,258 files) embedded in bundle |
+| **Asset Formats** | `.n` (NSBMD/BMD0), `.h` (collision), `.dcsc` (scenes), `.luac` (Lua 5.1), `.sdat` (SDAT audio), `.bik` (Bink), `.mob` (MOB video), `.nclr`/`.ncer`/`.nanr`/`.ncgr`/`.nsc` (2D), `.h`/`.na` (collision/signage), `.bin` (ghosts), `.luac` (Lua 5.1 bytecode) |
+| **Scripting** | Lua 5.1 (`.luac` bytecode, 27 files) |
+| **Audio** | SDAT (`.sdat` — sequences + samples) |
+| **Video** | Bink (`.bik`), MOB (`.mob`) |
+
+**Key Finding:** GRIN's **Diesel Engine** (evolved into Firebrand's **Octane** engine). **Minimal middleware** — only Bink Video, PhysX (cooking), and Steamworks. PC port uses same bundle format as console versions. ARM9 equivalent is Win32 main thread; Lua 5.1 for game logic/UI. NitroSDK 2D formats (`.ncgr`/`.nclr`/`.ncer`/`.nanr`/`.nsc`) reused on PC. Zero custom DRM beyond `cpy.dll` (SecuROM/SolidShield).
+
+---
+
 ## Engine Lineage Summary
 
 ```
@@ -255,6 +260,85 @@ PlatinumGames Engine
 | `txttool.exe` | MGR | Text/localization |
 | `ffmpeg` | All | Video/audio conversion |
 | `py7zr` / `7z` | MGR | 7z archive extraction |
+
+---
+
+## 9. Alarm für Cobra 11 Nitro — PC (2006/2007)
+
+| Field | Value |
+|---|---|
+| **Title** | Alarm für Cobra 11 Nitro (also known as Crash Time 0) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | RTL Games / JoWooD |
+| **Year** | 2006 (German), 2007 (International) |
+| **Engine** | **Synetic 3D Landscape Engine** (proprietary, German) |
+| **Middleware** | **None detected** — DirectX 9, custom physics |
+| **Executable** | `gC11_PC.exe` (Win32 PE32 x86, 2.4 MB) |
+| **Setup** | `gC11_Setup.exe` (974 KB) |
+| **Container** | Loose files (no archive) |
+| **Asset Formats** | `.mox`/`.mtl` (models/materials), `.trk` (tracks), `.tree` (scene graph), `.cob`/`.cpo` (collision), `.ptx` (textures), `.wav`/`.wma` (audio), `.wmv` (video), `.trk` (tracks), `.geo` (geometry), `.lvl` (levels), `.cob`/`.cpo` (collision), `.ro1-.ro4` (road data), `.tree` (scene graph), `.cob`/`.cpo` (collision), `.ro1-.ro4` (road data), `.sni`/`.smp`/`.dat`/`.vef`/`.slt`/`.str` (misc), `.tob` (20), `.wma` (audio), `.wtr` (water), `.wpt` (waypoints), `.geo` (geometry), `.lvl` (levels), `.qad` (quad), `.ro1-.ro4` (road), `.sni`/`.smp`/`.dat`/`.vef`/`.slt`/`.str` (misc), `.tob` (20), `.wma` (audio), `.wtr` (water), `.wpt` (waypoints), `.geo` (geometry), `.lvl` (levels), `.qad` (quad), `.ro1-.ro4` (road), `.sni`/`.smp`/`.dat`/`.vef`/`.slt`/`.str` (misc) |
+| **Executable** | `gC11_PC.exe` (PE32 x86, 2.4 MB, compiled Nov 2006) |
+| **Setup** | `gC11_Setup.exe` (974 KB) |
+| **Physics** | **Custom** (DAM_CRASH_* damage system) |
+| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
+| **Audio** | DirectSound/DirectMusic (WMA, WAV) |
+| **Video** | WMV (Windows Media Video) |
+| **Scripting** | None found (C++ only) |
+| **Physics** | Custom (DAM_CRASH_* damage system) |
+
+**Key Finding:** Alarm für Cobra 11 Nitro uses Synetic's **3D Landscape Engine** (proprietary, German). **Zero licensed middleware** — pure DirectX 9 + custom physics. No Lua scripting found. Damage system: `DAM_CRASH_ANIM`, `DAM_CRASH_GEAR`, `DAM_CRASH_MOTOR`, `DAM_CRASH_CHASS`, `DAM_CRASH_BRAKE`. Tachometer system with RPM/KMH textures. Track editor built-in (`TrackEditorGUI`, `TrackEditorLoadTrackGUI`). DirectX 9 (D3DX9 Shader Compiler 9.12.589). Damage system: `DAM_CRASH_*`. Tachometer textures: `tachomph`, `tachokmh`. No Lua scripting found.
+
+---
+
+## 10. Excite Truck (USA) — Wii (2006)
+
+| Field | Value |
+|---|---|
+| **Title** | Excite Truck |
+| **Platform** | Nintendo Wii |
+| **Disc ID** | R4QE (likely) |
+| **Developer** | Monster Games (US) |
+| **Publisher** | Nintendo |
+| **Year** | 2006 (Wii launch title) |
+| **Engine** | Monster Games proprietary |
+| **Middleware** | **Bink Video** (Rad Game Tools) |
+| **Executable** | Missing from dump (`main.dol`/`boot.dol` not in dump) |
+| **Container** | Loose files (extracted from Wii ISO) |
+| **Asset Formats** | `.car`/`.toc` (vehicles), `.trk`/`.toc` (tracks), `.sng`/`.brsar` (audio), `.bik` (video), `.tpl` (textures), `.vtf` (vector fonts), `.res`/`.toc` (resources), `.car`/`.toc` (vehicles), `.trk`/`.toc` (tracks) |
+| **Vehicles** | 20 vehicles × 2 variants (base/enhanced), 1,000-1,100 KB each |
+| **Tracks** | ~20 base tracks × 4-6 variants, 6-17 MB each |
+| **Audio** | `.sng` (custom), `.brsar` (Nintendo BRSTM), `.wma` (music) |
+| **Video** | `.bik` (Bink Video), `.bnr` (Wii banner) |
+| **Tracks** | ~7 base environments × 4-6 variants (Canada, China, Fiji, Finland, Kenya, Mexico, Scotland) |
+| **Vehicles** | 20 vehicles × 2 variants (base/enhanced), 5 LODs + shop |
+
+**Key Finding:** Monster Games proprietary engine on Wii. **Minimal middleware** — only Bink Video. Custom track/vehicle formats with `.toc` table-of-contents system. Wii-native formats (`.tpl` textures, `.brsar` audio). No Lua scripting. Main executable (`main.dol`/`boot.dol`) missing from dump.
+
+---
+
+## 11. Crash Time 5 — Undercover (Alarm für Cobra 11 Undercover) — PC (2012)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time 5 — Undercover (Alarm für Cobra 11 Undercover) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | RTL Games / dtp entertainment |
+| **Year** | 2012 |
+| **Engine** | Synetic 3D Landscape Engine (final evolution) |
+| **Middleware** | **Bink Video** (Rad Game Tools) — **ONLY licensed middleware** |
+| **Executable** | Missing from dump |
+| **Container** | Loose files (no archive) |
+| **Asset Formats** | `.mox`/`.mtl` (models/materials), `.trf` (track refs), `.cpo` (collision), `.ptx` (textures), `.xml` (weapons/HUD/evidence), `.bik` (Bink video), `.ogg` (audio), `.ptx` (textures), `.trf` (track refs), `.cpo` (collision) |
+| **Scripting** | None (C++ only) + XML data-driven (weapons/HUD/evidence) |
+| **Physics** | Custom (DAM_CRASH_*) + ODE Physics |
+| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
+| **Audio** | DirectSound/DirectMusic (WAV, OGG) |
+| **Video** | **Bink Video** (`.bik`) — NEW in Undercover |
+| **Scripting** | None (C++ only) + XML data-driven (weapons/HUD/evidence) |
+
+**Key Finding:** Final evolution of Synetic 3D Landscape Engine. **Only licensed middleware: Bink Video**. XML-driven weapons/HUD/evidence systems. Bink Video for cutscenes. No Lua scripting. Weapons system (14 weapons), HUD system (7 elements), Evidence system (3 items). Bink Video for cutscenes (5 `.bik` files).
 
 ---
 
