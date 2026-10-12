@@ -109,7 +109,7 @@ print("=== .WMV (Video) ===")
 print("  61 files - Windows Media Video (cutscenes/intros)")
 
 print("\n=== ENGINE ANALYSIS ===")
-print("Engine: Custom Synetic Engine (German developer)")
+print("Engine: Synetic 3D Landscape Engine (German developer)")
 print("Graphics: DirectX 9 (D3DX9 Shader Compiler 9.12.589)")
 print("Physics: Custom (damage system: DAM_CRASH_*)")
 print("Audio: DirectSound/DirectMusic (WMA, WAV)")
