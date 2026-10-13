@@ -5,13 +5,13 @@
 **Developer:** Bugbear Entertainment  
 **Publisher:** Namco Bandai Games  
 **Year:** 2012  
-**Engine:** Bugbear proprietary engine
+**Engine:** ROMU Engine (Bugbear Entertainment)
 
 ---
 
 ## 1. Game Engine
 
-**Engine:** Bugbear proprietary engine (verified: `bugbear.DataProvider` + `.\src\bflash\` paths in `RRU.exe`)  
+**Engine:** ROMU Engine (Bugbear Entertainment) — verified: `bugbear.DataProvider` + `.\src\bflash\` paths in `RRU.exe`  
 - **Middleware (all verified via binary strings in unpacked `RRU.exe`):**
   - **Scaleform GFx** — UI (2,090 `Scaleform::` hits, D3D9 HAL; 82 `.gfx` files)
   - **CRI ADX** — audio (`CRI ADX Decoder/PCx86 Ver.1.00.08 Build:Dec 20 2010`)
@@ -70,4 +70,4 @@ RRU/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\RRU\`*  
-*Engine: Bugbear proprietary, Bugbear Entertainment 2012*
+*Engine: ROMU Engine, Bugbear Entertainment 2012 — https://www.pcgamingwiki.com/wiki/Engine:ROMU_Engine*

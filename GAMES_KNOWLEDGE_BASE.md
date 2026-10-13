@@ -46,7 +46,7 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 36 | Just Cause | PC | 2006 | Avalanche Studios / Square Enix (Eidos) | Avalanche Engine 1.0 | Bink Video, DirectX 9 | Packed exe; CSW2/CTF2 SFX banks; .arc/.tab like JC2 |
 | 37 | Ridge Racer 3D | 3DS | 2011 | Namco Bandai Games / Namco Bandai | Namco Bandai proprietary 3DS engine | NitroSDK | CTR-P-ARRE, launch window |
 | 38 | Ridge Racer Draw and Drift | Android | ~2016 | Unknown / Bandai Namco Ent. | Unity 5.3.7f1 (Mono) | GPG, Billing, LVL, SQLite | v1.2.4/code 30, ARMv7+x86, OBB; version verified in libunity.so |
-| 39 | Ridge Racer Unbounded | PC | 2012 | Bugbear Entertainment / Namco Bandai | Bugbear proprietary | Scaleform GFx, CRI ADX, Vorbis, Quazal, Steamworks, XAudio2 | bugbear.DataProvider + bflash paths verified; no Havok/Bink/FMOD |
+| 39 | Ridge Racer Unbounded | PC | 2012 | Bugbear Entertainment / Namco Bandai | ROMU Engine (Bugbear Entertainment) | Scaleform GFx, CRI ADX, Vorbis, Quazal, Steamworks, XAudio2 | bugbear.DataProvider + bflash paths verified; no Havok/Bink/FMOD; https://www.pcgamingwiki.com/wiki/Engine:ROMU_Engine |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1047,7 +1047,7 @@ PlatinumGames Engine
 | **Developer** | Bugbear Entertainment |
 | **Publisher** | Namco Bandai Games |
 | **Year** | 2012 |
-| **Engine** | Bugbear proprietary (`bugbear.DataProvider`, `bflash`) |
+| **Engine** | ROMU Engine (Bugbear Entertainment) |
 | **Middleware** | **Scaleform GFx**, **CRI ADX**, **Vorbis**, **Quazal**, **Steamworks**, **XAudio2** |
 | **Executable** | RRU.exe (12.8 MB, unpacked, 8 sections) |
 | **Container** | 3 extensionless DataProvider parts (1.47 GB main) |
@@ -1058,7 +1058,7 @@ PlatinumGames Engine
 | **Audio** | CRI ADX + Vorbis via XAudio2 |
 | **Video** | None found (no Bink) |
 
-**Key Finding:** Bugbear destruction-racing tech (FlatOut heritage) as Ridge Racer. Lean licensed stack: no Havok/Bink/FMOD. Quazal networking inside a Namco-published title.
+**Key Finding:** ROMU Engine — Bugbear's destruction-racing tech since FlatOut (2004) through Wreckfest (2018), reskinned here as Ridge Racer. Lean licensed stack: no Havok/Bink/FMOD. Quazal networking inside a Namco-published title. https://www.pcgamingwiki.com/wiki/Engine:ROMU_Engine
 
 ---
 
