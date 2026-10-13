@@ -1,123 +1,73 @@
-# Crash Time 1 (Alarm für Cobra 11) — Teardown Documentation
+# Crash Time 1 (Alarm für Cobra 11 – Crash Time) — Teardown Documentation
 
-**Game:** Crash Time (Alarm für Cobra 11) (PC, 2007)  
+**Game:** Crash Time (Alarm für Cobra 11 – Crash Time, Germany En/De Rerelease ISO)  
+**Platform:** PC (Windows)  
 **Developer:** Synetic GmbH (German)  
 **Publisher:** RTL Games / JoWooD  
-**Engine:** Synetic 3D Landscape Engine (proprietary)  
+**Year:** 2007 (game exes dated Oct 23, 2007; ISO mastered Jun 28, 2011, Ashampoo UDF, 4.2 GB, 5,902 entries)  
+**Engine:** Synetic 3D Landscape Engine (evolved from CT0)
 
 ---
 
 ## 1. Game Engine
 
-**Synetic 3D Landscape Engine** (proprietary, German) — evolved from Crash Time 0
-- **Middleware:** **None** — DirectX 9, custom physics (ODE references)
-- **Executable:** Not found in dump (likely missing from dump)
-- **Physics:** Custom damage system (DAM_CRASH_*) + ODE Physics (ODEConfig referenced)
-- **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Audio:** DirectSound/DirectMusic (WAV, WMA)
-- **Video:** WMV (Windows Media Video)
-- **Scripting:** None found (C++ only)
-
----
-
-## 2. File Formats
-
-### 3D Models & Vehicles
-| Format | Extension | Description |
-|---|---|---|
-| `.mox` | 429 files | Vehicle/environment models |
-| `.mtl` | 390 files | Materials (paired with .mox) |
-| `.cob` / `.cpo` | 39 / 87 | Collision objects / physics |
-| `.tree` | 45 | Scene graph / hierarchy |
-| `.ro1`-`.ro4` | 3 each | Road segment data |
-| `.tob` | 20 | Unknown binary |
-
-### Vehicles (13 total)
-Each vehicle has:
-| File | Description |
-|---|---|
-| `VEHICLE.3DF` | Main model |
-| `FESPL.3DF` | Front-end split model |
-| `FEWHEELS.3DF` / `.SPR` | Front-end wheels |
-| `SPL1-5.3DF` | Spline/spline data |
-| `WHEEL1-5.3DF/.SPR` | Wheel models |
-| `PAINT.SPR` | Paint texture |
-| `CAMERA.TWK` / `CONFIG.TWK` / `config.txt` | Config |
-
-### Track Data
-| Format | Extension | Description |
-|---|---|---|
-| `.BIN` | Track geometry (binary) |
-| `.TRK` / `.trk` | Track definition (86 KB fixed) |
-| `.3DF` | Theme/scene data |
-| `.dcsc` | Scene collision |
-
-### Textures
-| Format | Description |
-|---|---|
-| `.ptx` | Textures (945 files in Crash Time 0, similar here) |
-
-### Audio
-| Format | Description |
-|---|---|
-| `.wav` | PCM audio (492 files) |
-| `.wma` | Windows Media Audio (19 files) |
-
-### Video
-| Format | Description |
-|---|---|
-| `.wmv` | Windows Media Video (61 files) |
-
-### Physics / Collision
-| Format | Count | Description |
-|---|---|---|
-| `.cob` / `.cpo` | 39 / 87 | Collision objects / physics |
-| `.ro1`-`.ro4` | 3 each | Road segment data |
-| `.tob` | 20 | Unknown |
-
-### Audio
-| Format | Count |
-|---|---|
-| `.wav` | 492 |
-| `.wma` | 19 |
-| `.wtr` | 5 |
-
-### Video
-| Format | Count |
-|---|---|
-| `.wmv` | 61 |
-
-### Config / Text
-| Format | Description |
-|---|---|
-| `.ini` / `.tzw` / `.txt` | Config files |
-| `.txt` | Text files (23) |
-
----
-
-## 3. Engine Analysis
-
-**Engine:** Synetic 3D Landscape Engine (evolved from Crash Time 0)
-- **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Physics:** Custom damage system + **ODE Physics** (ODEConfig referenced)
-- **Audio:** DirectSound/DirectMusic (WMA, WAV)
-- **Video:** WMV
+**Engine:** Synetic 3D Landscape Engine (verified in shipping exe strings)  
+- **Middleware:** **NONE verified** — full `CrashTime_sse1.exe`/`sse2.exe` strings audit
+- **Executables:** `CrashTime.exe` (69 KB launcher stub) + `CrashTime_sse1.exe` (2.53 MB) + `CrashTime_sse2.exe` (2.62 MB, SSE-optimized builds) + `CT_Setup.exe` + `AutoRun.exe`
+- **Physics:** Custom damage system (`DAM_CRASH_*` ×6, full `DAM_TEMP_*`/`DAM_TIRE_*` table + `damage.txt` refs in exe)
+- **Graphics:** DirectX 9 (`D3DX` ×162; DX redist + `WMCodec` installers on disc)
+- **Audio:** DirectSound/DirectMusic (WAV 1,586, WMA 15)
+- **Video:** WMV (202 files)
 - **Scripting:** None (C++ only)
 
-### Physics
-- **ODE Physics** referenced (`ODEConfig`, `PHYSICS_BODY_GF`, `PHYSICS_BODY_TRIMESH_G`, `PHYSICS_INSTANCE_GF`)
-- Custom damage system: `DAM_CRASH_ANIM`, `DAM_CRASH_GEAR`, `DAM_CRASH_MOTOR`, `DAM_CRASH_CHASS`, `DAM_CRASH_BRAKE`
-- Vehicle damage: `VehicleDamage::InitMorphSections`
+**Verified exe strings:** `Interne Synetic Version`, `damage.txt` + full DAM table, `stdstuff\tachos\tachokmh%02d.tga` (+tachomph/tachorpm/tachol), `.mox` ×49.
 
-### Editor/Tools
-- Built-in track editor: `TrackEditorGUI`, `TrackEditorLoadTrackGUI`, `TrackEditorGUI`
-- Editor config: `CITY_EditorSunColourR/G/B`, `RALLY_EditorAmbientColourB`, `RALLY_EditorSunColourR/G/B`, `RALLY_EditorSunRotY`
+**Falsified (absent from both shipping exes):** `ODEConfig`, `PHYSICS_BODY_*`, `PHYSICS_INSTANCE_*`, `VehicleDamage::*`, `TrackEditor*`, `Editor*`, Lua API, Bink, Havok, PhysX, Miles, Ogg/Vorbis, XACT, XAudio, SecuROM, Steam. (`ODE` ×81, `XACT` ×62, `Nx`, `fmod` ×2, `Lua` ×12 are all Windows/DirectX/CRT/code-byte false positives — same audit method as the CT0 Full-Rip.)
+
+> Correction: earlier revisions of this doc (and CT2–CT5) listed `ODEConfig`/`PHYSICS_BODY_GF`/`VehicleDamage::InitMorphSections`/`TrackEditorGUI` as string evidence from dumps that contained **no executables**. The shipping CT1 exes prove those strings absent. Those claims are retracted wherever they appear.
 
 ---
 
-## 3. Documentation Files Created
+## 2. File Formats (from ISO listing)
 
-| File | Description |
-|---|---|
-| `CRASH_TIME_1_TEARDOWN.md` | This document |
-| `GAMES_KNOWLEDGE_BASE.md` | Updated with Crash Time 1 entry |
+### Vehicles (37 dirs)
+Per vehicle: `VEHICLE.MOX`/`.MTL` + `_colli.CPO` + `_r_hl/_r_hr/_r_vl/_r_vr` LOD variants + `Driver/` (driver models + `textures/*.ptx`) + `Textures/` (`.ptx`: paint, dirt, scratch, plates, brakes) + `Hupe.wav`. E.g. Chris, Coach, Drone, Polizei ×4, Semir ×2, Saphir ×3, Seat_Leon, Seat_WTCC, Transporter ×3, Monsun ×3, Rennwagen, Rwagen ×2, Limo, MPV ×2, Taxi, Truck1, TOM, Senator, G_Laende ×3, Geldtransporter, Phantom, fuchs.
+
+### Mission/Race Formats (new vs CT0)
+| Format | Count | Description |
+|---|---|---|
+| `.trg` | 72 | Triggers (?) |
+| `.dyn` | 42 | Dynamic objects (?) |
+| `.trx` | 18 | Tracks/routes (?) |
+| `.ral` | 10 | Rally (?) |
+| `.par` | 7 | Parameters (?) |
+| `.vtf` | 5 | Vector fonts |
+| `.wyp` / `.hli` / `.trn` / `.net` | 2 each | Waypoints/highlights/tournaments/network (?) |
+
+### Persistent Formats
+| Format | Count | Description |
+|---|---|---|
+| `.wav` / `.wma` | 1,586 / 15 | Audio |
+| `.ptx` | 1,467 | Textures |
+| `.mox` / `.mtl` | 936 / 832 | Models / materials |
+| `.wmv` | 202 | Video |
+| `.cpo` | 157 | Collision/physics |
+| `.tga` | 63 | Targa images |
+| `.trk` | 50 | Track definitions |
+| `.txt` | 25 | Config |
+| `.ro1`–`.ro4`, `.sni`/`.dat`/`.vef`/`.slt`, `.geo`/`.lvl`/`.qad` | 2 each | Road / misc / geometry |
+| `.cab` | 61 | DirectX redist |
+
+---
+
+## 3. Key Technical Details
+
+- **SSE-split shipping builds** (sse1/sse2 + stub launcher) — CPU-dispatch era packaging
+- **37 vehicles** with full LOD + driver + texture sets (vs 13 in CT0)
+- **WMV video era** (202 files, WMCodec installers) — pre-Bink Synetic
+- **Zero-middleware lineage anchor**: exe-proven, same result as CT0 Full-Rip
+
+---
+
+*Generated from `Crash-Time_Win_EN-DE_ISO/Alarm fuer Cobra 11 - Crash Time (Germany) (En,De) (Rerelease).iso`*  
+*Engine: Synetic 3D Landscape Engine, Synetic GmbH 2007 — https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine*

@@ -12,23 +12,15 @@
 **Synetic 3D Landscape Engine** (evolved from Crash Time 4)
 - **Middleware:** **Bink Video** (Rad Game Tools) — **NEW in CT5**
 - **Executable:** Not found in dump
-- **Physics:** Custom damage system + **ODE Physics** (referenced)
+- **Physics:** Custom damage system (DAM_CRASH_* family trait; physics middleware unconfirmed)
 - **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
 - **Audio:** DirectSound/DirectMusic (WAV, OGG)
 - **Video:** Bink Video (`.bik`) — **CONFIRMED in CT5**
 - **Scripting:** None found (C++ only)
 
-**Evidence:**
-- Strings: `ODEConfig`, `PHYSICS_BODY_GF`, `PHYSICS_BODY_TRIMESH_G`, `PHYSICS_INSTANCE_GF`
-- `VehicleDamage::InitMorphSections`, `DAM_CRASH_*` damage system
-- `TrackEditorGUI`, `TrackEditorLoadTrackGUI`, `EditorUpdate`
-- `VehicleDamage::InitMorphSections`, `VehicleDamage::Update`
-- `TrackEditorGUI`, `TrackEditorLoadTrackGUI`, `EditorUpdate`
-- `VehicleDamage::InitMorphSections`
-- `DAM_CRASH_ANIM`, `DAM_CRASH_GEAR`, `DAM_CRASH_MOTOR`, `DAM_CRASH_CHASS`, `DAM_CRASH_BRAKE`
-- `PHYSICS_BODY_GF`, `PHYSICS_BODY_TRIMESH_G`, `PHYSICS_INSTANCE_GF`
-- `VehicleDamage::InitMorphSections`
-- `ODEConfig` referenced
+**Evidence (format-level only — dump contained no executable; string claims retracted after CT0/CT1 exe audits falsified `ODEConfig`/`PHYSICS_*`/`VehicleDamage::*`/`TrackEditor*`):**
+- `DAM_CRASH_*` damage system (family trait, exe-verified in CT0/CT1)
+- File-format evolution vs CT4 (see §2)
 - **Bink Video** (`.bik` files in Videos/ folder)
 
 ---
@@ -292,7 +284,7 @@
 
 **Engine:** Synetic 3D Landscape Engine (evolved)
 - **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Physics:** Custom + **ODE Physics** (ODEConfig, PHYSICS_BODY_GF)
+- **Physics:** Custom damage system (DAM_CRASH_* family trait; physics middleware unconfirmed — no exe in dump)
 - **Audio:** DirectSound/DirectMusic (WAV, OGG)
 - **Video:** **Bink Video** (`.bik`) — **NEW in CT5**
 - **Scripting:** None (C++ only)
@@ -334,7 +326,7 @@
 
 **Engine:** Synetic 3D Landscape Engine (final evolution)
 - **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Physics:** Custom + **ODE Physics** (ODEConfig, PHYSICS_BODY_GF)
+- **Physics:** Custom damage system (DAM_CRASH_* family trait; physics middleware unconfirmed — no exe in dump)
 - **Audio:** DirectSound/DirectMusic (WAV, OGG)
 - **Video:** **Bink Video** (`.bik`) — **NEW**
 - **Scripting:** None (C++ only)

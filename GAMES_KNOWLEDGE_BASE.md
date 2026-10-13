@@ -59,6 +59,10 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 49 | Animal Crossing NL:WA | 3DS | 2016 | Nintendo EAD / Nintendo | Nintendo EAD proprietary | NitroSDK | 935MB SD install + 14MB update; Welcome amiibo revision |
 | 50 | Swapdoodle | 3DS | 2016 | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | 20MB app + DLC lesson packs + 46 extdata files |
 | 51 | Cyber Clutch: Hot Import Nights | PC | 2025 (build) | Unknown / Unknown | Unreal Engine 4.27 | PhysX3, APEX, EOS, Steamworks, Oodle, CEF3 | UE4.27 verified (4.27×283); IoStore; Steam AppID 1939920; https://store.steampowered.com/app/1939920/ |
+| 52 | Burnout Paradise Remastered | PC | 2018 | Criterion / Stellar Ent. / EA | Criterion in-house (post-RenderWare) | Lua, EA WebKit, XAudio2, Origin | RenderWare exit proven (0 hits/130MB); B5 codename; Denuvo=EULA text only |
+| 53 | Race Driver: GRID | PC | 2008 | Codemasters / Codemasters | EGO (Neon lineage) | Bink, Vorbis/CMStream, ZOOM | Neon threading, no Ego strings; Miles=MILestone false positive |
+| 54 | Need for Speed: ProStreet | PC | 2007 | EA Black Box / EA | EAGL4 (RenderWare lineage) | RW Audio Core, Lua, SecuROM | EAGL4::DynamicLoader verified; Miles=MILestone false positive |
+| 55 | TrackMania² Collection (ManiaPlanet) | PC | 2011–17 | Nadeo / Ubisoft | ManiaPlanet (Nadeo) | ManiaScript | Full TM² set (Canyon/Stadium/Valley/Lagoon) + Storm; NadeoPak/GBX |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1291,6 +1295,81 @@ PlatinumGames Engine
 | **Physics** | PhysX 3 (no Havok/FMOD/Wwise/Bink/EAC/Denuvo) |
 
 **Key Finding:** Late-4.x stack (IoStore + Oodle + Chaos Cloth + PhysX coexistence) with AAA-pattern online (EOS + Steamworks) and cloud-gaming SDK. Dev/publisher unconfirmed. https://store.steampowered.com/app/1939920/
+
+---
+
+## 48. Burnout Paradise Remastered — PC (2018)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout Paradise Remastered |
+| **Platform** | PC (Windows, Origin/EA App) |
+| **Developer** | Criterion Games (original) / Stellar Entertainment (remaster) |
+| **Publisher** | Electronic Arts |
+| **Year** | 2018 (original 2008) |
+| **Engine** | Criterion in-house post-RenderWare (verified: zero RW hits in 130 MB exe) |
+| **Middleware** | **Lua**, **EA WebKit** (UI), **XAudio2**, **Origin** |
+| **Executable** | BurnoutPR.exe (130 MB, unpacked) + dbdata.dll |
+| **Container** | `.BNDL` (400+ track chunks), `.BUNDLE`, `.BIN` dicts, `.DAT` |
+| **Scripting** | **Lua** (gameplay/UI) |
+| **Physics** | In-house (no Havok/PhysX) |
+
+**Key Finding:** RenderWare exit proven — corrects the common assumption and my own xlsx rows. Internal codename B5. Denuvo ×20 = EULA text, not active protection. RUNE crack artifacts in dump.
+
+---
+
+## 49. Race Driver: GRID — PC (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | Race Driver: GRID |
+| **Platform** | PC (Windows) |
+| **Developer** | Codemasters |
+| **Publisher** | Codemasters |
+| **Year** | 2008 |
+| **Engine** | EGO (Neon lineage — Neon threading, zero Ego strings) |
+| **Middleware** | **Bink Video**, **Ogg Vorbis** (CMStream banks), **ZOOM** patcher |
+| **Executable** | GRID.exe (14 MB, unpacked) + GRIDLauncher |
+| **Scripting** | None (C++ only) |
+| **Physics** | In-house (no Havok/PhysX/Lua) |
+
+**Key Finding:** `Miles` ×2 = milestone false positive (no RAD Miles). Distinct engine from GRID DS (Firebrand Octane).
+
+---
+
+## 50. Need for Speed: ProStreet — PC (2007)
+
+| Field | Value |
+|---|---|
+| **Title** | Need for Speed: ProStreet |
+| **Platform** | PC (Windows) |
+| **Developer** | EA Black Box |
+| **Publisher** | Electronic Arts |
+| **Year** | 2007 |
+| **Engine** | EAGL4 (RenderWare lineage — `EAGL4::DynamicLoader` verified) |
+| **Middleware** | **RW Audio Core** (+XAudio), **Lua** (gameplay events), **SecuROM** (online activation) |
+| **Executable** | nfs.exe (28.7 MB, unpacked) |
+| **Scripting** | **Lua** (`PSLuaBinder`, `LuaCall:raceover/sms/bust`) |
+
+**Key Finding:** `Miles` ×6 = milestone false positive. Modded install (ASI loader + server emulator + Lua mods) flagged as third-party artifacts.
+
+---
+
+## 51. TrackMania² Collection (ManiaPlanet) — PC (2011–17)
+
+| Field | Value |
+|---|---|
+| **Title** | TrackMania² (Canyon/Stadium/Valley/Lagoon) + ShootMania Storm |
+| **Platform** | PC (Windows) |
+| **Developer** | Nadeo |
+| **Publisher** | Ubisoft |
+| **Year** | 2011–2017 |
+| **Engine** | Nadeo ManiaPlanet (`NadeoPak` v0x12, GBX, ManiaScript) |
+| **Middleware** | ManiaScript (platform scripting) |
+| **Executable** | None in dump (data layout) |
+| **Container** | NadeoPak per title (38–211 MB) |
+
+**Key Finding:** Not one game — full TM² set. `TrackMania.pak` carries `Title:ManiaPlanet` (shared base, the naming trap). Distinct from Firebrand DS TrackManias and the 2020 reboot.
 
 ---
 

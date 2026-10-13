@@ -10,23 +10,17 @@
 ## 1. Game Engine
 
 **Synetic 3D Landscape Engine** (evolved from Crash Time 1/2)
-- **Middleware:** **None** — DirectX 9, custom physics + ODE Physics
+- **Middleware:** **None verified** — DirectX 9, custom physics (no exe in dump)
 - **Executable:** Not found in dump
-- **Physics:** Custom damage system (DAM_CRASH_*) + **ODE Physics** (referenced)
+- **Physics:** Custom damage system (DAM_CRASH_*) — physics middleware unconfirmed (no exe in dump)
 - **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
 - **Audio:** DirectSound/DirectMusic (WMA, WAV, OGG)
 - **Video:** Bink Video (`.bik`)
 - **Scripting:** None found (C++ only)
 
-**Evidence:**
-- Strings: `ODEConfig`, `PHYSICS_BODY_GF`, `PHYSICS_BODY_TRIMESH_G`, `PHYSICS_INSTANCE_GF`
-- `VehicleDamage::InitMorphSections`, `DAM_CRASH_*` damage system
-- `TrackEditorGUI`, `TrackEditorLoadTrackGUI`, `EditorUpdate`
-- `VehicleDamage::InitMorphSections`
-- `DAM_CRASH_ANIM`, `DAM_CRASH_GEAR`, `DAM_CRASH_MOTOR`, `DAM_CRASH_CHASS`, `DAM_CRASH_BRAKE`
-- `PHYSICS_BODY_GF`, `PHYSICS_BODY_TRIMESH_G`, `PHYSICS_INSTANCE_GF`
-- `VehicleDamage::InitMorphSections`
-- `ODEConfig` referenced
+**Evidence (format-level only — dump contained no executable; string claims retracted after CT0/CT1 exe audits falsified `ODEConfig`/`PHYSICS_*`/`VehicleDamage::*`/`TrackEditor*`):**
+- `DAM_CRASH_*` damage system (family trait, exe-verified in CT0/CT1)
+- File-format evolution vs CT2 (see §2)
 
 ---
 
@@ -232,7 +226,7 @@ VehicleName/
 
 **Engine:** Synetic 3D Landscape Engine (evolved)
 - **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Physics:** Custom + **ODE Physics** (ODEConfig, PHYSICS_BODY_GF)
+- **Physics:** Custom damage system (DAM_CRASH_* family trait; physics middleware unconfirmed — no exe in dump)
 - **Audio:** DirectSound/DirectMusic (WAV, OGG)
 - **Video:** Bink Video (`.bik`) - **NEW in CT3**
 - **Scripting:** None (C++ only)

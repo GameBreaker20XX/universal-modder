@@ -19,14 +19,12 @@
 - **Audio:** DirectSound/DirectMusic (WAV 492, WMA 19)
 - **Video:** WMV (61 files)
 - **Scripting:** None (C++ only)
-- **Track editor:** Built-in (`TrackEditorGUI`, `TrackEditorLoadTrackGUI`, `EditorUpdate`)
-
-**Evidence from dump:**
-- `Interne Synetic Version`, `ExecEngine`, `EngineMuckt`, `HALLO!!! Runtime PC mit 3D-Engine im Fenster!`
-- `PHYSICS_BODY_GF`, `PHYSICS_INSTANCE_GF`, `VehicleDamage::InitMorphSections`
-- `tachokmh%d.tga` tachometer system
+**Evidence from dump (exe-verified where marked ✓; the 2006-build-only strings below were reported from a prior analysis whose dump is gone — kept with caveat):**
+- ✓ `Interne Synetic Version`, `.mox` ×43, `DAM_CRASH_*` ×6, `tachokmh%d.tga` tachometer system
+- `ExecEngine`, `EngineMuckt` (prior analysis, unverified)
 - `damage.txt`: 27 plaintext tuning vars (`DAM_CRASH_HULL/MOTOR/GEAR/BRAKE/CHASS/ANIM`, tire/brake/gear thermals, German comments)
 - **False-positive audit:** `XACT` (×62), `CRI` (×31), `ODE` (×80), `Nx` (×15), `fmod` (×2), `lua` (×1) hits are ALL Windows HRESULT / DirectX / CRT substrings — no middleware. No `Bink`/`Havok`/`PhysX`/`FMOD`/`Miles` strings, no DLLs in dump.
+- **Retracted:** `TrackEditorGUI`/`TrackEditorLoadTrackGUI`/`EditorUpdate`, `PHYSICS_BODY_GF`, `PHYSICS_INSTANCE_GF`, `VehicleDamage::InitMorphSections` — absent from the Full-Rip exe; the CT1 shipping exes (same engine family) confirm the absence.
 
 ---
 
@@ -72,7 +70,7 @@ Alarm-for-Cobra-11-Nitro_Win_EN-DE_Full-Rip/
 
 - **Zero-middleware reference** for the whole Synetic lineage: exe-proven, no Bink/Havok/PhysX/FMOD/Miles/Lua
 - **Plaintext vehicle tuning** (`damage.txt`) — thermal + crash damage model with perverse detail (drift tire wear, 2-wheel driving damage, wind-shadow from hull damage)
-- **ODE claims in Crash Time 1–5 docs are UNVERIFIED** — those dumps contain no executables; CT0's real exe (same engine family) shows no ODE. Treat CT1–5 "ODE Physics" rows as unconfirmed.
+- **ODE claims in Crash Time 1–5 docs are FALSIFIED for CT0/CT1** (shipping exes audited: no `ODEConfig`/`PHYSICS_*`; `ODE` hits are Windows error strings) and **unverified for CT2–CT5** (dumps contain no executables). Treat CT2–CT5 "ODE Physics" rows as unconfirmed.
 
 ---
 
