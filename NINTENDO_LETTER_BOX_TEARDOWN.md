@@ -31,4 +31,13 @@
 ---
 
 *Generated from `.../nintendo 3ds/.../title/00040000/00051800` (console-verified name)*  
+## CIA Dump Supplement
+
+Loose CIA of the same title recovered in Research root:
+- `0004000000051800 Nintendo Letter Box (CTR-N-JFRP) (v3.3.0) (E).piratelegit.cia` (13,046,784 bytes)
+- Verified real CIA (Nintendo CA cert chain + ticket + valid TMD); **CIA meta SMDH extracted in plaintext**: publisher `Nintendo Letter Box`
+- Content fully encrypted (zero NCCH/ExeFS/RomFS plaintext) — no deeper analysis possible without console keys
+
+---
+
 *Engine: Nintendo proprietary, Nintendo 2011*

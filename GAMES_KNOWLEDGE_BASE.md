@@ -58,6 +58,7 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 48 | Super Mario 3D Land | 3DS | 2011 | Nintendo EAD Tokyo / Nintendo | Nintendo EAD Tokyo proprietary | NitroSDK | 290MB SD install, no update |
 | 49 | Animal Crossing NL:WA | 3DS | 2016 | Nintendo EAD / Nintendo | Nintendo EAD proprietary | NitroSDK | 935MB SD install + 14MB update; Welcome amiibo revision |
 | 50 | Swapdoodle | 3DS | 2016 | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | 20MB app + DLC lesson packs + 46 extdata files |
+| 51 | Cyber Clutch: Hot Import Nights | PC | 2025 (build) | Unknown / Unknown | Unreal Engine 4.27 | PhysX3, APEX, EOS, Steamworks, Oodle, CEF3 | UE4.27 verified (4.27×283); IoStore; Steam AppID 1939920; https://store.steampowered.com/app/1939920/ |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1270,6 +1271,26 @@ PlatinumGames Engine
 | **Container** | 20 MB app + DLC lesson packs + 46 extdata files |
 
 **Key Finding:** Swapnote successor; the 20MB+DLC+46-extdata fingerprint fits its lesson-pack model exactly.
+
+---
+
+## 47. Cyber Clutch: Hot Import Nights — PC (2025 build)
+
+| Field | Value |
+|---|---|
+| **Title** | Cyber Clutch: Hot Import Nights |
+| **Platform** | PC (Windows 64-bit, Steam AppID 1939920) |
+| **Developer** | Unknown |
+| **Publisher** | Unknown |
+| **Year** | 2025 (build #2224, Aug 13) |
+| **Engine** | **Unreal Engine 4.27** (verified: `4.27` ×283, zero other 4.2x) |
+| **Middleware** | **PhysX 3**, **APEX/NvCloth**, **Chaos Cloth**, **Oodle**, **EOS**, **Steamworks v151**, **CEF3**, **XAudio2/Vorbis**, **Aftermath**, **GFN SDK** |
+| **Executable** | 227 KB bootstrap + 87 MB shipping exe (unpacked) |
+| **Container** | IoStore (`.ucas` 5.9 GB + `.utoc`) + legacy `.pak` |
+| **Scripting** | None (C++/Blueprints) |
+| **Physics** | PhysX 3 (no Havok/FMOD/Wwise/Bink/EAC/Denuvo) |
+
+**Key Finding:** Late-4.x stack (IoStore + Oodle + Chaos Cloth + PhysX coexistence) with AAA-pattern online (EOS + Steamworks) and cloud-gaming SDK. Dev/publisher unconfirmed. https://store.steampowered.com/app/1939920/
 
 ---
 

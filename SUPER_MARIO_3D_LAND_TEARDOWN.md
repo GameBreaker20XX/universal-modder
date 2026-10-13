@@ -30,4 +30,13 @@
 ---
 
 *Generated from `.../nintendo 3ds/.../title/00040000/00053f00` (console-verified name)*  
+## CIA Dump Supplement
+
+Loose CIAs of the same title recovered in Research root (exact duplicates — `(1)` = re-downloaded copy):
+- `0004000000053F00 Super Mario 3D Land (CTR-P-AREP) (v0.1.0) (E).legit.cia` (304,744,768 bytes) ×2
+- Verified real CIA (Nintendo CA cert chain + ticket + valid TMD, title ID confirmed in TMD body)
+- Content fully encrypted (zero NCCH/ExeFS/RomFS plaintext) — no deeper analysis possible without console keys
+
+---
+
 *Engine: Nintendo EAD Tokyo proprietary 3DS engine, 2011*

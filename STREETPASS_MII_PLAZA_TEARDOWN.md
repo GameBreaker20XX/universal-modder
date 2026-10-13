@@ -33,3 +33,9 @@
 
 *Generated from `.../nintendo 3ds/.../title/0004000?/00022800` (console-verified name)*  
 *Engine: Nintendo proprietary, Nintendo 2011*
+
+---
+
+## CIA Dump Supplement (related titles only)
+
+No StreetPass Mii Plaza CIA in this batch. Sibling Nintendo CIA dumps (same card family) confirm the scene format baseline: real CIAs (Nintendo CA certs + tickets + valid TMDs) with fully encrypted content — same wall applies here.

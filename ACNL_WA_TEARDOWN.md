@@ -31,4 +31,13 @@
 ---
 
 *Generated from `.../nintendo 3ds/.../title/0004000?/00198f00` (console-verified name)*  
+## CIA Dump Supplement
+
+Loose CIA of the same title recovered in Research root:
+- `0004000000198F00 Animal Crossing - New Leaf - Welcome Amiibo (CTR-P-EAAP) (v5.0.0) (W).piratelegit.cia` (980,691,264 bytes)
+- Verified real CIA (Nintendo CA cert chain + ticket + valid TMD, title ID confirmed in TMD body)
+- Content fully encrypted (zero NCCH/ExeFS/RomFS plaintext; single `IVFC` hit is random coincidence at 1/4B odds over 980 MB) — no deeper analysis possible without console keys
+
+---
+
 *Engine: Nintendo EAD proprietary 3DS engine, Nintendo EAD 2016*

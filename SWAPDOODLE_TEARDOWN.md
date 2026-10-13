@@ -30,4 +30,14 @@
 ---
 
 *Generated from `.../nintendo 3ds/.../title/0004000?/001a2e00` (console-verified name)*  
+## CIA Dump Supplement
+
+Loose CIAs of the same title recovered in Research root:
+- `00040000001A2E00 Swapdoodle (CTR-N-KRJP) (v4.4.0) (E).piratelegit.cia` (21,435,392 bytes) — **CIA meta SMDH extracted in plaintext**: publisher `Swapdoodle`
+- `0004008C001A2E00 Swapdoodle (CTR-M-KRJP-00) (v0.3.0) (E).piratelegit.cia` (11,541,056 bytes, DLC)
+- Verified real CIAs (Nintendo CA cert chain + ticket + valid TMD, title IDs confirmed in TMD bodies)
+- Content fully encrypted (zero NCCH/ExeFS/RomFS plaintext) — no deeper analysis possible without console keys
+
+---
+
 *Engine: Nintendo proprietary, Nintendo 2016*
