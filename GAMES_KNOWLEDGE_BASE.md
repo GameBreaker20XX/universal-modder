@@ -342,4 +342,412 @@ PlatinumGames Engine
 
 ---
 
+## 12. Driver Renegade (3DS) — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Driver Renegade |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Firebrand Games / Ubisoft Reflections |
+| **Publisher** | Ubisoft |
+| **Year** | 2011 |
+| **Engine** | Firebrand Nitro Engine (NitroSDK) |
+| **Middleware** | NitroSDK (Nintendo 3DS SDK) |
+| **Executable** | CIA (encrypted NCCH/CXI) |
+| **Container** | CIA (Citizen Archive) |
+| **Asset Formats** | `.bch`/`.bfres` (models), `.bclim` (textures), `.bcwav` (audio), `.shbin` (shaders) |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom |
+| **Graphics** | PICA200 GPU |
+| **Audio** | CSND |
+| **Video** | None |
+
+**Key Finding:** Firebrand Nitro Engine lineage (same as TrackMania DS, NASCAR Unleashed 3DS). 3DS exclusive. CIA format requires decryption.
+
+---
+
+## 13. FAST - Racing League (WiiWare) — Nintendo Wii (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | FAST - Racing League |
+| **Platform** | Nintendo Wii (WiiWare) |
+| **Developer** | Shin'en Multimedia |
+| **Publisher** | Shin'en Multimedia |
+| **Year** | 2011 |
+| **Engine** | Shin'en proprietary Wii engine |
+| **Middleware** | **None** (custom engine) |
+| **Executable** | WAD (encrypted Wii Archive) |
+| **Container** | WAD |
+| **Asset Formats** | `.tpl` (textures), `.brsar`/`.brstm` (audio), `.arc`/`.szs` (archives), custom models |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom |
+| **Graphics** | Hollywood GPU (TEV pipeline) |
+| **Audio** | DSP ADPCM |
+| **Video** | None |
+
+**Key Finding:** Shin'en Multimedia custom Wii engine. No middleware. WiiWare exclusive (40MB limit). Anti-gravity racing.
+
+---
+
+## 14. Jett Rocket (WiiWare) — Nintendo Wii (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Jett Rocket |
+| **Platform** | Nintendo Wii (WiiWare) |
+| **Developer** | Shin'en Multimedia |
+| **Publisher** | Shin'en Multimedia |
+| **Year** | 2010 |
+| **Engine** | Shin'en proprietary Wii engine |
+| **Middleware** | **None** (custom engine) |
+| **Executable** | WAD (encrypted Wii Archive) |
+| **Container** | WAD |
+| **Asset Formats** | `.tpl` (textures), `.brsar`/`.brstm` (audio), `.arc`/`.szs` (archives), custom models |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom platforming |
+| **Graphics** | Hollywood GPU (TEV pipeline) |
+| **Audio** | DSP ADPCM |
+| **Video** | None |
+
+**Key Finding:** Shin'en's first WiiWare title. 3D platformer. Same engine lineage as FAST Racing League.
+
+---
+
+## 15. Jett Rocket II (3DS) — Nintendo 3DS (2013)
+
+| Field | Value |
+|---|---|
+| **Title** | Jett Rocket II |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Shin'en Multimedia |
+| **Publisher** | Shin'en Multimedia |
+| **Year** | 2013 |
+| **Engine** | Shin'en proprietary 3DS engine |
+| **Middleware** | NitroSDK (Nintendo 3DS SDK) |
+| **Executable** | CIA (encrypted NCCH/CXI) |
+| **Container** | CIA |
+| **Asset Formats** | `.bch`/`.bfres` (models), `.bclim` (textures), `.bcwav` (audio), `.shbin` (shaders) |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom platforming |
+| **Graphics** | PICA200 GPU |
+| **Audio** | CSND |
+| **Video** | None |
+
+**Key Finding:** Different engine from Wii version. Shin'en custom 3DS engine. eShop exclusive.
+
+---
+
+## 16. Just Cause 2 (PC) — Windows (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Just Cause 2 |
+| **Platform** | PC (Windows) |
+| **Developer** | Avalanche Studios |
+| **Publisher** | Square Enix / Eidos Interactive |
+| **Year** | 2010 |
+| **Engine** | Avalanche Engine 2.0 |
+| **Middleware** | **Havok Physics**, **FMOD Ex**, **Bink Video**, **CUDA**, **Games for Windows Live** |
+| **Executable** | JustCause2.exe (not in dump) |
+| **Container** | `.arc`/`.tab` archives |
+| **Asset Formats** | `.arc`/`.tab` (archives), `.dds` (textures), `.shader_bundle` (DX10 shaders), `.lua` (scripts), `.bnk`/`.wem` (audio) |
+| **Scripting** | **Lua** |
+| **Physics** | Havok + custom vehicle/rope |
+| **Graphics** | DirectX 10/10.1 |
+| **Audio** | FMOD Ex |
+| **Video** | Bink Video |
+
+**Key Finding:** Avalanche Engine 2.0 - open-world streaming. DX10 exclusive. CUDA for particles/cloth. FMOD Ex audio. GFWL + Steamworks dual DRM.
+
+---
+
+## 17. Just Cause 2 - Multiplayer Mod (PC) — Windows (2014)
+
+| Field | Value |
+|---|---|
+| **Title** | Just Cause 2 Multiplayer (JC2-MP) |
+| **Platform** | PC (Windows) |
+| **Developer** | Nanos.io (community) |
+| **Publisher** | Nanos.io / Steam |
+| **Year** | 2014 |
+| **Engine** | Mod layer on Avalanche Engine 2.0 |
+| **Middleware** | **Lua** (mod scripting), **Steamworks**, **CrashRpt**, Custom networking |
+| **Executable** | JcmpLauncher.exe (injector) |
+| **Container** | `.arc` (mod archive) |
+| **Asset Formats** | `.arc` (mod assets), `.lua` (scripts) |
+| **Scripting** | **Lua** (primary mod API) |
+| **Physics** | Inherited (Havok) |
+| **Graphics** | Inherited (DX10) |
+| **Audio** | Inherited (FMOD) |
+| **Video** | Inherited |
+
+**Key Finding:** Community mod with DLL injection. Lua scripting API. Custom UDP networking. Steam integration. Open source.
+
+---
+
+## 18. Midnight Club: Street Racing (PS1) — PlayStation 1 (2000)
+
+| Field | Value |
+|---|---|
+| **Title** | Midnight Club: Street Racing |
+| **Platform** | PlayStation 1 |
+| **Developer** | Angel Studios (Rockstar San Diego) |
+| **Publisher** | Rockstar Games |
+| **Year** | 2000 |
+| **Engine** | Angel Studios proprietary PS1 engine |
+| **Middleware** | **None** |
+| **Executable** | PS1 ELF (SLUS_XXX.XX) |
+| **Container** | BIN/CUE (disc image) |
+| **Asset Formats** | `.tim` (textures), `.vag` (audio), `.str` (MDEC video), custom models |
+| **Scripting** | None (C/MIPS assembly) |
+| **Physics** | Custom vehicle |
+| **Graphics** | PS1 GPU (GTE) |
+| **Audio** | PS1 SPU |
+| **Video** | MDEC |
+
+**Key Finding:** Angel Studios (later Rockstar San Diego). Open-world streaming on PS1 (no loading screens). First in genre.
+
+---
+
+## 19. Midnight Club II (PC) — Windows (2003)
+
+| Field | Value |
+|---|---|
+| **Title** | Midnight Club II |
+| **Platform** | PC (Windows) |
+| **Developer** | Rockstar San Diego |
+| **Publisher** | Rockstar Games |
+| **Year** | 2003 |
+| **Engine** | Rockstar San Diego proprietary (Angel Studios lineage) |
+| **Middleware** | **Bink Video**, **Miles Sound System** |
+| **Executable** | mc2.exe |
+| **Container** | `.dat` archive |
+| **Asset Formats** | `.dat` (archive), `.bik` (video), `.m3d`/`.txd`/`.col` (models/textures/collision), `.ide`/`.ipl` (map) |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom vehicle (cars + motorcycles) |
+| **Graphics** | DirectX 8.1/9.0c |
+| **Audio** | Miles Sound System |
+| **Video** | Bink Video |
+
+**Key Finding:** Angel Studios lineage. Three cities (LA, Paris, Tokyo) seamless. First Midnight Club with motorcycles. RAD Game Tools middleware (Bink + Miles).
+
+---
+
+## 20. NASCAR Rumble (PS1) — PlayStation 1 (1999)
+
+| Field | Value |
+|---|---|
+| **Title** | NASCAR Rumble |
+| **Platform** | PlayStation 1 |
+| **Developer** | EA Redwood Shores / Tiburon |
+| **Publisher** | EA Sports |
+| **Year** | 1999 |
+| **Engine** | EA proprietary PS1 engine |
+| **Middleware** | **None** |
+| **Executable** | PS1 ELF |
+| **Container** | BIN/CUE (disc image) |
+| **Asset Formats** | `.tim` (textures), `.vag` (audio), `.str` (MDEC video), custom models |
+| **Scripting** | None (C/MIPS assembly) |
+| **Physics** | Custom arcade |
+| **Graphics** | PS1 GPU (GTE) |
+| **Audio** | PS1 SPU |
+| **Video** | MDEC |
+
+**Key Finding:** EA Sports arcade NASCAR sub-series. Weapons/power-ups. PS1 exclusive.
+
+---
+
+## 21. NASCAR Unleashed (3DS) — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | NASCAR Unleashed |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Firebrand Games |
+| **Publisher** | Activision |
+| **Year** | 2011 |
+| **Engine** | Firebrand Nitro Engine (NitroSDK) |
+| **Middleware** | NitroSDK |
+| **Executable** | CIA (encrypted NCCH/CXI) |
+| **Container** | CIA |
+| **Asset Formats** | `.bch`/`.bfres` (models), `.bclim` (textures), `.bcwav` (audio), `.shbin` (shaders) |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom NASCAR arcade/sim |
+| **Graphics** | PICA200 GPU |
+| **Audio** | CSND |
+| **Video** | None |
+
+**Key Finding:** Firebrand Nitro Engine (same as TrackMania DS, Driver Renegade). Official NASCAR license. 3DS exclusive.
+
+---
+
+## 22. Onslaught (WiiWare) — Nintendo Wii (2009)
+
+| Field | Value |
+|---|---|
+| **Title** | Onslaught |
+| **Platform** | Nintendo Wii (WiiWare) |
+| **Developer** | Hudson Soft |
+| **Publisher** | Hudson Soft |
+| **Year** | 2009 |
+| **Engine** | Hudson Soft proprietary Wii engine |
+| **Middleware** | **None** |
+| **Executable** | WAD (encrypted Wii Archive) |
+| **Container** | WAD |
+| **Asset Formats** | `.tpl` (textures), `.brsar`/`.brstm` (audio), `.arc`/`.szs` (archives), custom models |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom FPS |
+| **Graphics** | Hollywood GPU (TEV pipeline) |
+| **Audio** | DSP ADPCM |
+| **Video** | None |
+
+**Key Finding:** Hudson Soft WiiWare FPS (rare genre). Motion controls. Nintendo Wi-Fi Connection. Custom engine.
+
+---
+
+## 23. Pilotwings Resort (3DS) — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Pilotwings Resort |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Monster Games |
+| **Publisher** | Nintendo |
+| **Year** | 2011 (launch title) |
+| **Engine** | Monster Games proprietary 3DS engine |
+| **Middleware** | NitroSDK |
+| **Executable** | CIA (encrypted NCCH/CXI) |
+| **Container** | CIA |
+| **Asset Formats** | `.bch`/`.bfres` (models), `.bclim` (textures), `.bcwav` (audio), `.shbin` (shaders) |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom flight |
+| **Graphics** | PICA200 GPU |
+| **Audio** | CSND |
+| **Video** | None |
+
+**Key Finding:** Monster Games (Excite Truck studio). 3DS launch title. Showcased stereoscopic 3D. Wuhu Island (Wii Sports Resort). Nintendo first-party.
+
+---
+
+## 24. Ridge Racer Vita — PlayStation Vita (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Ridge Racer (Vita) |
+| **Platform** | PlayStation Vita |
+| **Developer** | Cellius Inc. (Namco Bandai) |
+| **Publisher** | Namco Bandai Games |
+| **Year** | 2011 (launch title) |
+| **Engine** | Namco Bandai/Cellius proprietary (likely PhyreEngine) |
+| **Middleware** | **PhyreEngine** (likely), **Havok Physics** (possible) |
+| **Executable** | Vita app (PCSE000xx) |
+| **Container** | Vita app + DLC packages (addcont) |
+| **Asset Formats** | `.psarc` (archives), `.gxt` (textures), `.gxm` (shaders), `.at9` (audio), `.lua` (scripts) |
+| **Scripting** | **Lua** (likely) |
+| **Physics** | Havok or custom |
+| **Graphics** | SGX543MP4+ (GXM API) |
+| **Audio** | ATRAC9, ADPCM |
+| **Video** | None |
+
+**Key Finding:** Vita launch title. Free-to-play model (controversial). DLC-heavy (many addcont packages). Likely PhyreEngine.
+
+---
+
+## 25. Split/Second: Arcade Edition (PC) — Windows (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Split/Second: Arcade Edition |
+| **Platform** | PC (Windows) |
+| **Developer** | Silent Bay Studios (port) / Black Rock Studio (original) |
+| **Publisher** | Disney Interactive Studios |
+| **Year** | 2010 |
+| **Engine** | **Adobe Director 11.5 / Shockwave 3D** (NOT Black Rock engine) |
+| **Middleware** | **Adobe Director/Shockwave**, **Havok Physics** (Xtra), **Dynamiks**, **QuickTime**, **Flash**, **SketchUp**, **Collada** |
+| **Executable** | Projector.exe + SPR.exe |
+| **Container** | Director movies (`.dcr`, `.w3d`, `.cct`) |
+| **Asset Formats** | `.dcr` (Director movie), `.w3d` (Shockwave 3D), `.cct` (cast), `.x32` (Xtras) |
+| **Scripting** | **Lingo** (Director native) |
+| **Physics** | Havok + Dynamiks (via Xtras) |
+| **Graphics** | DirectX 9 (via Director 3D) |
+| **Audio** | Director audio |
+| **Video** | QuickTime |
+
+**Key Finding:** **NOT the Black Rock Studio engine** - complete rewrite in Adobe Director/Shockwave! Silent Bay Studios port. Director 11.5 (EOL 2017). Shockwave EOL 2019. Lingo scripting.
+
+---
+
+## 26. Split/Second: Arcade Edition Wangan (PC) — Windows (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Split/Second: Arcade Edition Wangan |
+| **Platform** | PC (Windows) |
+| **Developer** | Silent Bay Studios (port) |
+| **Publisher** | Disney Interactive Studios |
+| **Year** | 2010 |
+| **Engine** | **Adobe Director 11.5 / Shockwave 3D** (same as Arcade Edition) |
+| **Middleware** | Same as Arcade Edition |
+| **Executable** | Projector.exe + SPR.exe |
+| **Container** | Director movies |
+| **Asset Formats** | `.dcr`, `.w3d`, `.cct`, `.swf` (Flash adverts) |
+| **Scripting** | **Lingo** |
+| **Physics** | Havok + Dynamiks |
+| **Graphics** | DirectX 9 |
+| **Audio** | Director audio |
+| **Video** | QuickTime |
+
+**Key Finding:** Japanese Wangan variant. Same Director/Shockwave engine. Additional shaders (`shaders_level1-3.w3d`). Flash advert integration.
+
+---
+
+## 27. Track Racing Online (Android) — Android (Modern)
+
+| Field | Value |
+|---|---|
+| **Title** | Track Racing Online |
+| **Platform** | Android |
+| **Developer** | Unknown (com.tm.race) |
+| **Publisher** | Unknown |
+| **Year** | Modern |
+| **Engine** | **Unity** |
+| **Middleware** | Unity Engine, Google Play Services |
+| **Executable** | APK + split APKs |
+| **Container** | APK (Android App Bundle) |
+| **Asset Formats** | Unity `.assets`, `.resS`, `.resource`, `.so` (ARM64) |
+| **Scripting** | **C#** (Unity/IL2CPP) |
+| **Physics** | Unity PhysX |
+| **Graphics** | OpenGL ES 3.x / Vulkan |
+| **Audio** | Unity Audio |
+| **Video** | Unity Video |
+
+**Key Finding:** Unity Android game. App Bundle format (split APKs). ARM64 only. Package `com.tm.race` (TrackMania reference?). Online multiplayer.
+
+---
+
+## 28. Track Racing Pursuit (PC) — Windows (Modern)
+
+| Field | Value |
+|---|---|
+| **Title** | Track Racing Pursuit |
+| **Platform** | PC (Windows) |
+| **Developer** | Unknown (Unity game) |
+| **Publisher** | Unknown |
+| **Year** | Modern (Unity 2020.3/2021.x) |
+| **Engine** | **Unity** (2020.3 LTS or 2021.x) |
+| **Middleware** | **PhysX**, **Amplify Motion**, **Photon**, **Google Mobile Ads**, **Unity Services**, **TextMeshPro**, **Timeline**, **AI Navigation**, **Vehicle Physics**, **Newtonsoft.Json**, **Ionic.Zip**, **NSpeex**, **WebSocketSharp** |
+| **Executable** | TrackRacing Pursuit.exe (missing) |
+| **Container** | Unity Data folder |
+| **Asset Formats** | Unity `.assets`, `.resS`, `.resource`, `.dll` (assemblies) |
+| **Scripting** | **C#** (IL2CPP via MonoBleedingEdge) |
+| **Physics** | Unity PhysX + Vehicle Physics package |
+| **Graphics** | DirectX 11/12 (D3D12Core.dll) |
+| **Audio** | Unity Audio + NSpeex |
+| **Video** | Unity Video |
+
+**Key Finding:** Modern Unity with extensive packages. Photon multiplayer. Google Mobile Ads on PC (unusual). DirectX 12 + DirectStorage. Unity Vehicle Physics package. IL2CPP backend.
+
+---
+
 *Knowledge base maintained from hands-on teardown analyses. All findings from direct binary analysis of provided game dumps.*
