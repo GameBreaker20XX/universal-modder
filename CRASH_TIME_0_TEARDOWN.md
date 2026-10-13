@@ -1,127 +1,80 @@
-import struct
+# Crash Time 0 — Alarm für Cobra 11: Nitro (PC, Full-Rip) — Teardown Documentation
 
-# Analyze the main executable
-exe = r"C:\Users\gmbad\Downloads\teardown\Crash Time 0 (Alarm for Cobra 11 Nitro)\gC11_PC.exe"
-with open(exe, 'rb') as f:
-    data = f.read()
+**Game:** Alarm für Cobra 11: Nitro (Crash Time 0)  
+**Platform:** PC (Windows, EN-DE Full-Rip)  
+**Developer:** Synetic GmbH (German)  
+**Publisher:** RTL Games / JoWooD  
+**Year:** 2006/07  
+**Engine:** Synetic 3D Landscape Engine v1
 
-print("=== Alarm für Cobra 11 Nitro (Crash Time 0) - TEARDOWN ===\n")
-print(f"Executable: gC11_PC.exe ({len(data)} bytes, {len(data)/1024/1024:.2f} MB)")
+---
 
-# PE Header
-print("\n=== EXECUTABLE (gC11_PC.exe) ===")
-pe_offset = struct.unpack('<I', data[0x3c:0x40])[0]
-print(f"PE offset: {pe_offset:#x}")
+## 1. Game Engine
 
-pe_sig = data[pe_offset:pe_offset+4]
-print(f"PE signature: {pe_sig}")
+**Engine:** Synetic 3D Landscape Engine v1 (verified in exe strings)  
+- **Middleware:** **NONE verified** — full `C11_PC.exe` strings scan (2.49 MB) shows zero licensed middleware
+- **Executable:** `C11_PC.exe` (2,490,382 bytes) + `C11_Setup.exe`
+- **Physics:** Custom damage system (`DAM_CRASH_*` ×6 in exe; plaintext tuning in `damage.txt`)
+- **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
+- **Audio:** DirectSound/DirectMusic (WAV 492, WMA 19)
+- **Video:** WMV (61 files)
+- **Scripting:** None (C++ only)
+- **Track editor:** Built-in (`TrackEditorGUI`, `TrackEditorLoadTrackGUI`, `EditorUpdate`)
 
-machine, num_sections, timestamp, sym_ptr, num_syms, opt_header_size, characteristics = struct.unpack('<HHIIIHH', data[pe_offset+4:pe_offset+24])
-print(f"Machine: {machine:#x} ({'x86' if machine==0x14c else 'x64' if machine==0x8664 else 'other'})")
-print(f"Sections: {num_sections}")
-print(f"Timestamp: {timestamp} ({hex(timestamp)})")
-print(f"Optional header size: {opt_header_size}")
-print(f"Characteristics: {characteristics:#x}")
+**Evidence from dump:**
+- `Interne Synetic Version`, `ExecEngine`, `EngineMuckt`, `HALLO!!! Runtime PC mit 3D-Engine im Fenster!`
+- `PHYSICS_BODY_GF`, `PHYSICS_INSTANCE_GF`, `VehicleDamage::InitMorphSections`
+- `tachokmh%d.tga` tachometer system
+- `damage.txt`: 27 plaintext tuning vars (`DAM_CRASH_HULL/MOTOR/GEAR/BRAKE/CHASS/ANIM`, tire/brake/gear thermals, German comments)
+- **False-positive audit:** `XACT` (×62), `CRI` (×31), `ODE` (×80), `Nx` (×15), `fmod` (×2), `lua` (×1) hits are ALL Windows HRESULT / DirectX / CRT substrings — no middleware. No `Bink`/`Havok`/`PhysX`/`FMOD`/`Miles` strings, no DLLs in dump.
 
-opt = data[pe_offset+24:pe_offset+24+opt_header_size]
-magic = struct.unpack('<H', opt[:2])[0]
-print(f"Magic: {magic:#x} (PE32)")
+---
 
-# Sections
-sect_offset = 0x40 + 24 + opt_header_size
-print("\nSections:")
-for i in range(5):  # 5 sections
-    sect = data[pe_offset+24+opt_header_size+i*40:pe_offset+24+opt_header_size+(i+1)*40]
-    name = sect[:8].rstrip(b'\x00').decode('ascii', errors='replace')
-    vsize, vaddr, rawsize, rawoff, relocoff, linenum, nreloc, nlinenum, chars = struct.unpack('<IIIIIIHHI', sect[8:40])
-    print(f'  {name:8s} vaddr={vaddr:#x} vsize={vsize:#x} raw={rawoff:#x}-{rawoff+rawsize:#x} size={rawsize} chars={chars:#010x}')
+## 2. File Formats
 
-print()
-print("=== KEY STRINGS FOUND IN EXECUTABLE ===")
-# Key strings found earlier
-print("Engine: Synetic (German developer)")
-print("Engine strings found: 'Interne Synetic Version', 'ExecEngine', 'UnLoadEngine', 'EngineMuckt'")
-print("Physics: 'DAM_CRASH_ANIM', 'DAM_CRASH_GEAR', 'DAM_CRASH_MOTOR', 'DAM_CRASH_CHASS', 'DAM_CRASH_BRAKE'")
-print("Tachometer: 'stdstuff\\\\tachos\\\\tachomph%d.tga', 'tachokmh%d.tga', 'tacho_bg_mitte.tga', 'tachomph0.tga'")
-print("Audio: 'stdstuff\\\\Tachos\\\\...' (tachometer sounds)")
-print("Vehicles: 'DAM_CRASH_ANIM', 'DAM_CRASH_GEAR', 'DAM_CRASH_MOTOR', 'DAM_CRASH_CHASS', 'DAM_CRASH_BRAKE'")
-print("Track editor: 'TrackEditorGUI', 'EditorUpdate', 'AddEditorTweaks', 'TrackEditorLoadTrackGUI'")
-print("Shader: 'Microsoft (R) D3DX9 Shader Compiler 9.12.589.0000'")
-print("Engine name: 'HALLO!!!        Runtime PC mit 3D-Engine im Fenster! (Aua)\\n'")
-print("Physics: 'PHYSICS_BODY_GF', 'PHYSICS_INSTANCE_GF', 'VehicleDamage::InitMorphSections'")
-print("Shaders: 'Microsoft (R) D3DX9 Shader Compiler 9.12.589.0000'")
+| Format | Count | Description |
+|---|---|---|
+| `.ptx` | 945 | Textures |
+| `.wav` / `.wma` | 492 / 19 | Audio |
+| `.mox` / `.mtl` | 429 / 390 | Models / materials (×43 `.mox` refs in exe) |
+| `.tga` | 88 | Targa images (tachos) |
+| `.cpo` / `.cob` | 87 / 39 | Collision / physics objects |
+| `.wmv` | 61 | Video |
+| `.trk` | 59 | Track definitions |
+| `.tree` | 45 | Scene graph |
+| `.tob` | 20 | Unknown binary |
+| `.ro1`–`.ro4`, `.sni`/`.smp`/`.dat`/`.vef`/`.slt`/`.str` | 3 each | Road / misc per-track data |
+| `.wtr` / `.wpt` / `.geo` / `.lvl` / `.qad` | 5 / 3 / 3 / 3 / 3 | Water / waypoints / geometry / levels / quads |
+| `.txt` | 24 | Config incl. `damage.txt` |
+| `.cpt` / `.trl` / `.fxp` / `.ds` | 1 each | Checkpoint / trail / FX / data |
 
-print("\n=== FILE FORMATS ===")
-print("Executable: gC11_PC.exe (PE32 x86, ~2.4 MB, compiled ~Nov 2006)")
-print("Setup: gC11_Setup.exe (974 KB)")
-print()
-print("File formats found:")
-ext_counts = {
-    '.ptx': 945, '.wav': 492, '.mox': 429, '.mtl': 390, '.tga': 89,
-    '.cpo': 87, '.wmv': 61, '.trk': 59, '.tree': 45, '.cob': 39,
-    '.txt': 23, '.tob': 20, '.wma': 19, '.wtr': 5, '.wpt': 3,
-    '.geo': 3, '.lvl': 3, '.qad': 3, '.ro1': 3, '.ro2': 3, '.ro3': 3, '.ro5': 3,
-    '.sni': 3, '.smp': 3, '.dat': 3, '.vef': 3, '.slt': 3, '.str': 3,
-    '.exe': 2, '.ds': 1, '.fxp': 1, '.trl': 1, '.cpt': 1, '.bak': 1,
-    '.ro1': 3, '.ro2': 3, '.ro3': 3, '.ro4': 3, '.sni': 3, '.smp': 3, '.dat': 3, '.vef': 3, '.slt': 3, '.str': 3
-}
+---
 
-for ext, count in sorted([('.ptx', 945), ('.wav', 492), ('.mox', 429), ('.mtl', 390), ('.tga', 89), ('.cpo', 87), ('.wmv', 61), ('.trk', 59), ('.tree', 45), ('.cob', 39), ('.txt', 23), ('.tob', 20), ('.wma', 19), ('.wtr', 5), ('.wpt', 3), ('.geo', 3), ('.lvl', 3), ('.qad', 3), ('.ro1', 3), ('.ro2', 3), ('.ro3', 3), ('.ro4', 3), ('.sni', 3), ('.smp', 3), ('.dat', 3), ('.vef', 3), ('.slt', 3), ('.str', 3), ('.exe', 2), ('.ds', 1), ('.fxp', 1), ('.trl', 1), ('.cpt', 1), ('.bak', 1)]):
-    print(f'  {ext}: {count} files')
+## 3. Asset Structure
 
-print()
-print("=== FILE FORMAT DETAILS ===")
-print("=== .MOX / .MTL (Model / Material) ===")
-print("  429 .mox / 390 .mtl pairs = vehicle/environment models")
-print("  Likely custom format (Synetic engine)")
-print()
-print("=== .TRK (Track Definition) ===")
-print("  59 files, likely track definitions")
-print()
-print("=== .TREE (Scene Graph) ===")
-print("  45 files - scene graph / hierarchy data")
-print()
-print("=== .COB / .CPO (Collision) ===")
-print("  39 .cob / 87 .cpo = collision objects / physics")
-print()
-print("=== .RO1-.RO4 (Road Data) ===")
-print("  4 files each - road segment data")
-print()
-print("=== .WMA (Audio) ===")
-print("  19 files - Windows Media Audio")
-print()
-print("=== .WTR / .WPT (Water / Waypoints) ===")
-print("  5 .wtr / 3 .wpt - water/waypoint data")
-print()
-print("=== .GEO / .LVL / .QAD (Geometry/Level/Quad) ===")
-print("  3 each - level geometry/quad data")
-print()
-print("=== .RO1-.RO4 (Road Segments) ===")
-print("  3 each - road segment definitions")
-print()
-print("=== .SNI / .SMP / .DAT / .VEF / .SLT / .STR ===")
-print("  3 each - sound info / sample / data / vehicle effect / slot / string")
-print()
-print("=== .TOB / .WMA / .WTR / .WPT ===")
-print("  20 .tob / 19 .wma / 5 .wtr / 3 .wpt")
-print()
-print("=== .WMV (Video) ===")
-print("  61 files - Windows Media Video (cutscenes/intros)")
+```
+Alarm-for-Cobra-11-Nitro_Win_EN-DE_Full-Rip/
+├── C11_PC.exe / C11_Setup.exe
+├── damage.txt                   # Plaintext damage tuning (German comments)
+├── SampleVolumes.ini / SetUp_Loka.ini / Readme_EN.txt
+├── Autos/ Motoren2/ Traffic/    # Vehicles (13) + traffic
+├── Scenarios/ RaceDat/          # Missions + race data
+├── FrontEnd/ Logos/ Clouds/     # UI + sky
+├── stdstuff/ Haenger/           # Shared assets + trailers(?)
+├── Sounds/ Music/ MyMusic/      # Audio
+├── Videos/ ReplayRec/           # WMV + replays
+└── ScreenShots/
+```
 
-print("\n=== ENGINE ANALYSIS ===")
-print("Engine: Synetic 3D Landscape Engine (German developer)")
-print("Graphics: DirectX 9 (D3DX9 Shader Compiler 9.12.589)")
-print("Physics: Custom (damage system: DAM_CRASH_*)")
-print("Audio: DirectSound/DirectMusic (WMA, WAV)")
-print("Video: WMV (Windows Media Video)")
-print("Scripting: None found (C++ only)")
-print("Physics: Custom damage system (DAM_CRASH_*)")
-print("Scripting: None found (C++ only)")
-print("Physics: Custom (DAM_CRASH_*)")
-print("Audio: DirectSound/DirectMusic (WMA, WAV)")
-print("Video: WMV (Windows Media Video)")
-print("Scripting: None found (C++ only)")
-print("Physics: Custom (DAM_CRASH_*)")
-print("Audio: DirectSound/DirectMusic (WMA, WAV)")
-print("Video: WMV (Windows Media Video)")
-print("Scripting: None found (C++ only)")
+---
+
+## 4. Key Technical Details
+
+- **Zero-middleware reference** for the whole Synetic lineage: exe-proven, no Bink/Havok/PhysX/FMOD/Miles/Lua
+- **Plaintext vehicle tuning** (`damage.txt`) — thermal + crash damage model with perverse detail (drift tire wear, 2-wheel driving damage, wind-shadow from hull damage)
+- **ODE claims in Crash Time 1–5 docs are UNVERIFIED** — those dumps contain no executables; CT0's real exe (same engine family) shows no ODE. Treat CT1–5 "ODE Physics" rows as unconfirmed.
+
+---
+
+*Generated from `C:\Users\gmbad\Downloads\teardown\Research\Alarm-for-Cobra-11-Nitro_Win_EN-DE_Full-Rip\`*  
+*Engine: Synetic 3D Landscape Engine v1, Synetic GmbH 2006 — https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine*

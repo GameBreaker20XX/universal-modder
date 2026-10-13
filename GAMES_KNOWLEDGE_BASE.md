@@ -41,12 +41,17 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 31 | Track Racing Online | Android | Modern | Unknown / Unknown | Unity | Unity Engine, Google Play Services | |
 | 32 | Track Racing Pursuit | PC | Modern | Unknown / Unknown | Unity 2020.3/2021.x | PhysX, Photon, Amplify Motion, Vehicle Physics, D3D12, DirectStorage | |
 | 33 | Battle Riders | PC | ~2015–16 | Unknown / Unknown (Steam) | Unity 4.7.0f1 (Mono) | Steamworks | Version string verified in mainData; C#/UnityScript/Boo |
-| 34 | Burnout Crash | XBLA | 2011 | Criterion Games / Electronic Arts | Criterion Games proprietary | Unknown (STFS encrypted) | Title ID 58410B5D, header name verified |
+| 34 | Burnout Crash | XBLA, PS3 (PSN Trial) | 2011 | Criterion Games / Electronic Arts | Criterion Games proprietary | Unknown (STFS/PKG encrypted) | Title ID 58410B5D, header name verified; NPUB30464 trial PKG + EDAT |
 | 35 | Detonation Racing | iOS | 2021 | Electric Square Ltd / Electric Square (Apple Arcade) | Unity (IL2CPP) | Game Center | v1.2/178904, 42 levels, UnityFramework verified |
 | 36 | Just Cause | PC | 2006 | Avalanche Studios / Square Enix (Eidos) | Avalanche Engine 1.0 | Bink Video, DirectX 9 | Packed exe; CSW2/CTF2 SFX banks; .arc/.tab like JC2 |
 | 37 | Ridge Racer 3D | 3DS | 2011 | Namco Bandai Games / Namco Bandai | Namco Bandai proprietary 3DS engine | NitroSDK | CTR-P-ARRE, launch window |
 | 38 | Ridge Racer Draw and Drift | Android | ~2016 | Unknown / Bandai Namco Ent. | Unity 5.3.7f1 (Mono) | GPG, Billing, LVL, SQLite | v1.2.4/code 30, ARMv7+x86, OBB; version verified in libunity.so |
 | 39 | Ridge Racer Unbounded | PC | 2012 | Bugbear Entertainment / Namco Bandai | ROMU Engine (Bugbear Entertainment) | Scaleform GFx, CRI ADX, Vorbis, Quazal, Steamworks, XAudio2 | bugbear.DataProvider + bflash paths verified; no Havok/Bink/FMOD; https://www.pcgamingwiki.com/wiki/Engine:ROMU_Engine |
+| 40 | Blur DS (Beta) | NDS | ~2010 | Firebrand Games / Activision | Firebrand Octane Engine | NONE (NitroSDK only) | Unreleased EU beta; vfs.zip 3,146 files; Mobiclip video; https://en.wikipedia.org/wiki/Firebrand_Games |
+| 41 | Burnout Crash (PS3 Trial) | PS3 | 2011 | Criterion Games / Electronic Arts | Criterion Games proprietary | Unknown (PKG encrypted) | NPUB30464 trial PKG + EDAT unlock; sibling of XBLA dump |
+| 42 | CTGP-7 (MK7 Mod) | 3DS | 2016+ | CTGP-7 Team (community) | Nintendo EAD MK7 engine (mod content layer) | NONE (mod) | LayeredFS RomFS replacement; CIA launcher + gamefs/savefs |
+| 43 | Race Driver: GRID (DS) | NDS | 2008 | Firebrand Games / Codemasters | Firebrand Octane Engine | NONE (NitroSDK only) | vfs.zip 4,616 files (largest Octane zip); Actimagine video; https://en.wikipedia.org/wiki/Firebrand_Games |
+| 44 | Triad Wars (Beta) | PC | 2015–16 | United Front Games / Square Enix | United Front proprietary (Sleeping Dogs lineage) | Wwise, NVIDIA GameWorks, DX11, curl/OpenSSL | Cancelled F2P; 125 .big/.bix pairs; archive unextracted |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -335,7 +340,7 @@ PlatinumGames Engine
 | **Scripting** | None found (C++ only) |
 | **Physics** | Custom (DAM_CRASH_* damage system) |
 
-**Key Finding:** Alarm für Cobra 11 Nitro uses Synetic's **3D Landscape Engine** (proprietary, German). **Zero licensed middleware** — pure DirectX 9 + custom physics. No Lua scripting found. Damage system: `DAM_CRASH_ANIM`, `DAM_CRASH_GEAR`, `DAM_CRASH_MOTOR`, `DAM_CRASH_CHASS`, `DAM_CRASH_BRAKE`. Tachometer system with RPM/KMH textures. Track editor built-in (`TrackEditorGUI`, `TrackEditorLoadTrackGUI`). DirectX 9 (D3DX9 Shader Compiler 9.12.589). Damage system: `DAM_CRASH_*`. Tachometer textures: `tachomph`, `tachokmh`. No Lua scripting found.
+**Key Finding:** Alarm für Cobra 11 Nitro uses Synetic's **3D Landscape Engine** (proprietary, German). **Zero licensed middleware — now exe-verified** (Full-Rip `C11_PC.exe` strings audit: `XACT`/`CRI`/`ODE`/`Nx` hits are all Windows/DirectX/CRT false positives; no Bink/Havok/PhysX/FMOD/Miles/Lua, no DLLs). Plaintext `damage.txt` tuning (German comments). Track editor built-in (`TrackEditorGUI`, `TrackEditorLoadTrackGUI`). **Caveat:** Crash Time 1–5 "ODE Physics" rows are UNVERIFIED — those dumps contain no executables, and CT0's real exe (same engine family) shows no ODE.
 
 ---
 
@@ -1059,6 +1064,106 @@ PlatinumGames Engine
 | **Video** | None found (no Bink) |
 
 **Key Finding:** ROMU Engine — Bugbear's destruction-racing tech since FlatOut (2004) through Wreckfest (2018), reskinned here as Ridge Racer. Lean licensed stack: no Havok/Bink/FMOD. Quazal networking inside a Namco-published title. https://www.pcgamingwiki.com/wiki/Engine:ROMU_Engine
+
+---
+
+## 36. Blur DS (Beta, EU) — Nintendo DS (~2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Blur (DS beta, Europe) |
+| **Platform** | Nintendo DS |
+| **Developer** | Firebrand Games (`Firebrand` ×12, `Octane` ×6 in ROM) |
+| **Publisher** | Activision (maker `36`) |
+| **Year** | ~2010 (unreleased) |
+| **Engine** | **Firebrand Octane Engine** |
+| **Middleware** | **NONE** (NitroSDK only) |
+| **Executable** | NDS ROM (64 MB, ARM9 858 KB) |
+| **Container** | `vfs.zip` (24.6 MB, 3,146 files) |
+| **Asset Formats** | `.n` (2,035 models), `.dcsc`/`.tsf` (191 each), NitroSDK 2D, `.luac` ×18, `.mob` (Mobiclip) |
+| **Scripting** | **Lua** |
+| **Physics** | Custom |
+| **Graphics** | NDS 2D/3D |
+| **Audio** | SDAT |
+| **Video** | Mobiclip |
+
+**Key Finding:** Unreleased Bizarre-console-racer counterpart on Firebrand Octane. Short-ext pipeline (`.n`) matches Turbo DS. https://en.wikipedia.org/wiki/Firebrand_Games
+
+---
+
+## 37. Burnout Crash (PS3 PSN Trial) — PlayStation 3 (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout® CRASH! (Trial) |
+| **Platform** | PlayStation 3 (PSN) |
+| **Developer** | Criterion Games |
+| **Publisher** | Electronic Arts |
+| **Year** | 2011 |
+| **Engine** | Criterion Games proprietary |
+| **Middleware** | Unknown (PKG encrypted) |
+| **Executable** | SELF (inside PKG, encrypted) |
+| **Container** | PS3 PKG (1.1 GB) + EDAT unlock |
+| **Asset Formats** | Unknown (encrypted) |
+
+**Key Finding:** NPUB30464 trial (`CRASHTRIAL` content ID) + `CRASHBUY` EDAT unlock. Sibling of the XBLA dump.
+
+---
+
+## 38. CTGP-7 (MK7 Mod) — Nintendo 3DS (2016+)
+
+| Field | Value |
+|---|---|
+| **Title** | CTGP-7 (Mario Kart 7 custom-track distribution) |
+| **Platform** | Nintendo 3DS (homebrew/CFW) |
+| **Developer** | CTGP-7 Team (community) |
+| **Base Game** | Mario Kart 7 (Nintendo EAD, 2011) |
+| **Year** | 2016+ |
+| **Engine** | Nintendo EAD MK7 engine (content-layer mod) |
+| **Middleware** | NONE (mod) |
+| **Container** | CIA launcher + `gamefs/` (LayeredFS RomFS override) + `savefs/` redirect |
+
+**Key Finding:** Content-only mod (Course/Missions/Sound/UI overrides). No engine modification; needs owned MK7 + CFW.
+
+---
+
+## 39. Race Driver: GRID (DS) — Nintendo DS (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | GRID (DS, USA) |
+| **Platform** | Nintendo DS |
+| **Developer** | Firebrand Games (`Firebrand` ×7 in ROM) |
+| **Publisher** | Codemasters (box; maker `36`) |
+| **Year** | 2008 |
+| **Engine** | **Firebrand Octane Engine** |
+| **Middleware** | **NONE** (NitroSDK only) |
+| **Executable** | NDS ROM (64 MB, ARM9 980 KB) |
+| **Container** | `vfs.zip` (36 MB, 4,616 files — largest Octane zip observed) |
+| **Asset Formats** | `.nsbmd` (2,370), `.hzc` (686), `.nsbta` (407 anim), NitroSDK 2D, `.luac` ×19, `.vx` (Actimagine) |
+| **Scripting** | **Lua** |
+
+**Key Finding:** Firebrand's Codemasters era — DS companion to Ego-engine GRID (2008). Long-ext pipeline matches original TrackMania DS. https://en.wikipedia.org/wiki/Firebrand_Games
+
+---
+
+## 40. Triad Wars (Beta) — PC (2015–16)
+
+| Field | Value |
+|---|---|
+| **Title** | Triad Wars (cancelled F2P, Sleeping Dogs universe) |
+| **Platform** | PC (Windows 64-bit) |
+| **Developer** | United Front Games |
+| **Publisher** | Square Enix |
+| **Year** | 2015–16 (beta, never released) |
+| **Engine** | United Front proprietary (Sleeping Dogs lineage) |
+| **Middleware** | **Wwise**, **NVIDIA GameWorks** (NVDOF + SSAO), **DX11**, curl/OpenSSL |
+| **Executable** | TriadWars.exe (64-bit, unextracted) |
+| **Container** | 125 `.big`/`.bix` pairs (7z, 6.8 GB solid LZMA) |
+| **Asset Formats** | `.big`/`.bix`, `.pck` (Wwise) ×2 |
+| **Physics** | Unconfirmed (Havok probable — franchise lineage; strings audit pending extraction) |
+
+**Key Finding:** Cancelled Sleeping Dogs-universe F2P. HD/SD archive tiers. GameWorks dates it to 2014–16. Havok/Bink/Scaleform audit pending extraction.
 
 ---
 
