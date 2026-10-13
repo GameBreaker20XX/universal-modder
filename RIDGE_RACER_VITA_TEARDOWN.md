@@ -11,14 +11,13 @@
 
 ## 1. Game Engine
 
-**Engine:** Namco Bandai / Cellius proprietary Vita engine  
+**Engine:** Cellius Proprietary (Vita)  
 - **Middleware:** 
-  - **PhyreEngine** (Sony's cross-platform engine) - likely
   - **Havok Physics** - possible (common in Vita games)
 - **Format:** PS Vita application (PCSE000xx) + DLC
 - **Graphics:** PS Vita SGX543MP4+ (OpenGL ES 2.0 / PSVita GXM)
 - **Audio:** PS Vita audio (ATRAC9, ADPCM)
-- **Scripting:** Lua (common in PhyreEngine games)
+- **Scripting:** Lua (possible, common in Vita titles)
 - **Physics:** Havok or custom
 
 **Evidence from dump:**
@@ -74,7 +73,7 @@ Ridge Racer Vita/
 - **Vita Launch Title** - Showcased Vita graphics capabilities
 - **Free-to-play model** - Base game free, cars/tracks as DLC
 - **DLC-heavy** - Many addcont packages in dump
-- **PhyreEngine likely** - Sony's engine used in many Vita launch titles
+- **Cellius Proprietary engine** - Namco Bandai subsidiary tech for Vita
 - **Online features** - Ghost data, leaderboards (PSN)
 
 ---
@@ -90,4 +89,4 @@ Ridge Racer Vita/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\Ridge Racer Vita\`*  
-*Engine: Namco Bandai/Cellius proprietary (likely PhyreEngine), 2011*
+*Engine: Cellius Proprietary, Cellius / Namco Bandai Games 2011*

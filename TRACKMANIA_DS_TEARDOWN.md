@@ -236,7 +236,7 @@ unluac Scripts/config/tracks.luac > tracks.lua
 
 | Aspect | Detail |
 |---|---|
-| **Engine** | Firebrand Games proprietary NDS engine |
+| **Engine** | Firebrand Octane Engine |
 | **Language** | C++ (ARM9), ARM ASM (ARM7), Lua (scripting) |
 | **SDK** | Nintendo NitroSDK |
 | **Middleware** | **None** |
@@ -262,7 +262,7 @@ unluac Scripts/config/tracks.luac > tracks.lua
 
 ```markdown
 TrackMania DS (USA)
-├── Engine: Firebrand Games proprietary NDS engine
+├── Engine: Firebrand Octane Engine
 ├── Middleware: NONE (Nintendo NitroSDK only)
 ├── Platform: Nintendo DS (32 MB ROM)
 ├── Executable: ARM9 (C++), ARM7 (NitroSDK)

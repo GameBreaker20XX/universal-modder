@@ -2,7 +2,7 @@
 
 **Game:** Driver Renegade (CTR-P-ADRE)  
 **Platform:** Nintendo 3DS  
-**Developer:** Ubisoft Reflections / Firebrand Games  
+**Developer:** VD-dev  
 **Publisher:** Ubisoft  
 **Year:** 2011  
 **Format:** CIA (Citizen Archive) - Nintendo 3DS installable format
@@ -11,7 +11,7 @@
 
 ## 1. Game Engine
 
-**Engine:** Firebrand Nitro Engine (evolved from TrackMania DS lineage)  
+**Engine:** VD-dev Proprietary Engine  
 - **Middleware:** NitroSDK (Nintendo 3DS SDK)  
 - **Format:** CIA (encrypted NCCH/CXI)  
 - **Graphics:** Nintendo 3DS PICA200 GPU  
@@ -19,8 +19,7 @@
 - **Scripting:** None found (C++ only)
 
 **Evidence:**
-- Firebrand Games developed TrackMania DS (Nitro Engine)
-- Driver Renegade 3DS shares developer lineage
+- Developed by VD-dev (Velez & Dubail), published by Ubisoft — corrected: not Firebrand
 - NitroSDK standard for 3DS development
 
 ---
@@ -62,11 +61,11 @@ CIA/
 ## 4. Documentation Notes
 
 - **CIA file requires decryption** (needs 3DS keys / ticket)
-- **Firebrand Nitro Engine** - same lineage as TrackMania DS/Turbo DS
+- **VD-dev Proprietary Engine** - in-house VD-dev technology on 3DS
 - **No PC port** - 3DS exclusive
 - **Ubisoft Reflections** - original Driver series developer
 
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\Driver Renegade\`*  
-*Engine: Firebrand Nitro Engine (NitroSDK), Firebrand Games 2011*
+*Engine: VD-dev Proprietary Engine (NitroSDK), VD-dev 2011*

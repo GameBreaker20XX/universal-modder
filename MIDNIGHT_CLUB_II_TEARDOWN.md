@@ -5,13 +5,13 @@
 **Developer:** Rockstar San Diego (formerly Angel Studios)  
 **Publisher:** Rockstar Games  
 **Year:** 2003  
-**Engine:** Rockstar San Diego proprietary engine (Angel Studios lineage)
+**Engine:** Angel Game Engine (AGE) — Rockstar San Diego (Angel Studios lineage)
 
 ---
 
 ## 1. Game Engine
 
-**Engine:** Rockstar San Diego proprietary engine (evolved from PS1 engine)  
+**Engine:** Rockstar San Diego's Angel Game Engine (AGE) (evolved from the original Midnight Club engine)  
 - **Middleware:** 
   - **Bink Video** (Rad Game Tools) - `binkw32.dll`
   - **Miles Sound System** - `mss32.dll`
@@ -81,4 +81,4 @@ Midnight Club II/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\Midnight Club II\`*  
-*Engine: Rockstar San Diego proprietary (Angel Studios lineage), 2003*
+*Engine: Angel Game Engine (AGE), Rockstar San Diego 2003*

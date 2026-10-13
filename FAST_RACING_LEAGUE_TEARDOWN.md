@@ -11,7 +11,7 @@
 
 ## 1. Game Engine
 
-**Engine:** Shin'en Multimedia proprietary engine  
+**Engine:** SHIN'ENGINE (formally C-Engine) — Shin'en Multimedia proprietary Wii engine  
 - **Middleware:** None (custom Wii engine)  
 - **Format:** WAD (encrypted Wii Archive)  
 - **Graphics:** Nintendo Wii Hollywood GPU (TEV pipeline)  
@@ -73,4 +73,4 @@ WAD/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\FAST - Racing League (USA) (WiiWare)\`*  
-*Engine: Shin'en proprietary, Shin'en Multimedia 2011*
+*Engine: SHIN'ENGINE (C-Engine), Shin'en Multimedia 2011*

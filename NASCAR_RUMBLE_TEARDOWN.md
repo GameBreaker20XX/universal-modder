@@ -11,7 +11,7 @@
 
 ## 1. Game Engine
 
-**Engine:** EA proprietary PS1 engine  
+**Engine:** EA proprietary engine (PS1)  
 - **Middleware:** None (custom PS1 engine)  
 - **Format:** BIN/CUE (raw disc image)  
 - **Graphics:** PS1 GPU (GTE + rasterizer)  
@@ -67,4 +67,4 @@ CD_ROOT/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\NASCAR Rumble (USA, Canada)\`*  
-*Engine: EA proprietary PS1 engine, EA Sports 1999*
+*Engine: EA proprietary engine (PS1), EA Sports 1999*

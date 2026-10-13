@@ -13,7 +13,7 @@
 
 ## 1. Game Engine
 
-**Firebrand Games proprietary NDS engine** — *evolution of TrackMania DS engine, built on Firebrand's internal "Octane" engine technology*
+**Firebrand Octane Engine** — *evolution of TrackMania DS engine, built on Firebrand's internal "Octane" engine technology*
 - **Developer:** Firebrand Games (formerly Atod AB, Sweden)
 - **Publisher:** Atari
 - **Platform:** Nintendo DS
@@ -214,7 +214,7 @@ Ghosts/
 
 | Aspect | Detail |
 |---|---|
-| **Engine** | Firebrand Games proprietary (Octane engine lineage) |
+| **Engine** | Firebrand Octane Engine |
 | **Language** | C++ (ARM9), ARM ASM (ARM7), Lua 5.1 (scripting) |
 | **SDK** | Nintendo NitroSDK |
 | **Middleware** | **None** |
@@ -258,7 +258,7 @@ Ghosts/
 
 ```markdown
 TrackMania Turbo DS (USA)
-├── Engine: Firebrand Games proprietary (Octane engine lineage)
+├── Engine: Firebrand Octane Engine
 ├── Middleware: NONE (Nintendo NitroSDK only)
 ├── Platform: Nintendo DS (64 MB ROM)
 ├── Executable: ARM9 (C++/STL), ARM7 (NitroSDK)

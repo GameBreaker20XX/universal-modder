@@ -11,7 +11,7 @@
 
 ## 1. Game Engine
 
-**Engine:** Firebrand Nitro Engine (same lineage as TrackMania DS, Driver Renegade)  
+**Engine:** Firebrand Octane Engine (same lineage as TrackMania DS/Turbo DS)  
 - **Middleware:** NitroSDK (Nintendo 3DS SDK)  
 - **Format:** CIA (encrypted NCCH/CXI)  
 - **Graphics:** Nintendo 3DS PICA200 GPU  
@@ -64,7 +64,7 @@ CIA/
 
 ## 4. Documentation Notes
 
-- **Firebrand Nitro Engine** - Same as TrackMania DS, Driver Renegade 3DS
+- **Firebrand Octane Engine** - same lineage as TrackMania DS/Turbo DS
 - **NASCAR license** - Official NASCAR teams/drivers/tracks
 - **Arcade/sim hybrid** - More accessible than sim titles
 - **3DS exclusive** - No console/PC versions
@@ -73,4 +73,4 @@ CIA/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\NASCAR Unleashed (3DS)\`*  
-*Engine: Firebrand Nitro Engine (NitroSDK), Firebrand Games 2011*
+*Engine: Firebrand Octane Engine (NitroSDK), Firebrand Games 2011*

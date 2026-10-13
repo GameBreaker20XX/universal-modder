@@ -41,7 +41,7 @@
 ### Removed/Changed from Crash Time 2
 | Format | Change |
 |---|---|
-| `.bik` | Removed (replaced by `.ogg` audio + video?) |
+| `.bik` | Present (Bink Video, per registry) |
 | `.wmv` | Removed |
 | `.tob` | Removed |
 | `.wma` | Reduced from 19 to 0 |
@@ -164,7 +164,7 @@ VehicleName/
 | `.wmv` | Removed |
 | `.wma` | Removed |
 | `.tob` | Removed |
-| `.bik` | Removed |
+| `.bik` | Present (Bink Video, per registry) |
 | `.wmv` | Removed |
 
 ### Persistent Formats

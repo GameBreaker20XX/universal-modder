@@ -11,7 +11,7 @@
 
 ## 1. Game Engine
 
-**Engine:** Shin'en Multimedia proprietary 3DS engine  
+**Engine:** SHIN'ENGINE (formally C-Engine) — Shin'en Multimedia proprietary 3DS engine  
 - **Middleware:** NitroSDK (Nintendo 3DS SDK)  
 - **Format:** CIA (encrypted NCCH/CXI)  
 - **Graphics:** Nintendo 3DS PICA200 GPU  
@@ -73,4 +73,4 @@ CIA/
 ---
 
 *Generated from `C:\Users\gmbad\Downloads\teardown\Research\Jett Rocket II\`*  
-*Engine: Shin'en proprietary 3DS engine (NitroSDK), Shin'en Multimedia 2013*
+*Engine: SHIN'ENGINE (C-Engine) on 3DS (NitroSDK), Shin'en Multimedia 2013*

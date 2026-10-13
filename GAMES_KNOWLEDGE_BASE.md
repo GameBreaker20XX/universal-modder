@@ -1,6 +1,47 @@
 # Game Engine Knowledge Base
 
-Maintained from teardown analyses. Updated 2026-10-12.
+Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engine_Registry.xlsx` (authoritative for game order, attributions, engine names, middleware).
+
+---
+
+## Corrected Engine Registry (authoritative, 32 entries)
+
+| # | Game | Platform | Year | Developer / Publisher | Engine | Key Middleware | Notes |
+|---|---|---|---|---|---|---|---|
+| 1 | Pursuit Force | PSP | 2005 | Bigbig Studios / Sony Computer Entertainment | Bigbig Studios Proprietary (`Game03` internal module) | NONE (PSP SDK only) | |
+| 2 | Pursuit Force: Extreme Justice | PSP | 2007 | Bigbig Studios / Sony Computer Entertainment | Bigbig Studios Proprietary (`Game03` internal module) | NONE (PSP SDK + AdHoc) | |
+| 3 | MotorStorm: Arctic Edge | PSP | 2009 | Bigbig Studios / Sony Computer Entertainment | Bigbig Studios Proprietary (`Game03` internal module) | NONE (PSP SDK only) | |
+| 4 | MotorStorm: Arctic Edge | PS2 | 2009 | Virtuos (port) / Sony Computer Entertainment | Bigbig Studios Proprietary (`Game03` internal module) | CRI, ODE Physics | PSP→PS2 port, same PAK format |
+| 5 | TrackMania DS | NDS | 2009 | Firebrand Games / Nintendo | Firebrand Octane Engine | NONE (NitroSDK only) | https://en.wikipedia.org/wiki/Firebrand_Games |
+| 6 | TrackMania Turbo DS | NDS | 2010 | Firebrand Games / Nintendo | Firebrand Octane Engine | NONE (NitroSDK only) | https://en.wikipedia.org/wiki/Firebrand_Games |
+| 7 | Bionic Commando Rearmed | PC | 2008/09 | GRIN / Capcom | GRIN Diesel Engine (Octane lineage) | Bink Video, PhysX, Steamworks | https://www.pcgamingwiki.com/wiki/Engine:Diesel |
+| 8 | Metal Gear Rising Revengeance | PC | 2013 | PlatinumGames / Konami | PlatinumGames Engine | Havok, Wwise | |
+| 9 | Alarm für Cobra 11: Nitro (Crash Time 0) | PC | 2006/07 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine v1 | NONE (DirectX 9 + custom) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 10 | Crash Time 1 | PC | 2007 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT0) | NONE (DirectX 9 + custom; ODE references) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 11 | Crash Time 2 | PC | 2008 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT1) | NONE (DirectX 9 + custom; ODE Physics referenced) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 12 | Crash Time 3 | PC | 2009 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT1/2) | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 13 | Crash Time 4 | PC | 2010 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT3) | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 14 | Crash Time 5 — Undercover | PC | 2012 | Synetic GmbH / RTL Games / dtp entertainment | Synetic 3D Landscape Engine (final) | Bink Video (only) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 15 | Excite Truck | Wii | 2006 | Monster Games / Nintendo | Monster Games proprietary | Bink Video only | |
+| 16 | Driver Renegade | 3DS | 2011 | VD-dev / Ubisoft | VD-dev Proprietary Engine | NitroSDK | Corrected: not Firebrand — developed by VD-dev |
+| 17 | FAST - Racing League | WiiWare | 2011 | Shin'en Multimedia / Shin'en Multimedia | SHIN'ENGINE (formally C-Engine) | NONE | https://en.wikipedia.org/wiki/Shin%27en_Multimedia |
+| 18 | Jett Rocket | WiiWare | 2010 | Shin'en Multimedia / Shin'en Multimedia | SHIN'ENGINE (formally C-Engine) | NONE | https://en.wikipedia.org/wiki/Shin%27en_Multimedia |
+| 19 | Jett Rocket II | 3DS | 2013 | Shin'en Multimedia / Shin'en Multimedia | SHIN'ENGINE (formally C-Engine) | NitroSDK | https://en.wikipedia.org/wiki/Shin%27en_Multimedia |
+| 20 | Just Cause 2 | PC | 2010 | Avalanche Studios / Square Enix (Eidos Interactive) | Avalanche Engine 2.0 | Havok, FMOD Ex, Bink, CUDA, GFWL | |
+| 21 | Just Cause 2 Multiplayer Mod | PC | 2014 | Nanos.io (community mod team) / Nanos.io | Mod layer on Avalanche 2.0 | Lua, Steamworks, custom networking | |
+| 22 | Midnight Club: Street Racing | PS2 | 2000 | Angel Studios (Rockstar San Diego) / Rockstar Games | Angel Game Engine (AGE) | NONE | https://www.pcgamingwiki.com/wiki/Engine:Angel_Game_Engine — corrected: PS2, not PS1 |
+| 23 | Midnight Club II | PC | 2003 | Rockstar San Diego / Rockstar Games | Angel Game Engine (AGE) | Bink Video, Miles Sound System | https://www.pcgamingwiki.com/wiki/Engine:Angel_Game_Engine |
+| 24 | NASCAR Rumble | PS1 | 1999 | EA Redwood Shores / Tiburon / EA Sports | EA proprietary engine | NONE | |
+| 25 | NASCAR Unleashed | 3DS | 2011 | Firebrand Games / Activision | Firebrand Octane Engine | NitroSDK | https://en.wikipedia.org/wiki/Firebrand_Games |
+| 26 | Onslaught | WiiWare | 2009 | Hudson Soft / Hudson Soft | Hudson Soft proprietary Wii engine | NONE | |
+| 27 | Pilotwings Resort | 3DS | 2011 | Monster Games / Nintendo | Monster Games proprietary 3DS engine | NitroSDK | |
+| 28 | Ridge Racer Vita | Vita | 2011 | Cellius / Namco Bandai Games | Cellius Proprietary | Havok (possible) | |
+| 29 | Split/Second: Arcade Edition | PC | 2010 | Silent Bay Studios / Disney Interactive Studios | Adobe Director 11.5 / Shockwave 3D | Director/Shockwave, Havok Xtra, Dynamiks, QuickTime, Flash | https://www.wikiwand.com/en/Adobe_Shockwave — NOT the Black Rock console engine |
+| 30 | Split/Second: Arcade Edition Wangan | PC | 2010 | Silent Bay Studios / Disney Interactive Studios | Adobe Director 11.5 / Shockwave 3D | Same as #29 | https://www.wikiwand.com/en/Adobe_Shockwave |
+| 31 | Track Racing Online | Android | Modern | Unknown / Unknown | Unity | Unity Engine, Google Play Services | |
+| 32 | Track Racing Pursuit | PC | Modern | Unknown / Unknown | Unity 2020.3/2021.x | PhysX, Photon, Amplify Motion, Vehicle Physics, D3D12, DirectStorage | |
+
+> Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
 ---
 
@@ -13,7 +54,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Developer** | Bigbig Studios |
 | **Publisher** | Sony Computer Entertainment |
 | **Year** | 2005 |
-| **Engine** | Bigbig `Game03` (proprietary) |
+| **Engine** | Bigbig Studios Proprietary (`Game03` internal module) |
 | **Middleware** | **NONE** — Sony PSP SDK only |
 | **Executable** | `BOOT.BIN` (decrypted ELF32LE MIPS), `EBOOT.BIN` (`~PSP` encrypted) |
 | **Firmware** | 2.50 |
@@ -36,7 +77,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Developer** | Bigbig Studios |
 | **Publisher** | Sony Computer Entertainment |
 | **Year** | 2007 |
-| **Engine** | Bigbig `Game03` evolved (`PursuitForce2` module) |
+| **Engine** | Bigbig Studios Proprietary (`Game03` internal module, evolved — `PursuitForce2` module) |
 | **Middleware** | **NONE** — Sony PSP SDK + AdHoc (`sceNetAdhoc`) |
 | **Executable** | `BOOT.BIN` (decrypted ELF32LE MIPS, 3.1MB) |
 | **Firmware** | 5.55 (per UPDATE/) |
@@ -57,7 +98,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Developer** | Bigbig Studios |
 | **Publisher** | Sony Computer Entertainment |
 | **Year** | 2009 |
-| **Engine** | Bigbig `Game03` (same lineage) |
+| **Engine** | Bigbig Studios Proprietary (`Game03` internal module, same lineage) |
 | **Middleware** | **NONE** — Sony PSP SDK only |
 | **Executable** | `EBOOT.BIN` (`~PSP` encrypted, `MSPSP` tag), `BOOT.BIN` (zeros in dump) |
 | **Firmware** | 5.55 |
@@ -78,7 +119,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Developer** | Virtuos (port) |
 | **Publisher** | Sony Computer Entertainment |
 | **Year** | 2009 |
-| **Engine** | Bigbig `Game03` (Virtuos port) |
+| **Engine** | Bigbig Studios Proprietary (`Game03` internal module, Virtuos port) |
 | **Middleware** | CRI (audio/video), ODE physics (variable names) |
 | **Executable** | `SCUS_976.54` (ELF32LE MIPS, 2.3MB) |
 | **Container** | PAK (`PAK ` magic), same 24-byte linked-list as PSP |
@@ -96,7 +137,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Disc ID** | UCUS98640 |
 | **Developer** | Bigbig Studios |
 | **Year** | 2007 |
-| **Engine** | Bigbig `Game03` (`PursuitForce2` module) |
+| **Engine** | Bigbig Studios Proprietary (`Game03` internal module, `PursuitForce2` module) |
 | **Middleware** | **NONE** — Sony PSP SDK + AdHoc |
 | **Executable** | `BOOT.BIN` (decrypted ELF, 3.1MB), `EBOOT.BIN` (`~PSP` encrypted) |
 | **Firmware** | 5.55 |
@@ -113,7 +154,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Disc ID** | UCUS98743 |
 | **Developer** | Bigbig Studios |
 | **Year** | 2009 |
-| **Engine** | Bigbig `Game03` |
+| **Engine** | Bigbig Studios Proprietary (`Game03` internal module) |
 | **Middleware** | **NONE** |
 | **Executable** | `EBOOT.BIN` (`~PSP`/`MSPSP`), `BOOT.BIN` (zeros in dump) |
 | **Firmware** | 5.55 |
@@ -136,7 +177,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Developer** | Firebrand Games (Atod AB) |
 | **Publisher** | Atari / Nintendo |
 | **Year** | 2009 |
-| **Engine** | Firebrand Games proprietary NDS engine |
+| **Engine** | Firebrand Octane Engine |
 | **Middleware** | **NONE** — Nintendo NitroSDK only |
 | **Executable** | ARM9 (C++, 972 KB), ARM7 (NitroSDK, 155 KB) |
 | **Scripting** | Lua 5.1 (`.luac` bytecode, 28 files) |
@@ -160,7 +201,7 @@ Maintained from teardown analyses. Updated 2026-10-12.
 | **Developer** | Firebrand Games (Atod AB) — *had access to Octane engine* |
 | **Publisher** | Atari / Nintendo |
 | **Year** | 2010 |
-| **Engine** | Firebrand Games proprietary NDS engine (Octane engine lineage) |
+| **Engine** | Firebrand Octane Engine (evolved asset pipeline) |
 | **Middleware** | **NONE** — Nintendo NitroSDK only |
 | **Executable** | ARM9 (C++/STL, 830 KB), ARM7 (NitroSDK, 156 KB) |
 | **Scripting** | Lua 5.1 (`.luac` bytecode, 27 files) |
@@ -291,6 +332,102 @@ PlatinumGames Engine
 
 ---
 
+## 9.1. Crash Time 1 (Alarm für Cobra 11) — PC (2007)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time 1 (Alarm für Cobra 11) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | RTL Games / JoWooD |
+| **Year** | 2007 |
+| **Engine** | Synetic 3D Landscape Engine (evolved from CT0) |
+| **Middleware** | **NONE** — DirectX 9 + custom (ODE references) |
+| **Executable** | Missing from dump |
+| **Container** | Loose files (no archive) |
+| **Asset Formats** | `.mox`/`.mtl` (models/materials, ~429/390), `.cob`/`.cpo` (collision), `.tree` (scene graph), `.ro1`–`.ro4` (roads), `.ptx` (textures), `.wav`/`.wma` (audio), `.wmv` (video) |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom (DAM_CRASH_*) + ODE references |
+| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
+| **Audio** | DirectSound/DirectMusic (WAV, WMA) |
+| **Video** | WMV |
+
+**Key Finding:** First evolution of the 3D Landscape Engine after Nitro. 13 vehicles with `.3DF`/`.SPR` parts. Built-in track editor. https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine
+
+---
+
+## 9.2. Crash Time 2 (Alarm für Cobra 11) — PC (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time 2 (Alarm für Cobra 11) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | RTL Games / JoWooD |
+| **Year** | 2008 |
+| **Engine** | Synetic 3D Landscape Engine (evolved from CT1) |
+| **Middleware** | **NONE** — DirectX 9 + custom (ODE Physics referenced) |
+| **Executable** | Missing from dump |
+| **Container** | Loose files (no archive) |
+| **Asset Formats** | Same as CT1 + `.vtf` (vector fonts), `.trl`, `.cpt`; 30+ player vehicles; `FrontEnd2/` UI |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom (DAM_CRASH_*) + ODE Physics referenced (`ODEConfig`, `PHYSICS_BODY_GF`) |
+| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
+| **Audio** | DirectSound/DirectMusic (WMA, WAV) |
+| **Video** | WMV |
+
+**Key Finding:** Evolved from CT1 with expanded vehicle roster and frontend. Damage system and track editor retained. https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine
+
+---
+
+## 9.3. Crash Time 3 (Alarm für Cobra 11) — PC (2009)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time 3 (Alarm für Cobra 11) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | RTL Games / JoWooD |
+| **Year** | 2009 |
+| **Engine** | Synetic 3D Landscape Engine (evolved from CT1/2) |
+| **Middleware** | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom |
+| **Executable** | Missing from dump |
+| **Container** | Loose files (no archive) |
+| **Asset Formats** | Same as CT2 + `.ogg` (Ogg Vorbis), `.dds`, `.trf` (track refs); 30+ traffic types (Airplane, Bagger, Dumper); expanded trains |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom (DAM_CRASH_*) + ODE Physics |
+| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
+| **Audio** | DirectSound/DirectMusic (WAV, OGG) |
+| **Video** | Bink Video (`.bik`) |
+
+**Key Finding:** Ogg Vorbis audio added; Bink Video present per registry. Expanded traffic/train roster. https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine
+
+---
+
+## 9.4. Crash Time 4 (Alarm für Cobra 11) — PC (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time 4 (Alarm für Cobra 11) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | RTL Games / JoWooD |
+| **Year** | 2010 |
+| **Engine** | Synetic 3D Landscape Engine (evolved from CT3) |
+| **Middleware** | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom |
+| **Executable** | Missing from dump |
+| **Container** | Loose files (no archive) |
+| **Asset Formats** | Same as CT3 + `.dds`; 50+ traffic types with LOD0–LOD3 + r_h/r_v variants |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom (DAM_CRASH_*) + ODE Physics |
+| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
+| **Audio** | DirectSound/DirectMusic (WAV) |
+| **Video** | Bink Video (`.bik`) |
+
+**Key Finding:** Enhanced vehicle LOD system; Bink Video retained. Direct predecessor of the Undercover final evolution. https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine
+
+---
+
 ## 10. Excite Truck (USA) — Wii (2006)
 
 | Field | Value |
@@ -348,10 +485,10 @@ PlatinumGames Engine
 |---|---|
 | **Title** | Driver Renegade |
 | **Platform** | Nintendo 3DS |
-| **Developer** | Firebrand Games / Ubisoft Reflections |
+| **Developer** | VD-dev |
 | **Publisher** | Ubisoft |
 | **Year** | 2011 |
-| **Engine** | Firebrand Nitro Engine (NitroSDK) |
+| **Engine** | VD-dev Proprietary Engine |
 | **Middleware** | NitroSDK (Nintendo 3DS SDK) |
 | **Executable** | CIA (encrypted NCCH/CXI) |
 | **Container** | CIA (Citizen Archive) |
@@ -362,7 +499,7 @@ PlatinumGames Engine
 | **Audio** | CSND |
 | **Video** | None |
 
-**Key Finding:** Firebrand Nitro Engine lineage (same as TrackMania DS, NASCAR Unleashed 3DS). 3DS exclusive. CIA format requires decryption.
+**Key Finding:** VD-dev proprietary engine on 3DS (Ubisoft-published). Not Firebrand — earlier attribution corrected per registry. 3DS exclusive. CIA format requires decryption.
 
 ---
 
@@ -375,7 +512,7 @@ PlatinumGames Engine
 | **Developer** | Shin'en Multimedia |
 | **Publisher** | Shin'en Multimedia |
 | **Year** | 2011 |
-| **Engine** | Shin'en proprietary Wii engine |
+| **Engine** | SHIN'ENGINE (formally C-Engine) |
 | **Middleware** | **None** (custom engine) |
 | **Executable** | WAD (encrypted Wii Archive) |
 | **Container** | WAD |
@@ -399,7 +536,7 @@ PlatinumGames Engine
 | **Developer** | Shin'en Multimedia |
 | **Publisher** | Shin'en Multimedia |
 | **Year** | 2010 |
-| **Engine** | Shin'en proprietary Wii engine |
+| **Engine** | SHIN'ENGINE (formally C-Engine) |
 | **Middleware** | **None** (custom engine) |
 | **Executable** | WAD (encrypted Wii Archive) |
 | **Container** | WAD |
@@ -423,7 +560,7 @@ PlatinumGames Engine
 | **Developer** | Shin'en Multimedia |
 | **Publisher** | Shin'en Multimedia |
 | **Year** | 2013 |
-| **Engine** | Shin'en proprietary 3DS engine |
+| **Engine** | SHIN'ENGINE (formally C-Engine) |
 | **Middleware** | NitroSDK (Nintendo 3DS SDK) |
 | **Executable** | CIA (encrypted NCCH/CXI) |
 | **Container** | CIA |
@@ -486,27 +623,27 @@ PlatinumGames Engine
 
 ---
 
-## 18. Midnight Club: Street Racing (PS1) — PlayStation 1 (2000)
+## 18. Midnight Club: Street Racing (PS2) — PlayStation 2 (2000)
 
 | Field | Value |
 |---|---|
 | **Title** | Midnight Club: Street Racing |
-| **Platform** | PlayStation 1 |
+| **Platform** | PlayStation 2 |
 | **Developer** | Angel Studios (Rockstar San Diego) |
 | **Publisher** | Rockstar Games |
 | **Year** | 2000 |
-| **Engine** | Angel Studios proprietary PS1 engine |
+| **Engine** | Angel Game Engine (AGE) |
 | **Middleware** | **None** |
-| **Executable** | PS1 ELF (SLUS_XXX.XX) |
+| **Executable** | PS2 ELF |
 | **Container** | BIN/CUE (disc image) |
-| **Asset Formats** | `.tim` (textures), `.vag` (audio), `.str` (MDEC video), custom models |
-| **Scripting** | None (C/MIPS assembly) |
+| **Asset Formats** | `.tm2` (TIM2 textures), `.vag` (ADPCM audio), `.pss` (PSS/MPEG2 video), custom models |
+| **Scripting** | None (C/C++, MIPS EE) |
 | **Physics** | Custom vehicle |
-| **Graphics** | PS1 GPU (GTE) |
-| **Audio** | PS1 SPU |
-| **Video** | MDEC |
+| **Graphics** | PS2 GS (Emotion Engine + Graphics Synthesizer) |
+| **Audio** | PS2 SPU2 |
+| **Video** | PSS (MPEG2) |
 
-**Key Finding:** Angel Studios (later Rockstar San Diego). Open-world streaming on PS1 (no loading screens). First in genre.
+**Key Finding:** Angel Studios (later Rockstar San Diego) on Angel Game Engine (AGE). PS2 launch-window open-world racer — corrected: PS2, not PS1. First in genre.
 
 ---
 
@@ -519,7 +656,7 @@ PlatinumGames Engine
 | **Developer** | Rockstar San Diego |
 | **Publisher** | Rockstar Games |
 | **Year** | 2003 |
-| **Engine** | Rockstar San Diego proprietary (Angel Studios lineage) |
+| **Engine** | Angel Game Engine (AGE) |
 | **Middleware** | **Bink Video**, **Miles Sound System** |
 | **Executable** | mc2.exe |
 | **Container** | `.dat` archive |
@@ -543,7 +680,7 @@ PlatinumGames Engine
 | **Developer** | EA Redwood Shores / Tiburon |
 | **Publisher** | EA Sports |
 | **Year** | 1999 |
-| **Engine** | EA proprietary PS1 engine |
+| **Engine** | EA proprietary engine |
 | **Middleware** | **None** |
 | **Executable** | PS1 ELF |
 | **Container** | BIN/CUE (disc image) |
@@ -567,7 +704,7 @@ PlatinumGames Engine
 | **Developer** | Firebrand Games |
 | **Publisher** | Activision |
 | **Year** | 2011 |
-| **Engine** | Firebrand Nitro Engine (NitroSDK) |
+| **Engine** | Firebrand Octane Engine |
 | **Middleware** | NitroSDK |
 | **Executable** | CIA (encrypted NCCH/CXI) |
 | **Container** | CIA |
@@ -578,7 +715,7 @@ PlatinumGames Engine
 | **Audio** | CSND |
 | **Video** | None |
 
-**Key Finding:** Firebrand Nitro Engine (same as TrackMania DS, Driver Renegade). Official NASCAR license. 3DS exclusive.
+**Key Finding:** Firebrand Octane Engine (same lineage as TrackMania DS/Turbo DS). Official NASCAR license. 3DS exclusive.
 
 ---
 
@@ -639,8 +776,8 @@ PlatinumGames Engine
 | **Developer** | Cellius Inc. (Namco Bandai) |
 | **Publisher** | Namco Bandai Games |
 | **Year** | 2011 (launch title) |
-| **Engine** | Namco Bandai/Cellius proprietary (likely PhyreEngine) |
-| **Middleware** | **PhyreEngine** (likely), **Havok Physics** (possible) |
+| **Engine** | Cellius Proprietary |
+| **Middleware** | **Havok Physics** (possible) |
 | **Executable** | Vita app (PCSE000xx) |
 | **Container** | Vita app + DLC packages (addcont) |
 | **Asset Formats** | `.psarc` (archives), `.gxt` (textures), `.gxm` (shaders), `.at9` (audio), `.lua` (scripts) |
@@ -650,7 +787,7 @@ PlatinumGames Engine
 | **Audio** | ATRAC9, ADPCM |
 | **Video** | None |
 
-**Key Finding:** Vita launch title. Free-to-play model (controversial). DLC-heavy (many addcont packages). Likely PhyreEngine.
+**Key Finding:** Vita launch title. Cellius Proprietary engine. Free-to-play model (controversial). DLC-heavy (many addcont packages).
 
 ---
 
