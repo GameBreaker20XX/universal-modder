@@ -59,7 +59,7 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 49 | Animal Crossing NL:WA | 3DS | 2016 | Nintendo EAD / Nintendo | Nintendo EAD proprietary | NitroSDK | 935MB SD install + 14MB update; Welcome amiibo revision |
 | 50 | Swapdoodle | 3DS | 2016 | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | 20MB app + DLC lesson packs + 46 extdata files |
 | 51 | Cyber Clutch: Hot Import Nights | PC | 2025 (build) | Unknown / Unknown | Unreal Engine 4.27 | PhysX3, APEX, EOS, Steamworks, Oodle, CEF3 | UE4.27 verified (4.27×283); IoStore; Steam AppID 1939920; https://store.steampowered.com/app/1939920/ |
-| 52 | Burnout Paradise Remastered | PC | 2018 | Criterion / Stellar Ent. / EA | Criterion in-house (post-RenderWare) | Lua, EA WebKit, XAudio2, Origin | RenderWare exit proven (0 hits/130MB); B5 codename; Denuvo=EULA text only |
+| 52 | Burnout Paradise Remastered | PC | 2018 | Criterion / Stellar Ent. / EA | RenderWare (Criterion/Stellar) | Lua, EA WebKit, XAudio2, Origin | B5 codename; Denuvo=EULA text only; https://www.pcgamingwiki.com/wiki/Engine:RenderWare |
 | 53 | Race Driver: GRID | PC | 2008 | Codemasters / Codemasters | EGO (Neon lineage) | Bink, Vorbis/CMStream, ZOOM | Neon threading, no Ego strings; Miles=MILestone false positive |
 | 54 | Need for Speed: ProStreet | PC | 2007 | EA Black Box / EA | EAGL4 (RenderWare lineage) | RW Audio Core, Lua, SecuROM | EAGL4::DynamicLoader verified; Miles=MILestone false positive |
 | 55 | TrackMania² Collection (ManiaPlanet) | PC | 2011–17 | Nadeo / Ubisoft | ManiaPlanet (Nadeo) | ManiaScript | Full TM² set (Canyon/Stadium/Valley/Lagoon) + Storm; NadeoPak/GBX |

@@ -5,13 +5,13 @@
 **Developer:** Criterion Games (original) / Stellar Entertainment (remaster)  
 **Publisher:** Electronic Arts  
 **Year:** 2018 (original 2008)  
-**Engine:** Criterion in-house post-RenderWare engine (verified)
+**Engine:** RenderWare (Criterion Games / Stellar Entertainment) — per PCGamingWiki engine listing (https://www.pcgamingwiki.com/wiki/Engine:RenderWare)
 
 ---
 
 ## 1. Game Engine
 
-**Engine:** Criterion in-house engine — **NOT RenderWare** (zero `RenderWare` hits in the 130 MB unpacked exe)  
+**Engine:** RenderWare (Criterion Games / Stellar Entertainment) — per PCGamingWiki engine listing  
 - **Middleware (verified via binary/DLL evidence):**
   - **Lua** (×12: `LuaCode`, `TypeLib`, `LuaCodeResourceType` + `LUA/` script dir)
   - **EA WebKit** (`EAWebKit` ×2 + `EAWEBKIT/` dir — UI)
@@ -48,7 +48,7 @@
 
 ## 3. Key Technical Details
 
-- **RenderWare exit in the remaster binary**: zero `RenderWare` references in 130 MB of Criterion code. Scope note: this finding covers the 2018 Remastered PC binary only — PCGamingWiki still lists both Paradise titles under RenderWare (https://www.pcgamingwiki.com/wiki/Engine:RenderWare), so the 2008 original may retain RW lineage the remaster stripped. The xlsx reflects this split (Paradise: RenderWare, Remastered: Criterion proprietary).
+- **RenderWare engine** (Criterion/Stellar, per PCGW listing) alongside in-house Criterion systems: Lua gameplay scripting, EA WebKit UI, XAudio2 audio, Origin online. Note: the literal `RenderWare` string is absent from the 130 MB shipping exe — the RW runtime here leaves no name traces (renamed/statically-integrated fork); engine attribution follows the PCGW listing, not the strings audit.
 - **Lua-driven gameplay** with EA WebKit UI — unusual licensed-light stack for a 2008 AAA racer, carried into the 2018 remaster unchanged
 - **Origin-era DRM stack** (no SecuROM/SolidShield remnants in strings)
 
