@@ -52,6 +52,12 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 42 | CTGP-7 (MK7 Mod) | 3DS | 2016+ | CTGP-7 Team (community) | Nintendo EAD MK7 engine (mod content layer) | NONE (mod) | LayeredFS RomFS replacement; CIA launcher + gamefs/savefs |
 | 43 | Race Driver: GRID (DS) | NDS | 2008 | Firebrand Games / Codemasters | Firebrand Octane Engine | NONE (NitroSDK only) | vfs.zip 4,616 files (largest Octane zip); Actimagine video; https://en.wikipedia.org/wiki/Firebrand_Games |
 | 44 | Triad Wars (Beta) | PC | 2015–16 | United Front Games / Square Enix | United Front proprietary (Sleeping Dogs lineage) | Wwise, NVIDIA GameWorks, DX11, curl/OpenSSL | Cancelled F2P; 125 .big/.bix pairs; archive unextracted |
+| 45 | Mario Kart 7 | 3DS | 2011 | Nintendo EAD / Nintendo | Nintendo EAD proprietary | NitroSDK | 638MB SD install + 5MB update; base game for CTGP-7 |
+| 46 | StreetPass Mii Plaza | 3DS | 2011 | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | Built-in title; 94MB update + DLC mini-games; heavy extdata |
+| 47 | Nintendo Letter Box (Swapnote) | 3DS | 2011 | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | 12MB app + 119 extdata files (message store); service ended 2013 |
+| 48 | Super Mario 3D Land | 3DS | 2011 | Nintendo EAD Tokyo / Nintendo | Nintendo EAD Tokyo proprietary | NitroSDK | 290MB SD install, no update |
+| 49 | Animal Crossing NL:WA | 3DS | 2016 | Nintendo EAD / Nintendo | Nintendo EAD proprietary | NitroSDK | 935MB SD install + 14MB update; Welcome amiibo revision |
+| 50 | Swapdoodle | 3DS | 2016 | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | 20MB app + DLC lesson packs + 46 extdata files |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1164,6 +1170,106 @@ PlatinumGames Engine
 | **Physics** | Unconfirmed (Havok probable — franchise lineage; strings audit pending extraction) |
 
 **Key Finding:** Cancelled Sleeping Dogs-universe F2P. HD/SD archive tiers. GameWorks dates it to 2014–16. Havok/Bink/Scaleform audit pending extraction.
+
+---
+
+## 41. Mario Kart 7 — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Mario Kart 7 (00040000-00030700, console-verified) |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Nintendo EAD |
+| **Publisher** | Nintendo |
+| **Year** | 2011 |
+| **Engine** | Nintendo EAD proprietary MK7 engine |
+| **Middleware** | NitroSDK (binary unverifiable — SD crypto) |
+| **Container** | SD install (638 MB) + 5 MB update |
+
+**Key Finding:** Base game for the CTGP-7 mod on this same card. SD crypto blocks binary analysis.
+
+---
+
+## 42. StreetPass Mii Plaza — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | StreetPass Mii Plaza (00040000-00022800, console-verified) |
+| **Platform** | Nintendo 3DS (built-in) |
+| **Developer** | Nintendo |
+| **Publisher** | Nintendo |
+| **Year** | 2011 |
+| **Engine** | Nintendo proprietary |
+| **Middleware** | NitroSDK (binary unverifiable — SD crypto) |
+| **Container** | 94 MB update + DLC mini-games; heavy extdata (12 files) |
+
+**Key Finding:** Corrects my Badge Arcade guess — same update+DLC fingerprint, wrong title. DLC holds the paid StreetPass games.
+
+---
+
+## 43. Nintendo Letter Box (Swapnote) — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Nintendo Letter Box (00040000-00051800, console-verified) |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Nintendo |
+| **Publisher** | Nintendo |
+| **Year** | 2011 (service ended 2013) |
+| **Engine** | Nintendo proprietary |
+| **Middleware** | NitroSDK (binary unverifiable — SD crypto) |
+| **Container** | 12 MB app + 119 extdata files (message store) |
+
+**Key Finding:** Corrects my Flipnote guess — the 119-file extdata hoard is Swapnote's message store.
+
+---
+
+## 44. Super Mario 3D Land — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Super Mario 3D Land (00040000-00053f00, console-verified) |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Nintendo EAD Tokyo |
+| **Publisher** | Nintendo |
+| **Year** | 2011 |
+| **Engine** | Nintendo EAD Tokyo proprietary |
+| **Middleware** | NitroSDK (binary unverifiable — SD crypto) |
+| **Container** | SD install (290 MB), no update |
+
+**Key Finding:** Corrects my Tomodachi Life guess.
+
+---
+
+## 45. Animal Crossing NL:WA — Nintendo 3DS (2016)
+
+| Field | Value |
+|---|---|
+| **Title** | Animal Crossing: New Leaf – Welcome amiibo (00040000-00198f00, console-verified) |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Nintendo EAD |
+| **Publisher** | Nintendo |
+| **Year** | 2016 (WA revision; base 2012) |
+| **Engine** | Nintendo EAD proprietary |
+| **Middleware** | NitroSDK (binary unverifiable — SD crypto) |
+| **Container** | SD install (935 MB, largest on card) + 14 MB update |
+
+---
+
+## 46. Swapdoodle — Nintendo 3DS (2016)
+
+| Field | Value |
+|---|---|
+| **Title** | Swapdoodle (00040000-001a2e00, console-verified) |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Nintendo |
+| **Publisher** | Nintendo |
+| **Year** | 2016 |
+| **Engine** | Nintendo proprietary |
+| **Middleware** | NitroSDK (binary unverifiable — SD crypto) |
+| **Container** | 20 MB app + DLC lesson packs + 46 extdata files |
+
+**Key Finding:** Swapnote successor; the 20MB+DLC+46-extdata fingerprint fits its lesson-pack model exactly.
 
 ---
 
