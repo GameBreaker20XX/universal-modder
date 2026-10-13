@@ -63,6 +63,14 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 53 | Race Driver: GRID | PC | 2008 | Codemasters / Codemasters | EGO (Neon lineage) | Bink, Vorbis/CMStream, ZOOM | Neon threading, no Ego strings; Miles=MILestone false positive |
 | 54 | Need for Speed: ProStreet | PC | 2007 | EA Black Box / EA | EAGL4 (RenderWare lineage) | RW Audio Core, Lua, SecuROM | EAGL4::DynamicLoader verified; Miles=MILestone false positive |
 | 55 | TrackMania² Collection (ManiaPlanet) | PC | 2011–17 | Nadeo / Ubisoft | ManiaPlanet (Nadeo) | ManiaScript | Full TM² set (Canyon/Stadium/Valley/Lagoon) + Storm; NadeoPak/GBX |
+| 56 | Bionic Commando (2009) | PC | 2009 | GRIN / Eidos | GRIN Diesel Engine | PhysX, Bink, Lua, SecuROM | BNDL v2 + .fcl levels; dieselx.cfg + context.xml; ver 1.005 |
+| 57 | L.A. Rush | PC | 2005 | Midway / Midway | Midway in-house (unconfirmed) | Bink, XACT | .freak scripts; .bkh/.bks banks; no exe in dump |
+| 58 | Mega Halo Game (UE3 proto) | X360 | 2013 | Unknown / Unknown | Unreal Engine 3 | Wwise, GFx, GwNav, FaceFX, Bink, Live | Halo vertical slice; 220MB PDB; C:\Projects\MegaHalo\ |
+| 59 | Metal Gear Solid V: Ground Zeroes | PC | 2014 | Kojima Productions / Konami | FOX Engine | Steamworks, Lua entities | .g0s opaque; .ftex; AppID 311340; hk/Nx=opcode noise |
+| 60 | Saints Row: Moneyshot (Proto) | XBLA | 2011 | Digital Extremes? / THQ? | Evolution Engine? | Unknown (STFS encrypted) | Cancelled; Title ID 58410B87; 608MB STFS |
+| 61 | Bloons TD 4 (DS) | NDS | 2009–10 | Unknown / Unknown | Custom DS (NitroSDK) | NONE | .ntfi/.ntfp/.ntft 2D; XML track paths; 226 files |
+| 62 | Camping Mama: Outdoor Adventures | NDS | 2011 | Unknown / Unknown | Custom DS (NitroSDK) | NONE | Full NitroSDK set + .bghb/.amob; 6,461 files |
+| 63 | Cave Story PSP (homebrew) | PSP | 2007 | -Z. / None (homebrew) | Studio Pixel custom | NONE | kxploit-era port; data.csz; Win-save compatible |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1370,6 +1378,140 @@ PlatinumGames Engine
 | **Container** | NadeoPak per title (38–211 MB) |
 
 **Key Finding:** Not one game — full TM² set. `TrackMania.pak` carries `Title:ManiaPlanet` (shared base, the naming trap). Distinct from Firebrand DS TrackManias and the 2020 reboot.
+
+---
+
+## 52. Bionic Commando (2009) — PC (2009)
+
+| Field | Value |
+|---|---|
+| **Title** | Bionic Commando |
+| **Platform** | PC (Windows) |
+| **Developer** | GRIN |
+| **Publisher** | Eidos Interactive |
+| **Year** | 2009 |
+| **Engine** | GRIN Diesel Engine (`Diesel`/`GRIN` in exe, `dieselx.cfg` + `context.xml`) |
+| **Middleware** | **PhysX** (NxCooking, hardware effects), **Bink** (25 movies), **Lua** (bundled scripts), **SecuROM**, **OpenAL/Ogg** |
+| **Executable** | bionic_commando.exe (22.5 MB) + Launcher |
+| **Container** | `BNDL` v2 (445 MB quick bundle) + per-level `.fcl` |
+| **Scripting** | **Lua** (61 refs in bundles; `memory_lua_limit` in cfg) |
+| **Physics** | PhysX @60fps (fluids off) |
+
+**Key Finding:** Full-game Diesel (Rearmed's engine at full scale). `luaL_` absent (statically linked) — scripts live in bundles. Ver 1.005. https://www.pcgamingwiki.com/wiki/Engine:Diesel
+
+---
+
+## 53. L.A. Rush — PC (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | L.A. Rush |
+| **Platform** | PC (Windows) |
+| **Developer** | Midway Studios |
+| **Publisher** | Midway Games |
+| **Year** | 2005 |
+| **Engine** | Midway in-house (unconfirmed — no exe in dump) |
+| **Middleware** | **Bink** (24 movies), **XACT** (`.xsb`/`.xwb`) |
+| **Scripting** | `.freak` mission scripts |
+| **Container** | Loose files (EngineRes.res/dir, shader paks, sound banks) |
+
+**Key Finding:** XACT + Bink = period Midway PC stack. WidescreenFix ASI mod in dump (third-party). Engine core unconfirmed without exe.
+
+---
+
+## 54. Mega Halo Game (UE3 Prototype) — Xbox 360 (2013)
+
+| Field | Value |
+|---|---|
+| **Title** | Mega Halo Game (unreleased Halo vertical slice) |
+| **Platform** | Xbox 360 |
+| **Developer** | Unknown (`C:\Projects\MegaHalo\`) |
+| **Publisher** | Unknown |
+| **Year** | 2013 (profiling Jun–Sep) |
+| **Engine** | **Unreal Engine 3** (stock UDKBase/UTGame packages) |
+| **Middleware** | **Wwise** (100+ banks), **Scaleform GFx**, **GwNav**, **FaceFX**, **Bink**, **Live** |
+| **Executable** | MProfP1.xex (12.4 MB) + **220 MB PDB** (full symbols) |
+| **Container** | UE3 cooked `.xxx` (2_1C/2_2C/2_3C chapters) + `.tfc` + shader cache |
+| **Scripting** | UnrealScript |
+
+**Key Finding:** Halo on UE3 that never shipped (Storm Rifle-era content). PDB + gprof history inline. Stray 2005 stamps unexplained (clock skew or inherited data).
+
+---
+
+## 55. Metal Gear Solid V: Ground Zeroes — PC (2014)
+
+| Field | Value |
+|---|---|
+| **Title** | Metal Gear Solid V: Ground Zeroes |
+| **Platform** | PC (Windows, Steam AppID 311340) |
+| **Developer** | Kojima Productions (`KJP` in exe) |
+| **Publisher** | Konami |
+| **Year** | 2014 |
+| **Engine** | FOX Engine (`F_SID_DECL`, `__FOX_PRIORITY`, opcodes) |
+| **Middleware** | **Steamworks**, **Lua entities** (`Lua Entity` type registry) |
+| **Executable** | MgsGroundZeroes.exe (33.5 MB, unpacked) |
+| **Container** | `.g0s` opaque (2.9 GB across 3 files) |
+| **Assets** | `.ftex` (×208 refs) |
+
+**Key Finding:** `hk`/`Nx` = opcode noise (not Havok/PhysX); `CRI` = substring noise (not CRIWARE). No licensed physics/audio middleware evidenced — FOX carries its own.
+
+---
+
+## 56. Saints Row: Moneyshot (Prototype) — XBLA (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Saint's Row Moneyshot (cancelled) |
+| **Platform** | Xbox 360 (XBLA) |
+| **Developer** | Digital Extremes? (unconfirmed) |
+| **Publisher** | THQ? (unconfirmed) |
+| **Year** | 2011 (prototype) |
+| **Engine** | Evolution Engine? (unconfirmed — STFS encrypted) |
+| **Container** | STFS (`LIVE`, Title ID 58410B87, 608 MB) |
+
+**Key Finding:** Cancelled Saints Row-universe shooter (THQ collapse casualty). No middleware claims without 360 keys.
+
+---
+
+## 57. Bloons TD 4 (DS) — Nintendo DS (2009–10)
+
+| Field | Value |
+|---|---|
+| **Title** | Bloons TD 4 (KUVP, maker YH) |
+| **Platform** | Nintendo DS |
+| **Developer** | Unknown (franchise: Ninja Kiwi) |
+| **Year** | 2009–10 |
+| **Engine** | Custom DS (NitroSDK 2D formats) |
+| **Middleware** | **NONE** |
+| **Container** | NDS ROM (7 MB, 226 files) |
+| **Asset Formats** | `.ntfi`/`.ntfp`/`.ntft` (55 each), XML track paths, BLZ manual, `.sadl`/`.sdat` |
+
+---
+
+## 58. Camping Mama: Outdoor Adventures — NDS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Camping Mama (TCME, maker 5G) |
+| **Platform** | Nintendo DS |
+| **Developer** | Unknown (Cooking Mama franchise) |
+| **Year** | 2011 |
+| **Engine** | Cooking Mama custom DS (NitroSDK) |
+| **Middleware** | **NONE** |
+| **Container** | NDS ROM (64 MB, 6,461 files) |
+| **Asset Formats** | Full NitroSDK set + `.bghb`/`.amob` (Mama-specific), `.msb`, `.nftr`, `.sdat` |
+
+---
+
+## 59. Cave Story PSP (Homebrew) — PSP (2007)
+
+| Field | Value |
+|---|---|
+| **Title** | Cave Story PSP RC1 (homebrew port by "-Z.") |
+| **Platform** | PlayStation Portable (FW 1.0/1.5/OE) |
+| **Developer** | -Z. (port); Studio Pixel (original) |
+| **Year** | 2007 |
+| **Engine** | Studio Pixel custom (1:1 logic port, data-compatible with Windows) |
 
 ---
 
