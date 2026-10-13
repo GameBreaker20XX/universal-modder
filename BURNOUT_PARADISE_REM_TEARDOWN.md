@@ -48,7 +48,7 @@
 
 ## 3. Key Technical Details
 
-- **RenderWare exit proven**: 130 MB of Criterion code with zero RenderWare references — Paradise is fully in-house tech (corrects the common RenderWare assumption and my own earlier xlsx rows)
+- **RenderWare exit in the remaster binary**: zero `RenderWare` references in 130 MB of Criterion code. Scope note: this finding covers the 2018 Remastered PC binary only — PCGamingWiki still lists both Paradise titles under RenderWare (https://www.pcgamingwiki.com/wiki/Engine:RenderWare), so the 2008 original may retain RW lineage the remaster stripped. The xlsx reflects this split (Paradise: RenderWare, Remastered: Criterion proprietary).
 - **Lua-driven gameplay** with EA WebKit UI — unusual licensed-light stack for a 2008 AAA racer, carried into the 2018 remaster unchanged
 - **Origin-era DRM stack** (no SecuROM/SolidShield remnants in strings)
 
