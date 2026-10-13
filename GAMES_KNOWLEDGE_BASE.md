@@ -40,6 +40,13 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 30 | Split/Second: Arcade Edition Wangan | PC | 2010 | Silent Bay Studios / Disney Interactive Studios | Adobe Director 11.5 / Shockwave 3D | Same as #29 | https://www.wikiwand.com/en/Adobe_Shockwave |
 | 31 | Track Racing Online | Android | Modern | Unknown / Unknown | Unity | Unity Engine, Google Play Services | |
 | 32 | Track Racing Pursuit | PC | Modern | Unknown / Unknown | Unity 2020.3/2021.x | PhysX, Photon, Amplify Motion, Vehicle Physics, D3D12, DirectStorage | |
+| 33 | Battle Riders | PC | ~2015–16 | Unknown / Unknown (Steam) | Unity 4.7.0f1 (Mono) | Steamworks | Version string verified in mainData; C#/UnityScript/Boo |
+| 34 | Burnout Crash | XBLA | 2011 | Criterion Games / Electronic Arts | Criterion Games proprietary | Unknown (STFS encrypted) | Title ID 58410B5D, header name verified |
+| 35 | Detonation Racing | iOS | 2021 | Electric Square Ltd / Electric Square (Apple Arcade) | Unity (IL2CPP) | Game Center | v1.2/178904, 42 levels, UnityFramework verified |
+| 36 | Just Cause | PC | 2006 | Avalanche Studios / Square Enix (Eidos) | Avalanche Engine 1.0 | Bink Video, DirectX 9 | Packed exe; CSW2/CTF2 SFX banks; .arc/.tab like JC2 |
+| 37 | Ridge Racer 3D | 3DS | 2011 | Namco Bandai Games / Namco Bandai | Namco Bandai proprietary 3DS engine | NitroSDK | CTR-P-ARRE, launch window |
+| 38 | Ridge Racer Draw and Drift | Android | ~2016 | Unknown / Bandai Namco Ent. | Unity 5.3.7f1 (Mono) | GPG, Billing, LVL, SQLite | v1.2.4/code 30, ARMv7+x86, OBB; version verified in libunity.so |
+| 39 | Ridge Racer Unbounded | PC | 2012 | Bugbear Entertainment / Namco Bandai | Bugbear proprietary | Scaleform GFx, CRI ADX, Vorbis, Quazal, Steamworks, XAudio2 | bugbear.DataProvider + bflash paths verified; no Havok/Bink/FMOD |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -884,6 +891,174 @@ PlatinumGames Engine
 | **Video** | Unity Video |
 
 **Key Finding:** Modern Unity with extensive packages. Photon multiplayer. Google Mobile Ads on PC (unusual). DirectX 12 + DirectStorage. Unity Vehicle Physics package. IL2CPP backend.
+
+---
+
+## 29. Battle Riders (PC) — Windows (~2015–16)
+
+| Field | Value |
+|---|---|
+| **Title** | Battle Riders |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Unknown |
+| **Publisher** | Unknown (Steam) |
+| **Year** | ~2015–16 (Unity 4.7 era) |
+| **Engine** | **Unity 4.7.0f1** (Mono) |
+| **Middleware** | **Steamworks** (CSteamworks); SmartSteamEmu files are crack artifacts |
+| **Executable** | BattleRiders.exe (+ LAUNCHER.exe/x64) |
+| **Container** | Unity Data folder |
+| **Asset Formats** | Unity `.assets` (pre-UnityFS), Mono assemblies, `level0–25` |
+| **Scripting** | **C# + UnityScript + Boo** |
+| **Physics** | Unity PhysX |
+| **Graphics** | DirectX 9/11 (built-in pipeline) |
+| **Audio** | Unity Audio |
+| **Video** | Unity Video |
+
+**Key Finding:** Unity 4.7.0f1 verified by version string in `mainData`. UnityScript + Boo assemblies (4.x-only). 26 levels. SmartSteamEmu = third-party crack, not middleware.
+
+---
+
+## 30. Burnout Crash (XBLA) — Xbox 360 (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout® CRASH! |
+| **Platform** | Xbox 360 (XBLA) |
+| **Developer** | Criterion Games |
+| **Publisher** | Electronic Arts |
+| **Year** | 2011 |
+| **Engine** | Criterion Games proprietary (post-RenderWare in-house) |
+| **Middleware** | Unknown (STFS encrypted) |
+| **Executable** | XEX (inside STFS, encrypted) |
+| **Container** | STFS (`LIVE`, Title ID `58410B5D`, 1.07 GB) |
+| **Asset Formats** | Unknown (encrypted) |
+| **Scripting** | Unknown |
+| **Physics** | Custom |
+| **Graphics** | Xbox 360 Xenos |
+| **Audio** | XMA (typical) |
+| **Video** | Unknown |
+
+**Key Finding:** Container verified (magic + title ID + display name). Contents need Xbox 360 keys. Top-down spin-off; no middleware claims without decryption.
+
+---
+
+## 31. Detonation Racing (iOS) — iPhone/iPad (2021)
+
+| Field | Value |
+|---|---|
+| **Title** | Detonation Racing |
+| **Platform** | iOS |
+| **Developer** | Electric Square Ltd |
+| **Publisher** | Electric Square Ltd (Apple Arcade) |
+| **Year** | 2021 (v1.2, build 178904) |
+| **Engine** | **Unity** (IL2CPP) |
+| **Middleware** | **Game Center** |
+| **Executable** | Thin launcher + UnityFramework (93 MB) |
+| **Container** | iOS .app bundle |
+| **Asset Formats** | Unity `.assets`/`.resS`/`.resource`, `level0–41` |
+| **Scripting** | **C#** (IL2CPP) |
+| **Physics** | Unity PhysX |
+| **Graphics** | Metal / OpenGL ES |
+| **Audio** | Unity Audio |
+| **Video** | Unity Video |
+
+**Key Finding:** Unity IL2CPP iOS player verified (UnityFramework + ScriptingAssemblies.json). 42 levels. Bundle `com.electricsquare.luna-testflight`. Game Center enabled.
+
+---
+
+## 32. Just Cause (PC) — Windows (2006)
+
+| Field | Value |
+|---|---|
+| **Title** | Just Cause |
+| **Platform** | PC (Windows) |
+| **Developer** | Avalanche Studios |
+| **Publisher** | Square Enix / Eidos Interactive |
+| **Year** | 2006 |
+| **Engine** | Avalanche Engine 1.0 |
+| **Middleware** | **Bink Video**, **DirectX 9** (d3dx9_26) |
+| **Executable** | JustCause.exe (packed, 2 sections, 10 MB virtual) |
+| **Container** | `.arc`/`.tab` (pc0–pc4, ~4.4 GB) |
+| **Asset Formats** | `.arc`/`.tab`, `.sab` (`CSW2`)/`.sob` (`CTF2`) SFX banks (252/219), `.bik` ×46 |
+| **Scripting** | Unknown (packed exe) |
+| **Physics** | In-house (unconfirmed — packed) |
+| **Graphics** | DirectX 9 |
+| **Audio** | In-house SFX banks (LOD1–LOD3 tiered) |
+| **Video** | Bink Video |
+
+**Key Finding:** Avalanche Engine 1.0 — `.arc`/`.tab` pipeline carried into JC2. LOD-tiered audio banks, 664 MB streamed music bank. Packed exe makes deeper middleware analysis inconclusive.
+
+---
+
+## 33. Ridge Racer 3D (3DS) — Nintendo 3DS (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Ridge Racer 3D |
+| **Platform** | Nintendo 3DS |
+| **Developer** | Namco Bandai Games |
+| **Publisher** | Namco Bandai Games |
+| **Year** | 2011 (launch window) |
+| **Engine** | Namco Bandai proprietary 3DS engine |
+| **Middleware** | NitroSDK |
+| **Executable** | CIA (CTR-P-ARRE) |
+| **Container** | CIA |
+| **Asset Formats** | `.bch`/`.bfres`, `.bclim`, `.bcwav`, `.shbin` |
+| **Scripting** | None (C++ only) |
+| **Physics** | Custom arcade drift |
+| **Graphics** | PICA200 GPU (stereoscopic 3D) |
+| **Audio** | CSND |
+| **Video** | None |
+
+**Key Finding:** Namco in-house 3DS launch title. Classic drift model on handheld. Different lineage from Vita (Cellius) F2P experiment.
+
+---
+
+## 34. Ridge Racer Draw and Drift (Android) — Android (~2016)
+
+| Field | Value |
+|---|---|
+| **Title** | Ridge Racer (Draw and Drift) |
+| **Platform** | Android |
+| **Developer** | Unknown |
+| **Publisher** | Bandai Namco Entertainment |
+| **Year** | ~2016 (v1.2.4, code 30) |
+| **Engine** | **Unity 5.3.7f1** (Mono) |
+| **Middleware** | GPG, Billing, LVL, SQLite |
+| **Executable** | APK + OBB (`main.30...`) |
+| **Container** | APK + OBB expansion |
+| **Asset Formats** | Unity `.assets` (in OBB), `.so` (ARMv7/x86) |
+| **Scripting** | **C#** (Mono) |
+| **Physics** | Unity PhysX |
+| **Graphics** | OpenGL ES |
+| **Audio** | Unity Audio |
+| **Video** | Unity Video |
+
+**Key Finding:** Unity 5.3.7f1 verified in `libunity.so` (ARMv7 + x86, 32-bit only). F2P mobile Ridge Racer with draw-racing-line gameplay.
+
+---
+
+## 35. Ridge Racer Unbounded (PC) — Windows (2012)
+
+| Field | Value |
+|---|---|
+| **Title** | Ridge Racer Unbounded |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Bugbear Entertainment |
+| **Publisher** | Namco Bandai Games |
+| **Year** | 2012 |
+| **Engine** | Bugbear proprietary (`bugbear.DataProvider`, `bflash`) |
+| **Middleware** | **Scaleform GFx**, **CRI ADX**, **Vorbis**, **Quazal**, **Steamworks**, **XAudio2** |
+| **Executable** | RRU.exe (12.8 MB, unpacked, 8 sections) |
+| **Container** | 3 extensionless DataProvider parts (1.47 GB main) |
+| **Asset Formats** | DataProvider chunks, `.gfx` ×82, `.adx` |
+| **Scripting** | None (C++ only) |
+| **Physics** | In-house destruction physics (no Havok/PhysX strings) |
+| **Graphics** | DirectX 9 (Scaleform D3D9 HAL) |
+| **Audio** | CRI ADX + Vorbis via XAudio2 |
+| **Video** | None found (no Bink) |
+
+**Key Finding:** Bugbear destruction-racing tech (FlatOut heritage) as Ridge Racer. Lean licensed stack: no Havok/Bink/FMOD. Quazal networking inside a Namco-published title.
 
 ---
 
