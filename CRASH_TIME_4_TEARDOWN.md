@@ -10,17 +10,17 @@
 ## 1. Game Engine
 
 **Synetic 3D Landscape Engine** (evolved from Crash Time 3)
-- **Middleware:** **None verified** — DirectX 9, custom physics (no exe in dump)
-- **Executable:** Not found in dump
-- **Physics:** Custom damage system (DAM_CRASH_* family trait; physics middleware unconfirmed)
-- **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Audio:** DirectSound/DirectMusic (WAV, OGG)
-- **Video:** Bink Video (`.bik`) — **NEW in CT4**
-- **Scripting:** None found (C++ only)
+- **Middleware:** **FMOD Ex** (exe-verified: ×250 mixer/stream/thread units) — DirectX 9, custom physics
+- **Executable:** CrashTime4Hi/Lo.exe + CrashTime4.exe (this round's dump supersedes the earlier exe-less one)
+- **Physics:** Custom damage system (`DAM_CRASH_*` ×6) — **no ODE** (`ODEConfig`/`PHYSICS_*` absent)
+- **Graphics:** DirectX 9 (`D3DX` ×2)
+- **Audio:** FMOD Ex (WAV banks)
+- **Video:** WMV (`Videos/*.wmv` + `_std` variants — **not Bink**: `Bink`/`.bik` ×0 in exe)
+- **Scripting:** None (`Lua` ×14 = code-byte noise; no Lua version/API strings unlike CT5)
 
-**Evidence (format-level only — dump contained no executable; string claims retracted after CT0/CT1 exe audits falsified `ODEConfig`/`PHYSICS_*`/`VehicleDamage::*`/`TrackEditor*`):**
-- `DAM_CRASH_*` damage system (family trait, exe-verified in CT0/CT1)
-- File-format evolution vs CT3 (see §2)
+**Evidence (exe-verified in `CrashTime4Hi.exe`, 5.4 MB):**
+- `Synetic` ×3, `SyndicateInfo/Members/Locations` + `CaseProgress` (subtitle systems), `.mox` ×53
+- `DAM_CRASH_*` damage system (family trait, consistent with CT0/CT1)
 
 ---
 
@@ -34,8 +34,7 @@
 ### Removed/Changed from Crash Time 3
 | Format | Change |
 |---|---|
-| `.ogg` | Removed (back to `.wav`/`.wma`?) |
-| `.bik` | Added (Bink Video) |
+| `.bik` | Absent (CT4 video is WMV, not Bink — exe-verified) |
 
 ### Persistent Formats
 | Format | Count | Description |
@@ -201,14 +200,14 @@ VehicleName/
 ## 4. Engine Analysis
 
 **Engine:** Synetic 3D Landscape Engine (evolved)
-- **Graphics:** DirectX 9 (D3DX9 Shader Compiler 9.12.589)
-- **Physics:** Custom damage system (DAM_CRASH_* family trait; physics middleware unconfirmed — no exe in dump)
-- **Audio:** DirectSound/DirectMusic (WAV, OGG?)
-- **Video:** Bink Video (`.bik`) — **NEW in CT4**
-- **Scripting:** None (C++ only)
+- **Graphics:** DirectX 9 (`D3DX` in exe)
+- **Physics:** Custom damage system (`DAM_CRASH_*` ×6) — no ODE
+- **Audio:** FMOD Ex (mixer/stream units in exe)
+- **Video:** WMV (`Videos/*.wmv` — Bink falsified)
+- **Scripting:** None (Lua ×14 = code noise)
 
 **New in Crash Time 4:**
-- Bink Video support (`.bik` files)
+- FMOD Ex audio (replaces DirectSound era)
 - Expanded vehicle roster (50+ traffic types)
 - Enhanced vehicle LOD system (LOD0-LOD3 + r_h/r_v variants)
 - New vehicle types: AlligatorLow, Dumper, Bagger, PrioLow, SemirLow, TransporterLow 1-3, Trolley1, Minilader, Stapler

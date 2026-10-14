@@ -1,34 +1,108 @@
-# Game Engine Reverse Engineering Research
+<p align="center">
+  <img src="docs/media/banner.png" alt="universal-modder: mod any game. Point any AI coding agent at the PC games you own. Publish your mods, remix other people's, and make new ones." width="100%">
+</p>
 
-This repository contains reverse engineering research and documentation for various game engines and titles, focusing on proprietary engines with zero or minimal licensed middleware.
+<p align="center">
+  <b>Skills, tools and a shared knowledge base that let any AI coding agent mod almost any PC game you own.</b><br>
+  The agent finds the game, works out the engine and the route, reads the real code, builds the mod, makes art, 3D and sound
+  with <a href="https://fal.ai">fal</a>, tests it in the running game, cuts the video, and writes down what it learned for the next agent.
+</p>
 
-## 📚 Documentation Index
+<p align="center">
+  <a href="https://discord.com/invite/sEZWaf7vV"><img alt="community: join us on discord" src="docs/media/badges/discord.png" height="26"></a>
+  <a href="#install"><img alt="works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and OpenCode" src="docs/media/badges/agents.png" height="26"></a>
+  <a href="knowledge/INDEX.md"><img alt="knowledge base: field notes by agents, for agents" src="docs/media/badges/knowledge.png" height="26"></a>
+  <a href="https://fal.ai"><img alt="assets: fal" src="docs/media/badges/fal.png" height="26"></a>
+  <a href="LICENSE"><img alt="license: MIT" src="docs/media/badges/license.png" height="26"></a>
+</p>
 
-| Game | Platform | Engine | Year | Middleware | Status |
-|---|---|---|---|---|---|
-| [Pursuit Force](TRACKMANIA_DS_TEARDOWN.md) | PSP | Bigbig `Game03` | 2005 | None | ✅ Complete |
-| [Pursuit Force: Extreme Justice](PURSUIT_FORCE_EJ_TEARDOWN.md) | PSP | Bigbig `Game03` | 2007 | None | ✅ Complete |
-| [MotorStorm: Arctic Edge (PSP)](MOTORSTORM_ARCTIC_EDGE_PSP_TEARDOWN.md) | PSP | Bigbig `Game03` | 2009 | None | ✅ Complete |
-| [MotorStorm: Arctic Edge (PS2)](MOTORSTORM_ARCTIC_EDGE_PSP_TEARDOWN.md#motorstorm-arctic-edge-ps2---ps2-2009) | PS2 | Bigbig `Game03` (Virtuos port) | 2009 | CRI, ODE (names only) | ✅ Complete |
-| [TrackMania DS](TRACKMANIA_DS_TEARDOWN.md) | NDS | Firebrand Games (Octane) | 2009 | None | ✅ Complete |
-| [TrackMania Turbo DS](TRACKMANIA_TURBO_DS_TEARDOWN.md) | NDS | Firebrand Games (Octane) | 2010 | None | ✅ Complete |
-| [Metal Gear Rising Revengeance](MGRR_TEARDOWN.md) | PC/PS3/X360 | PlatinumGames | 2013 | Havok + Wwise | ✅ Complete |
+<p align="center">
+  <img src="docs/media/mods-teaser.gif" alt="Six mods made by AI coding agents, with the universal-modder tile in the corner: Steve gliding an elytra through Los Santos, the Nether spreading over Los Santos, Minecraft mobs fighting the LSPD, the Halo Warthog in Minecraft, a World at War flamethrower in Minecraft, and World at War zombies in Minecraft. It ends on the universal-modder logo and &quot;mod any game.&quot;" width="560">
+</p>
 
-## 🏗️ Engine Lineages
+<p align="center"><b>Coming next: the mod hub.</b> Publish your mods, remix other people's, and make new ones.<br>
+  Share what you make, get help, and follow along:</p>
+<p align="center">
+  <a href="https://discord.com/invite/sEZWaf7vV"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/media/discord-dark.svg"><img src="docs/media/discord-light.svg" height="32" alt="join the discord"></picture></a>
+</p>
 
-### Bigbig Studios `Game03` Engine (2005–2009)
+## Install
+
+Pick your agent. Each gets the same skills (Agent Skills format), the fal MCP server, and the `um` CLI.
+
+| Agent | Install |
+|---|---|
+| **Claude Code** | `/plugin marketplace add rehan-remade/universal-modder`<br>`/plugin install universal-modder@universal-modder` |
+| **Codex** | `codex plugin marketplace add rehan-remade/universal-modder`<br>`codex plugin add universal-modder@universal-modder` |
+| **Gemini CLI** | `gemini extensions install https://github.com/rehan-remade/universal-modder` |
+| **VS Code / Copilot** | Enable `chat.plugins.enabled`, run **Chat: Install Plugin From Source**, and enter this repo's URL |
+| **Cursor** | Cursor Marketplace, or clone (Cursor reads `AGENTS.md` and `.cursor/mcp.json`) |
+| **OpenCode** | Clone and run `opencode` inside it (`opencode.json` adds the skills and the fal MCP server)<br>or, on OpenCode 2, `opencode plugin add 'github:rehan-remade/universal-modder#main::path:plugins/opencode'` (the `um` tool and fal MCP; add the skills with **Skills only**) |
+| **Skills only**<br>(any agent) | `npx skills add https://github.com/rehan-remade/universal-modder` |
+| **Anything else** | `git clone https://github.com/rehan-remade/universal-modder` and start your agent inside it |
+
+Inside a clone, each agent finds the skills where it looks for them: `.agents/skills` (Codex, Gemini CLI,
+Copilot, Cursor, OpenCode) and `.claude/skills` (Claude Code) are copies of `skills/`. Instructions are in
+`AGENTS.md`, which `CLAUDE.md` and `GEMINI.md` point to. MCP config is in `.mcp.json`, `.codex/config.toml`,
+`.cursor/mcp.json`, `.vscode/mcp.json` and `opencode.json` (which also points OpenCode at `skills/`).
+
+Without a clone, OpenCode 2 installs the plugin in `plugins/opencode/` with `opencode plugin add`: one
+`um_run` tool that passes its arguments straight to the CLI and runs `um` from PATH (see below), plus the
+fal MCP server when `FAL_KEY` is set and none is configured. A clone doesn't need it. See
+`plugins/opencode/README.md`.
+
+**The `um` CLI.** Plugin installs and clones put it on PATH (OpenCode's plugin install doesn't). Anywhere else:
+```bash
+uv tool install git+https://github.com/rehan-remade/universal-modder     # or: pipx install git+...
 ```
-Pursuit Force 1 (PSP, 2005)          → PAK v2 (`02 PAK`)
-Pursuit Force: Extreme Justice (2007) → PAK v2, AdHoc multiplayer
-MotorStorm: Arctic Edge PSP (2009)    → PAK (`PAK `), same engine
-MotorStorm: Arctic Edge PS2 (2009)    → Virtuos port, same PAK format
+**For assets,** get a [fal API key](https://fal.ai/dashboard/keys). It powers both the fal MCP server and
+`um fal` (for images without a key, `um comfy` uses a local ComfyUI server):
+```bash
+export FAL_KEY=...
 ```
-**Key finding:** 100% proprietary, zero licensed middleware across all 4 titles.
+You also need Git, Python 3.10+ and ffmpeg. `uv` is recommended. Blender is needed for 3D → sprite renders.
+Windows games are driven natively or from WSL.
 
-### Firebrand Games NDS Engine (Octane Lineage, 2009–2010)
-```
-TrackMania DS (2009)         → 32 MB ROM, ZIP (26 MB, 3457 files)
-TrackMania Turbo DS (2010)   → 64 MB ROM, ZIP (27 MB, 4258 files)
+## Try it
+> Mod Terraria: add a homing missile launcher and a tactical nuke that craters the world. Make the sprites with fal.
+
+> Make a new civilization for Age of Empires II with a unique unit rendered from 3D.
+
+> Put real Minecraft inside GTA V story mode. Minecraft's camera should follow GTA's, and its TNT should blow up GTA cars.
+
+> Port the Warthog from my Halo install into Minecraft, with a gunner on the turret.
+
+> What engine is `C:\Games\Foo`, and has anyone modded it before?
+
+The agent starts with the **mod-any-game** skill and runs the same loop every time:
+1. search the knowledge base;
+2. recon, then pick a route;
+3. set up a safe lab (saves backed up);
+4. read the actual code;
+5. build one working slice;
+6. generate assets;
+7. verify in the real game;
+8. record;
+9. package;
+10. write a field note for the next agent.
+
+## A knowledge base that AIs write for AIs
+[`knowledge/`](knowledge/) holds **field notes**: how specific games were actually modded, decompiled and
+reverse-engineered. Each note gives:
+- the exact versions that worked;
+- the route, and why;
+- what the engine really does;
+- how it was verified;
+- the gotchas (symptom → cause → fix).
+
+**Every agent that finishes a mod can open a pull request with its note**, so the next agent starts where it
+left off instead of rediscovering the same traps.
+
+```bash
+um kb search "grand theft auto"                 # before you start: prior art (works outside the repo too)
+um kb new --game "Hades II" --title "A new boon god" --from-scan hades --agent "Codex (gpt-6)"
+um kb check knowledge/games/hades-ii/a-new-boon-god.md
+um kb pr knowledge/games/hades-ii/a-new-boon-god.md --yes    # after your human says OK: branch, push, PR
 ```
 Browse [`knowledge/INDEX.md`](knowledge/INDEX.md). Every game is welcome. Contribution rules, for humans and
 AIs, are in [`CONTRIBUTING.md`](CONTRIBUTING.md): no game files, no decompiled dumps, no cheating other
@@ -128,99 +202,21 @@ Show it off in the [Discord](https://discord.com/invite/sEZWaf7vV), and put the 
 ```markdown
 [![made with universal-modder](https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/made-with-dark.svg)](https://github.com/rehan-remade/universal-modder)
 ```
-**Key finding:** Firebrand Games proprietary NDS engine with Octane engine lineage. Zero licensed middleware across both titles.
+Use `made-with-light.svg` on a light page.
 
-### PlatinumGames Engine (Separate Lineage)
-```
-Metal Gear Rising Revengeance (2013) → Havok + Wwise, FBX/HKX/DDS/BNK
-```
-**Key finding:** Only title in this set using licensed middleware (Havok physics, Wwise audio).
+## Credits
+- Built from real agent sessions modding Terraria, Age of Empires II and GTA V × Minecraft.
+- Assets: [fal](https://fal.ai) (GPT Image 2, Nano Banana 2, FLUX, Trellis 2, ElevenLabs...).
+- Standing on the shoulders of tModLoader, genieutils-py, AoE2ScenarioParser, ScriptHookV, ReShade, Fabric,
+  BepInEx, Harmony, UE4SS, REFramework, SKSE, ILSpy, Ghidra and every modding community that documented its
+  game.
+- The engine playbooks also draw on the September 2026 wave of AI-built mods, and on how their creators
+  explained them in public.
 
-## 📁 Documentation Files
+MIT licensed. Brand type: Geist Pixel, Sometype Mono and Instrument Sans. Video titles: Space Grotesk and JetBrains Mono. All under the SIL OFL.
 
-| File | Description |
-|------|-------------|
-| `GAMES_KNOWLEDGE_BASE.md` | Consolidated knowledge base for all 7+ games |
-| `PURSUIT_FORCE_TEARDOWN.md` | Pursuit Force 1 teardown |
-| `PURSUIT_FORCE_EJ_TEARDOWN.md` | Extreme Justice teardown |
-| `MOTORSTORM_ARCTIC_EDGE_PSP_TEARDOWN.md` | MotorStorm Arctic Edge (PSP) teardown |
-| `TRACKMANIA_DS_TEARDOWN.md` | TrackMania DS teardown |
-| `TRACKMANIA_TURBO_DS_TEARDOWN.md` | TrackMania Turbo DS teardown |
-| `MGRR_TEARDOWN.md` | Metal Gear Rising Revengeance teardown |
+## Star history
 
-## 🔍 Key Findings Summary
-
-| Engine Family | Games | Middleware | Key Insight |
-|---|---|---|---|
-| Bigbig `Game03` | 4 games | **None** | Pure Sony PSP/PS2 SDK + custom formats |
-| Firebrand NDS | 2 games | **None** | Pure Nintendo NitroSDK + Lua scripting |
-| PlatinumGames | 1 game | Havok + Wwise | Only title with licensed middleware |
-
-## 🛠️ Common Tools Used
-
-| Tool | Purpose |
-|------|---------|
-| `psmfdump.exe` | PMF video demux (PSP) |
-| `dattool.exe` | `.dat` archive extraction (NDS) |
-| `unluac` / `luadec` | Lua bytecode decompilation |
-| `ffmpeg` | Video/audio conversion |
-| `py7zr` / `7z` | 7z archive extraction |
-| Custom Python scripts | ROM parsing, PAK/ZIP extraction, format analysis |
-
-## 📦 Archive Formats Discovered
-
-| Game | Container | Format |
-|------|-----------|--------|
-| Pursuit Force 1/Extreme Justice | PAK v2 | `02 PAK` magic, 16-byte index entries |
-| MotorStorm Arctic Edge (PSP) | PAK | `PAK ` magic, 24-byte linked-list entries |
-| MotorStorm Arctic Edge (PS2) | PAK | Same as PSP version |
-| TrackMania DS | ZIP | Standard ZIP at 0x645C00 (26 MB) |
-| TrackMania Turbo DS | ZIP | Standard ZIP at 0x873200 (27 MB) |
-
-## 🎮 File Formats Catalog
-
-| Extension | Game(s) | Description |
-|---|---|---|
-| `.pspptx` / `.PSP_PTX_MAIN` | Pursuit Force, MotorStorm PSP | PSP texture (swizzled, paletted) |
-| `.pspp3d` / `.pspl3d` | Pursuit Force | 3D models |
-| `.psppve` | Pursuit Force | Vehicle models |
-| `.pspppprt` | Pursuit Force | Particle systems |
-| `.chpsp` / `.anp` | Pursuit Force | Characters / animations |
-| `.nsbmd` / `.n` | TrackMania DS / Turbo DS | NSBMD 3D models (BMD0 magic) |
-| `.hzc` / `.h` | TrackMania DS / Turbo DS | Hit zone collision |
-| `.dcsc` | TrackMania DS / Turbo DS | Scene collision |
-| `.luac` | TrackMania DS / Turbo DS | Lua 5.1 bytecode |
-| `.hzc` / `.h` | TrackMania | Hit zone collision |
-| `.sdat` | All NDS games | Nintendo DS audio (SDAT) |
-| `.at3` / `.vib/.vdb` | PSP games | ATRAC3 audio / VIB+VDB audio |
-
-## 🔧 Tools Developed
-
-Custom Python scripts for:
-- NDS ROM parsing (FAT/FNT extraction)
-- PAK container parsing (PSP/PS2)
-- ZIP archive extraction from ROM offsets
-- File format identification (magic bytes, structure analysis)
-- ARM9/ARM7 binary analysis (string extraction, engine detection)
-
----
-
-## 📝 License & Usage
-
-This research is for educational and preservation purposes only. All game assets, binaries, and code remain the property of their respective owners (Sony, Atari, Nintendo, Konami, PlatinumGames, Firebrand Games, Bigbig Studios).
-
-**Do not** use this research to:
-- Bypass DRM or anti-cheat systems
-- Create cheats for online multiplayer
-- Redistribute game assets or binaries
-- Violate EULA terms
-
-This research is intended for:
-- Game preservation and documentation
-- Engine architecture education
-- Modding framework development (offline/single-player only)
-- Historical documentation of game engine evolution
-
----
-
-*Research conducted 2026. All analysis performed on legally obtained game dumps owned by the researcher.*
+<p align="center">
+  <a href="https://github.com/rehan-remade/universal-modder/stargazers"><img src="https://raw.githubusercontent.com/rehan-remade/universal-modder/star-chart/stars.svg" width="800" alt="universal-modder's GitHub stars over time"></a>
+</p>

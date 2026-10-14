@@ -20,7 +20,7 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 10 | Crash Time 1 | PC | 2007 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT0) | NONE (DirectX 9 + custom; ODE references) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 11 | Crash Time 2 | PC | 2008 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT1) | NONE (DirectX 9 + custom; ODE Physics referenced) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 12 | Crash Time 3 | PC | 2009 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT1/2) | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
-| 13 | Crash Time 4 | PC | 2010 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT3) | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 13 | Crash Time 4 – The Syndicate | PC | 2010 | Synetic GmbH / RTL Games / dtp entertainment | Synetic 3D Landscape Engine (evolved from CT3) | FMOD Ex (exe-verified) | Hi/Lo builds; DAM_CRASH; WMV video; no ODE/Lua/Bink; https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 14 | Crash Time 5 | PC | 2012 | Synetic GmbH / RTL Games / dtp entertainment | Synetic 3D Landscape Engine (final 32-bit) | FMOD Ex, Lua 5.1.2 | Hi/Lo builds; .mox/.xml; DAM_CRASH; no ODE; https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 15 | Excite Truck | Wii | 2006 | Monster Games / Nintendo | Monster Games proprietary | Bink Video only | |
 | 16 | Driver Renegade | 3DS | 2011 | VD-dev / Ubisoft | VD-dev Proprietary Engine | NitroSDK | Corrected: not Firebrand — developed by VD-dev |
@@ -89,6 +89,28 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 79 | Super Mario Advance 2 | GBA | 2001 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | AA2E (Super Mario World); 4MB |
 | 80 | Super Mario Advance 3 | GBA | 2002 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | A3AE (Yoshi's Island); 4MB |
 | 81 | Super Mario Advance 4 | GBA | 2003 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | AX4E (SMB3); 4MB |
+| 82 | City Patrol Police | PC | Unknown (v1.0.1) | Unknown / Unknown (Steam) | Unreal Engine 4 | PhysX3, Steamworks | UE4 (no Chaos/Oodle); WorldracingGame project; bootstrap+Shipping exes |
+| 83 | DiRT Showdown | PC | 2012 | Codemasters / Codemasters | EGO (Neon lineage) | Bink, Vorbis/CMStream, Steamworks, ZOOM | Neon threading; Miles=milestone noise; showdown+_avx exes |
+| 84 | Ghost Recon Phantoms | PC | 2014 | Ubisoft Singapore / Ubisoft | Yeti Engine | Bink, Awesomium, FFmpeg, Vivox/oRTP, Steamworks | Yeti.big 2.77GB; PDB path; nightly builds; AppID 243870 |
+| 85 | TrackMania Wii (Build to Race) | Wii | 2010 | Firebrand Games / Unknown | Firebrand Octane (Wii) | NitroSDK-descended | RVZ 776MB; unextracted; https://en.wikipedia.org/wiki/Firebrand_Games |
+| 86 | Crash Time 3D | 3DS | 2012 | Unknown / Unknown (RTL?) | Unknown 3DS (encrypted CIA) | NitroSDK? | CTR-P-AFBP; 107MB CIA; zero plaintext |
+| 87 | Ferrari GT Evolution | NDS | Unknown (Rev 1) | Unknown / Unknown | Custom DS (NitroSDK) | NONE | KFRE/GL; 13 files; ecp tuning cfgs; French-leaning |
+| 88 | Mario Kart DS | NDS | 2005 | Nintendo EAD / Nintendo | Nintendo EAD proprietary NDS | NONE | .carc/.prm native formats; CTGP mod baseline |
+| 89 | Max & the Magic Marker | NDS | 2010 | Press Play / Ubisoft | Press Play custom DS | NONE | .bg_lz/.obj/.scn draw-physics split |
+| 90 | N.O.V.A. (minis) | PSP | 2010 | Gameloft / Gameloft | Gameloft proprietary minis | PSP native audio (.vag/.at3) | NPUZ00179; .pack ×17; encrypted EBOOT |
+| 91 | Pac-Man World 3 | PSP | 2005 | Blitz Games / Namco | BlitzTech-derived port? | Unknown (encrypted EBOOT) | ULUS10055; 39 .psp packs; 23 PMF |
+| 92 | Pokemon Diamond | NDS | 2006 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | NARC ×149; ARM9 1MB |
+| 93 | Pokemon Ranger: Shadows of Almia | NDS | 2008 | Creatures Inc. / Nintendo | Creatures proprietary DS | NONE | .fsb ×3832; 7,666 files |
+| 94 | Pokemon Emerald | GBA | 2004 | GAME FREAK / Nintendo | GAME FREAK proprietary GBA | NONE | 16MB; Gen-III |
+| 95 | Pokemon FireRed | GBA | 2004 | GAME FREAK / Nintendo | GAME FREAK proprietary GBA | NONE | 16MB; Gen-III |
+| 96 | Pony Friends | NDS | 2007 (est.) | Unknown / Eidos? | Custom DS (NitroSDK) | NONE | .rbh 2060; XML-driven; Mobiclip .vx |
+| 97 | Pony Friends 2 | NDS | 2009 (est.) | Unknown / Eidos? | Custom DS (NitroSDK) | NONE | .rbh 5222; sequel drops Mobiclip |
+| 98 | Real Soccer 2009 | NDS | 2008 | Gameloft / Ubisoft | Gameloft proprietary DS | NONE | .mesh/.smesh 3D; BMP UI; lzma+blz |
+| 99 | Ridge Racer DS | NDS | 2004 | Namco / Namco | Namco proprietary DS (ds* family) | NONE | .lot/.dsbc/.datc; NOT Firebrand; 637 files |
+| 100 | Scribblenauts Collection | NDS | 2013 | 5th Cell / Warner Bros. | Objectnaut | NONE | 18,509 extensionless objects; densest DS ROM |
+| 101 | Super Monkey Ball: Touch & Roll | NDS | 2005 | Sega / Sega | Sega proprietary DS | NONE | .lz ×2626; .grd/.pln/.rdp stages |
+| 102 | Surf's Up | NDS | 2007 | Unknown / Ubisoft | Unknown (Mobiclip pipeline) | Mobiclip video | .vx ×45; 7,326 extensionless; big ARM9 |
+| 103 | Animal Crossing: Wild World | NDS | 2005 | Nintendo EAD / Nintendo | Nintendo EAD proprietary DS | NONE | .nsbtx 3015; .arc 2064; .bmg 1791; 9,504 files |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -453,27 +475,27 @@ PlatinumGames Engine
 
 ---
 
-## 9.4. Crash Time 4 (Alarm für Cobra 11) — PC (2010)
+## 9.4. Crash Time 4 – The Syndicate (Alarm für Cobra 11) — PC (2010, exe-verified this round)
 
 | Field | Value |
 |---|---|
-| **Title** | Crash Time 4 (Alarm für Cobra 11) |
+| **Title** | Crash Time 4 – The Syndicate (Alarm für Cobra 11) |
 | **Platform** | PC (Windows) |
 | **Developer** | Synetic GmbH (German) |
-| **Publisher** | RTL Games / JoWooD |
+| **Publisher** | RTL Games / dtp entertainment |
 | **Year** | 2010 |
 | **Engine** | Synetic 3D Landscape Engine (evolved from CT3) |
-| **Middleware** | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom |
-| **Executable** | Missing from dump |
-| **Container** | Loose files (no archive) |
-| **Asset Formats** | Same as CT3 + `.dds`; 50+ traffic types with LOD0–LOD3 + r_h/r_v variants |
-| **Scripting** | None (C++ only) |
-| **Physics** | Custom (DAM_CRASH_*) + ODE Physics |
-| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
-| **Audio** | DirectSound/DirectMusic (WAV) |
-| **Video** | Bink Video (`.bik`) |
+| **Middleware** | **FMOD Ex** (exe-verified ×250) |
+| **Executable** | CrashTime4Hi/Lo.exe (5.4/5.3 MB) + stub (exe-verified) |
+| **Container** | Loose files + installer (`installation.ini`, dtp URLs) |
+| **Asset Formats** | `.mox` (×53 refs), `.trf`, `.cpo`, `.ptx`, `.wmv` Videos (+`_std` variants) |
+| **Scripting** | None (`Lua` ×14 = code noise; no version string unlike CT5) |
+| **Physics** | Custom (DAM_CRASH_ ×6) — **no ODE** (`ODEConfig`/`PHYSICS_*` absent) |
+| **Graphics** | DirectX 9 |
+| **Audio** | FMOD Ex |
+| **Video** | WMV (Bink falsified — `.bik`/Bink ×0) |
 
-**Key Finding:** Enhanced vehicle LOD system; Bink Video retained. Direct predecessor of the Undercover final evolution. https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine
+**Key Finding:** FMOD era begins at CT4 (not CT5). Bink claim retracted — Videos/ is WMV-only. No Lua, no ODE, no Steam. https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine
 
 ---
 
@@ -1646,6 +1668,208 @@ PlatinumGames Engine
 | **Platform** | Game Boy Advance (4 MB each) |
 | **Developer** | Nintendo R&D2 |
 | **Year** | 2001 / 2001 / 2002 / 2003 |
+
+---
+
+## 68. City Patrol Police — PC
+
+| Field | Value |
+|---|---|
+| **Title** | City Patrol Police (v1.0.1) |
+| **Platform** | PC (Windows 64-bit, Steam) |
+| **Engine** | **Unreal Engine 4** (PhysX3, no Chaos/Oodle; `WorldracingGame` project) |
+| **Middleware** | **PhysX 3**, **Ogg/Vorbis**, **NVIDIA**, **Steamworks** |
+| **Executable** | 350 KB bootstrap + 49.7 MB Shipping exe |
+
+---
+
+## 69. Crash Time 4 – The Syndicate — PC (2010) [exe-verified]
+
+Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Steam. Hi/Lo 5.4/5.3 MB exes.
+
+---
+
+## 70. DiRT Showdown — PC (2012)
+
+| Field | Value |
+|---|---|
+| **Title** | DiRT Showdown |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Codemasters |
+| **Year** | 2012 |
+| **Engine** | EGO (Neon lineage — Neon threading, zero Ego strings) |
+| **Middleware** | **Bink**, **Ogg Vorbis** (CMStream), **Steamworks**, **ZOOM**, **GFWL** remnants |
+| **Executable** | showdown.exe (15.3 MB) + _avx build |
+
+**Key Finding:** `Miles` = milestone noise. No Havok/PhysX/FMOD/Lua.
+
+---
+
+## 71. Ghost Recon Phantoms — PC (2014)
+
+| Field | Value |
+|---|---|
+| **Title** | Ghost Recon Phantoms (AppID 243870, nightly builds) |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Ubisoft Singapore (`C:\Build\GRO\live-dev\Yeti\`) |
+| **Engine** | Ubisoft Yeti Engine |
+| **Middleware** | **Bink**, **Awesomium**, **FFmpeg**, **Vivox/oRTP**, **Steamworks**, **ICU/OpenSSL** |
+| **Container** | `Yeti.big` (2.77 GB) + `.bigmap`; `Yeti.ini.enc` (encrypted) |
+
+**Key Finding:** `Nx`/`GFx` = opcode noise (no PhysX/Scaleform). Voice-first live-service stack.
+
+---
+
+## 72. TrackMania Wii (Build to Race) — Wii (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | TrackMania: Build to Race (USA) |
+| **Platform** | Nintendo Wii |
+| **Developer** | Firebrand Games |
+| **Engine** | Firebrand Octane (Wii) — unextracted RVZ (776 MB) |
+
+---
+
+## 73. Crash Time 3D — 3DS (2012)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time 3D (CTR-P-AFBP) |
+| **Engine** | Unknown (107 MB CIA fully encrypted) |
+
+---
+
+## 74. Ferrari GT Evolution — NDS
+
+| Field | Value |
+|---|---|
+| **Title** | Ferrari GT (KFRE/GL, Rev 1) |
+| **Engine** | Custom micro-studio DS (13 files, `ecp/` tuning, French-leaning) |
+| **Middleware** | **NONE** |
+
+---
+
+## 75. Mario Kart DS — NDS (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Mario Kart DS (USA) |
+| **Developer** | Nintendo EAD |
+| **Engine** | Nintendo EAD proprietary NDS (`.carc`/`.prm` native formats — CTGP mod baseline) |
+| **Middleware** | **NONE** |
+
+---
+
+## 76. Max & the Magic Marker — NDS (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Max & the Magic Marker |
+| **Developer** | Press Play / Ubisoft |
+| **Engine** | Press Play custom DS (`.bg_lz`/`.obj`/`.scn` draw-physics split) |
+| **Middleware** | **NONE** |
+
+---
+
+## 77. N.O.V.A. (PSP Minis) — PSP (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | N.O.V.A. (NPUZ00179, v1.01, FW 6.20) |
+| **Developer** | Gameloft |
+| **Engine** | Gameloft proprietary minis (encrypted EBOOT) |
+| **Assets** | `.vag` ×417, `.at3` ×31, `.pack` ×17, `.pmf` ×2 |
+
+---
+
+## 78. Pac-Man World 3 — PSP (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Pac-Man World 3 (ULUS10055, v1.01, FW 2.00) |
+| **Developer** | Blitz Games / Namco |
+| **Engine** | BlitzTech-derived port? (encrypted EBOOT — unconfirmed) |
+| **Assets** | 39 `.psp` packs, 23 PMF |
+
+---
+
+## 79. Pokémon Handheld Batch — DS/GBA
+
+| Field | Value |
+|---|---|
+| **Titles** | Diamond (NARC ×149) · Ranger Almia (`.fsb` ×3,832, 7,666 files) · Emerald + FireRed (16 MB Gen-III) |
+| **Developers** | GAME FREAK (Diamond/Emerald/FireRed) / Creatures Inc. (Ranger) |
+| **Middleware** | **NONE** |
+
+---
+
+## 80. Pony Friends 1 + 2 — NDS
+
+| Field | Value |
+|---|---|
+| **Titles** | Pony Friends (`.rbh` 2,060) + Pony Friends 2 (`.rbh` 5,222) |
+| **Engine** | Shared custom DS (XML-driven, Mobiclip `.vx` in PF1) |
+| **Middleware** | **NONE** |
+
+---
+
+## 81. Real Soccer 2009 — NDS (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | Real Soccer 2009 (Gameloft/Ubisoft) |
+| **Engine** | Gameloft proprietary DS (`.mesh`/`.smesh` 3D, BMP UI, lzma+blz) |
+| **Middleware** | **NONE** |
+
+---
+
+## 82. Ridge Racer DS — NDS (2004)
+
+| Field | Value |
+|---|---|
+| **Title** | Ridge Racer DS (Namco, 637 files) |
+| **Engine** | Namco proprietary DS (`ds*` containers — NOT Firebrand) |
+| **Middleware** | **NONE** |
+
+---
+
+## 83. Scribblenauts Collection — NDS (2013)
+
+| Field | Value |
+|---|---|
+| **Title** | Scribblenauts Collection (5th Cell, 18,517 files) |
+| **Engine** | 5th Cell Objectnaut (18,509 extensionless objects) |
+| **Middleware** | **NONE** |
+
+---
+
+## 84. Super Monkey Ball: Touch & Roll — NDS (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Super Monkey Ball: Touch & Roll (Sega, 2,651 files) |
+| **Engine** | Sega proprietary DS (`.lz` ×2,626, `.grd`/`.pln`/`.rdp` stages) |
+| **Middleware** | **NONE** |
+
+---
+
+## 85. Surf's Up — NDS (2007)
+
+| Field | Value |
+|---|---|
+| **Title** | Surf's Up (Ubisoft, 7,409 files) |
+| **Engine** | Unknown Mobiclip-licensed pipeline (`.vx` ×45, 7,326 extensionless) |
+
+---
+
+## 86. Animal Crossing: Wild World — NDS (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Welcome to Animal Crossing: Wild World (Nintendo EAD, 9,504 files) |
+| **Engine** | Nintendo EAD proprietary DS (`.nsbtx` 3,015, `.arc` 2,064, `.bmg` 1,791) |
+| **Middleware** | **NONE** |
 
 ---
 
