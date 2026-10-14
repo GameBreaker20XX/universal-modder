@@ -115,6 +115,20 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 105 | Mercenaries 2: World in Flames | PC | 2008 | Pandemic Studios / Electronic Arts | Pandemic Pangea + Havok 4.x | Bink, Vorbis/MP3, SecuROM, GFWL | Havok-4.1/4.5 version strings; Lua/XACT/CRI=noise; no RenderWare |
 | 106 | Final Fantasy Type-0 (CHD) | PSP | 2011 | Square Enix / Square Enix | Square proprietary PSP? | Unknown (CHD unextracted) | MComprHD v5, 2.4GB; needs chdman |
 | 107 | Mario Power Tennis (GC RVZ) | GameCube | 2004 | Camelot / Nintendo | Camelot proprietary GC? | Nintendo SDK? | Dolphin RVZ v1, 630MB; needs DolphinTool |
+| 108 | Modern Combat 5 | PC | 2017 | Gameloft / Gameloft | Gameloft proprietary | Vivox, Steamworks, CEF, VOX/stb-vorbis | AppID 921060; Nx/Miles/Lua/Cry=noise |
+| 109 | Dante's Inferno | PSP | 2010 | A2M? / Electronic Arts | A2M PSP? (packed BOOT) | Bink (.bik ×227) | ULUS10469; 720 .psp packs; 202 .sbk |
+| 110 | Dissidia 012 Duodecim | PSP | 2011 | Square Enix / Square Enix | Square proprietary PSP (packed) | ATRAC3, PMF | ULUS10566; 9 ELF modules; BOOT zero-string |
+| 111 | God of War: Ghost of Sparta | PSP | 2010 | Ready at Dawn / Sony | Ready at Dawn proprietary PSP | ATRAC3, PMF | UCUS98737; 619 .bin chunks; 38 PRX |
+| 112 | Ridge Racers (PSP) | PSP | 2004 | Namco / Namco | Namco in-house PSP + nuSound | PMF, ATRAC3 | ULUS10001 (first US title!); 34 PRX; unpacked BOOT |
+| 113 | Ridge Racers 2 (PSP) | PSP | 2006 | Namco / Sony? | Namco in-house PSP + nuSound | PMF, ATRAC3 | UCES00422; unpacked BOOT; Nx=noise |
+| 114 | Star Wars: The Force Unleashed | PSP | 2008 | Krome Studios / LucasArts | Krome in-house PSP (Merkury?) | PMF, ATRAC3 | ULUS10345; KromeLogoVideo; .rkv ×3; MindTrick≠A2M |
+| 115 | Super Mario Sunshine (RVZ) | GameCube | 2002 | Nintendo EAD / Nintendo | Nintendo EAD proprietary GC | Nintendo SDK? | Dolphin RVZ, 1.17GB; needs DolphinTool |
+| 116 | Pokemon HeartGold | NDS | 2009 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | IPKE; 265 extensionless + NARC 44 |
+| 117 | Pokemon SoulSilver | NDS | 2009 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | IPGE; mirrors HG |
+| 118 | Pokemon Platinum | NDS | 2008 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | CPUE; NARC ×215 (Diamond profile) |
+| 119 | Pokemon White | NDS | 2010 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | IRAO DSi-enhanced; 235 extensionless + 3 NARC |
+| 120 | Pokemon White 2 | NDS | 2012 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | IRDO; 512MB biggest DS ROM; 308 extensionless |
+| 121 | Pokemon Ranger: Guardian Signs | NDS | 2010 | Creatures Inc. / Nintendo | Creatures proprietary DS | NONE | B3RE; .acz ×382 (new container vs Almia .fsb) |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1913,6 +1927,95 @@ Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Ste
 | **Titles** | FF Type-0 (PSP, MComprHD v5 CHD, 2.4 GB) · Mario Power Tennis (GC, Dolphin RVZ v1, 630 MB) |
 | **Status** | Unextracted (no chdman/DolphinTool) — container forensics only |
 | **Engines** | Unconfirmed (Square PSP / Camelot GC expected) |
+
+---
+
+## 90. Modern Combat 5 — PC (2017)
+
+| Field | Value |
+|---|---|
+| **Title** | Modern Combat 5 (AppID 921060) |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Gameloft (`Gameloft` ×5, `com.gameloft.ModernCombat5`) |
+| **Engine** | Gameloft proprietary (24.7 MB exe) |
+| **Middleware** | **Vivox** (×96 + SDK + oRTP), **Steamworks**, **CEF/Chromium** (93 MB UI), **OpenSSL**, **VOX/stb-vorbis** audio |
+| **Scripting** | None (`Lua` ×11 noise) |
+
+**Key Finding:** Mobile-to-PC port anatomy (Android ID in exe, CEF menus, SwiftShader fallback). `Miles` = milestones; `Cry` = payment cryptograms; `Nx` = opcodes.
+
+---
+
+## 91. Dante's Inferno — PSP (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Dante's Inferno (ULUS10469, v1.01, FW 6.20) |
+| **Developer** | Artificial Mind & Movement? / EA (likely, unconfirmed — packed BOOT) |
+| **Engine** | A2M PSP? (720 `.psp` packs + 227 Bink + 202 `.sbk` — same triple as PMW3 PSP) |
+| **Middleware** | **Bink Video** (file-evidenced) |
+
+---
+
+## 92. Dissidia 012 Duodecim — PSP (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | DISSIDIA duodecim (ULUS10566, FW 6.37) |
+| **Developer** | Square Enix |
+| **Engine** | Square proprietary PSP (4.6 MB BOOT, zero strings — packed) |
+| **Middleware** | **ATRAC3** (×135), **PMF** (×35) |
+| **Note** | 9 unpacked `.elf` modules = follow-up target |
+
+---
+
+## 93. God of War: Ghost of Sparta — PSP (2010)
+
+| Field | Value |
+|---|---|
+| **Title** | Ghost of Sparta (UCUS98737, v2.00, FW 6.31) |
+| **Developer** | Ready at Dawn / Sony |
+| **Engine** | Ready at Dawn proprietary PSP (5.6 MB BOOT, packed) |
+| **Middleware** | **ATRAC3** (×131), **PMF** (×35) |
+| **Assets** | `.bin` ×619 data chunks, 38 PRX modules |
+
+---
+
+## 94. Ridge Racers 1 + 2 — PSP (2004/2006)
+
+| Field | Value |
+|---|---|
+| **Titles** | RR1 (ULUS10001 — first US PSP title) + RR2 (UCES00422) |
+| **Developer** | Namco |
+| **Engine** | Namco in-house PSP + **nuSound** (`nuSoundStreamReady` in decrypted BOOT.BINs) |
+| **Middleware** | **PMF**, **ATRAC3** |
+| **Note** | Unpacked BOOT.BINs (most analyzable PSP binaries in set); 34 PRX in RR1 |
+
+---
+
+## 95. Star Wars: The Force Unleashed — PSP (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | TFU (ULUS10345, v1.01, FW 3.95) |
+| **Developer** | Krome Studios (`KromeLogoVideo`) / LucasArts |
+| **Engine** | Krome in-house PSP, Merkury lineage (likely) |
+| **Middleware** | **PMF** (×4), **ATRAC3** |
+| **Container** | `.rkv` ×3 (Krome packages) |
+
+**Key Finding:** `Mind*` = Force powers (not A2M). Handheld TFU ≠ console Pixelux-DMM engine family.
+
+---
+
+## 96. Super Mario Sunshine (RVZ) + Pokémon Gen IV–V + Ranger GS — Containers/Profiles
+
+| Field | Value |
+|---|---|
+| **Sunshine** | GC RVZ 1.17 GB, EAD 2002, unextracted (needs DolphinTool) |
+| **HG/SS** | Gen IV NARC design (265 extensionless + 44 NARC, IPKE/IPGE) |
+| **Platinum** | Diamond profile (NARC ×215, CPUE) |
+| **White/W2** | Gen V overlay redesign (235/308 extensionless, IRAO/IRDO; W2 = 512 MB biggest DS ROM) |
+| **Ranger GS** | Creatures `.acz` ×382 new container (vs Almia `.fsb`), B3RE |
+| **Middleware** | **NONE** throughout (NitroSDK only) |
 
 ---
 

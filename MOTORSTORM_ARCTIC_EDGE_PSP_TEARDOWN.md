@@ -125,6 +125,16 @@ PSP_GAME/
 
 ---
 
+## 7b. Second-Dump Corroboration (UMD ISO, UCUS98743, FW 5.55)
+
+A later 870 MB UMD ISO dump (`MotorStorm - Arctic Edge (PSP) (En,Fr,De,Es,It,Nl,Pt,Ru).iso`, 20 entries) independently confirms the container findings:
+- `PSP_GAME\USRDIR\FE.PAK` magic **`PAK \x01\x00\x00\x00`** (PAK + version u32 = 1), 315,712,032 bytes — same file, same size as the first dump
+- `PSP_GAME\USRDIR\MAIN.PAK` + `LoadingMain.PSP_PTX_MAIN` present (texture entry point)
+- `PARAM.SFO`: `DISC_ID UCUS98743`, `PSP_SYSTEM_VER 5.55`, 8-language title set
+- BOOT.BIN packed (zero engine strings in 3.36 MB — same wall as Square/EA PSP binaries)
+
+---
+
 ## 8. Files Created
 
 | File | Description |
