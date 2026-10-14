@@ -111,6 +111,10 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 101 | Super Monkey Ball: Touch & Roll | NDS | 2005 | Sega / Sega | Sega proprietary DS | NONE | .lz ×2626; .grd/.pln/.rdp stages |
 | 102 | Surf's Up | NDS | 2007 | Unknown / Ubisoft | Unknown (Mobiclip pipeline) | Mobiclip video | .vx ×45; 7,326 extensionless; big ARM9 |
 | 103 | Animal Crossing: Wild World | NDS | 2005 | Nintendo EAD / Nintendo | Nintendo EAD proprietary DS | NONE | .nsbtx 3015; .arc 2064; .bmg 1791; 9,504 files |
+| 104 | Head2Head (BoltGame) | PC | Unknown | Unknown / Unknown | Unreal Engine 4.27 | PhysX3, EOS, GGPO/BoltFramework | Rollback versus; same UE4.27 family as Cyber Clutch |
+| 105 | Mercenaries 2: World in Flames | PC | 2008 | Pandemic Studios / Electronic Arts | Pandemic Pangea + Havok 4.x | Bink, Vorbis/MP3, SecuROM, GFWL | Havok-4.1/4.5 version strings; Lua/XACT/CRI=noise; no RenderWare |
+| 106 | Final Fantasy Type-0 (CHD) | PSP | 2011 | Square Enix / Square Enix | Square proprietary PSP? | Unknown (CHD unextracted) | MComprHD v5, 2.4GB; needs chdman |
+| 107 | Mario Power Tennis (GC RVZ) | GameCube | 2004 | Camelot / Nintendo | Camelot proprietary GC? | Nintendo SDK? | Dolphin RVZ v1, 630MB; needs DolphinTool |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1870,6 +1874,45 @@ Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Ste
 | **Title** | Welcome to Animal Crossing: Wild World (Nintendo EAD, 9,504 files) |
 | **Engine** | Nintendo EAD proprietary DS (`.nsbtx` 3,015, `.arc` 2,064, `.bmg` 1,791) |
 | **Middleware** | **NONE** |
+
+---
+
+## 87. Head2Head (BoltGame) — PC
+
+| Field | Value |
+|---|---|
+| **Title** | Head2Head (project `BoltGame`) |
+| **Platform** | PC (Windows 64-bit) |
+| **Engine** | **Unreal Engine 4.27** (same UE4.27 ThirdParty family as Cyber Clutch) |
+| **Middleware** | **PhysX 3**, **EOS**, **BoltFramework/GGPO** (rollback netcode), Ogg/Vorbis, XAudio2, Aftermath |
+| **Executable** | Bootstrap (350 KB) + 79 MB Shipping exe + EOS/OIDenoise/TBB |
+
+**Key Finding:** Versus game confirmed at source-path level (`BoltFramework/GGPO` p2p backend). `Steam` ×7 = controller strings, not Steamworks.
+
+---
+
+## 88. Mercenaries 2: World in Flames — PC (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | Mercenaries 2: World in Flames (Pandemic, 53 MB exe) |
+| **Platform** | PC (Windows) |
+| **Developer** | Pandemic Studios (`CentralTechAndTools`, `D:\projects\Mercs2_PC\Pangea\`) |
+| **Engine** | Pandemic Pangea + **Havok 4.x** (`Havok-4.1.0-r1`, `Havok-4.5.0-b1`) |
+| **Middleware** | **Bink**, **Vorbis/MP3** (ogg/vorbis/mpglib DLLs), **SecuROM**, **GFWL** |
+| **Scripting** | None evidenced (`Lua` ×68 = code noise) |
+
+**Key Finding:** `XACT` = HRESULT noise; `CRI` = EA DLC strings; `Nx` = opcode noise. Zero RenderWare in 53 MB (same exit pattern as Criterion).
+
+---
+
+## 89. Final Fantasy Type-0 (CHD) + Mario Power Tennis (RVZ) — Containers Only
+
+| Field | Value |
+|---|---|
+| **Titles** | FF Type-0 (PSP, MComprHD v5 CHD, 2.4 GB) · Mario Power Tennis (GC, Dolphin RVZ v1, 630 MB) |
+| **Status** | Unextracted (no chdman/DolphinTool) — container forensics only |
+| **Engines** | Unconfirmed (Square PSP / Camelot GC expected) |
 
 ---
 
