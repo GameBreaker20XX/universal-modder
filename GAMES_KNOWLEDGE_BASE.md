@@ -131,6 +131,8 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 121 | Pokemon Ranger: Guardian Signs | NDS | 2010 | Creatures Inc. / Nintendo | Creatures proprietary DS | NONE | B3RE; .acz ×382 (new container vs Almia .fsb) |
 | 122 | APB Reloaded | PC | 2011 | Reloaded Productions / GamersFirst | Unreal Engine 3 | Scaleform GFx, Bink, Vivox, Steamworks | AppID 113400; Nx/Ogg/CRI=noise; BattlEye dir, unlinked exe |
 | 123 | SAMSON (CJ project) | PC | 2023+ | Unknown / Unknown | Unreal Engine 5 | Wwise, Bink 2, DLSS/FSR/Reflex | 12.9GB IoStore; no exe in dump; key-art verified title |
+| 124 | NIGHT-RUNNERS PROLOGUE | PC | Unknown (Unity 2018.4 era) | Planet Jem Software / Unknown | Unity 2018.4.26f1 (IL2CPP) | Unity standard | 20 levels; livery templates; version string verified |
+| 125 | Project Torque | PC | 2008 | Invictus Games Ltd. / Aeria Games | Invictus Engine (DFEngine.dll) | Bink, FMOD Ex, SpeedTree, Steamworks | Invictus copyright; Nx/Lua/Ogg/CRI=noise; no Havok/PhysX |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1917,6 +1919,36 @@ Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Ste
 | **Engine** | **Unreal Engine 5** (IoStore 12.9 GB, Bink 2, vc170, DLSS-G) |
 | **Middleware** | **Wwise** (40+ Ak DLLs), **Bink 2** (219 MB intro + localized warnings), **DLSS/FSR/Reflex** |
 | **Executable** | None in dump (data + engine only) |
+
+---
+
+## 89. NIGHT-RUNNERS PROLOGUE — PC
+
+| Field | Value |
+|---|---|
+| **Title** | NIGHT-RUNNERS PROLOGUE (`app.info`: Planet Jem Software) |
+| **Platform** | PC (Windows 64-bit) |
+| **Developer** | Planet Jem Software |
+| **Engine** | **Unity 2018.4.26f1** (IL2CPP — version string verified) |
+| **Middleware** | Unity standard set |
+| **Executable** | 650 KB bootstrap + GameAssembly (37 MB) |
+| **Container** | 20 levels + livery templates |
+
+---
+
+## 90. Project Torque — PC (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | Project Torque (Invictus copyright 2005-2020 in exe) |
+| **Platform** | PC (Windows) |
+| **Developer** | Invictus Games Ltd. |
+| **Publisher** | Aeria Games (F2P) |
+| **Engine** | Invictus Engine (`DFEngine.dll`) |
+| **Middleware** | **Bink** (engine-level), **FMOD Ex** (DLLs), **SpeedTree** (vegetation), **Steamworks**, **zlib** |
+| **Executable** | ProjectTorque.exe (10.6 MB) |
+
+**Key Finding:** `Torque` = vehicle-physics terms, not Torque engine. `Nx`/`Lua`/`Ogg` = noise. No Havok/PhysX despite racing genre.
 
 ---
 
