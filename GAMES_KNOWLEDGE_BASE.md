@@ -21,7 +21,7 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 11 | Crash Time 2 | PC | 2008 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT1) | NONE (DirectX 9 + custom; ODE Physics referenced) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 12 | Crash Time 3 | PC | 2009 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT1/2) | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 13 | Crash Time 4 | PC | 2010 | Synetic GmbH / RTL Games / JoWooD | Synetic 3D Landscape Engine (evolved from CT3) | ODE Physics (referenced), Bink Video (`.bik`); DirectX 9 + custom | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
-| 14 | Crash Time 5 — Undercover | PC | 2012 | Synetic GmbH / RTL Games / dtp entertainment | Synetic 3D Landscape Engine (final) | Bink Video (only) | https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
+| 14 | Crash Time 5 | PC | 2012 | Synetic GmbH / RTL Games / dtp entertainment | Synetic 3D Landscape Engine (final 32-bit) | FMOD Ex, Lua 5.1.2 | Hi/Lo builds; .mox/.xml; DAM_CRASH; no ODE; https://www.pcgamingwiki.com/wiki/Engine:3D_Landscape_Engine |
 | 15 | Excite Truck | Wii | 2006 | Monster Games / Nintendo | Monster Games proprietary | Bink Video only | |
 | 16 | Driver Renegade | 3DS | 2011 | VD-dev / Ubisoft | VD-dev Proprietary Engine | NitroSDK | Corrected: not Firebrand — developed by VD-dev |
 | 17 | FAST - Racing League | WiiWare | 2011 | Shin'en Multimedia / Shin'en Multimedia | SHIN'ENGINE (formally C-Engine) | NONE | https://en.wikipedia.org/wiki/Shin%27en_Multimedia |
@@ -71,6 +71,24 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 61 | Bloons TD 4 (DS) | NDS | 2009–10 | Unknown / Unknown | Custom DS (NitroSDK) | NONE | .ntfi/.ntfp/.ntft 2D; XML track paths; 226 files |
 | 62 | Camping Mama: Outdoor Adventures | NDS | 2011 | Unknown / Unknown | Custom DS (NitroSDK) | NONE | Full NitroSDK set + .bghb/.amob; 6,461 files |
 | 63 | Cave Story PSP (homebrew) | PSP | 2007 | -Z. / None (homebrew) | Studio Pixel custom | NONE | kxploit-era port; data.csz; Win-save compatible |
+| 64 | Crash Time: Undercover (rerelease) | PC | Steam era | Synetic GmbH / Unknown (Steam) | Synetic 3D Landscape Engine (64-bit) | FMOD Ex 64-bit, Steamworks | .pak era; DAM_CRASH; no Bink/Lua/ODE; AppID 1687700; https://store.steampowered.com/app/1687700/ |
+| 65 | 007 Legends | PC | 2012 | Eurocom / Activision | Eurocom EngineX | Bink, XAudio, DemonWare, Steam params | EngineXT paths; EUROSOUND archives; Nx/Lua/CRI=noise |
+| 66 | Burnout Legends | PSP | 2005 | Criterion Games / Electronic Arts | Criterion proprietary | PMF Video, ATRAC3 | ULUS10025; 900-entry UMD; no RW/Bink/Havok strings |
+| 67 | Crisis Core: Final Fantasy VII | PSP | 2008 | Square Enix / Square Enix | Square proprietary PSP | PMF Video, ATRAC3 | ULUS10336; 1.6GB discimg.pkg; packed exe |
+| 68 | Cooking Mama 3: Shop & Chop | NDS | 2009 | Unknown / Unknown | Custom DS (NitroSDK) | NONE | B3CE/5G; .ncbr-heavy Nitro pipeline; 9,845 files |
+| 69 | Crafting Mama | NDS | 2010 (est.) | Unknown / Unknown | Custom DS (NitroSDK) | NONE | BQ8E/5G; .psrt/.pobj/.pbg pipeline; 2,389 files |
+| 70 | CTGP Nitro | NDS | Unknown (mod) | CTGP Nitro Team (community) | Stock MKDS + .carc mods | NONE (mod) | Patched MKDS-EUR ROM; 930 files |
+| 71 | CTGP Nitro Revolution | NDS | Unknown (mod) | CTGP Nitro Team (community) | Stock MKDS + .carc mods | NONE (mod) | Leaner rebuild; 626 files |
+| 72 | Zelda Four Swords AE | NDS | 2011 | Grezzo? / Nintendo | Nintendo proprietary | NitroSDK | KQ9V/01; DSiWare port; 14MB |
+| 73 | Nintendo DSi Browser | NDS | Unknown | Opera Software / Nintendo | Opera (Presto) | NitroSDK shell | HNGE/01 Rev 3; 10MB |
+| 74 | Nintendo 3DS Transfer Tool | NDS | Unknown | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | HNOE/01; DSi-to-3DS migration; 2.3MB |
+| 75 | PictoChat | NDS | Unknown (firmware) | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | HNEA/01; firmware chat dumped as ROM |
+| 76 | Paper Airplane Chase | NDS | Unknown | Nintendo / Nintendo | Nintendo proprietary | NitroSDK | KAME/01; DSiWare micro-game; 1.3MB |
+| 77 | FSPDS (homebrew) | NDS | Unknown | Unknown (homebrew) | devkitPro (libnds) | NONE | Flipnote Studio player; HOMEBREW/####; FAT-less |
+| 78 | Super Mario Advance | GBA | 2001 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | AMAE; SNES-port lineage; 4MB |
+| 79 | Super Mario Advance 2 | GBA | 2001 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | AA2E (Super Mario World); 4MB |
+| 80 | Super Mario Advance 3 | GBA | 2002 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | A3AE (Yoshi's Island); 4MB |
+| 81 | Super Mario Advance 4 | GBA | 2003 | Nintendo R&D2 / Nintendo | Nintendo proprietary GBA | NONE | AX4E (SMB3); 4MB |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -485,28 +503,28 @@ PlatinumGames Engine
 
 ---
 
-## 11. Crash Time 5 — Undercover (Alarm für Cobra 11 Undercover) — PC (2012)
+## 11. Crash Time 5 (Alarm für Cobra 11) — PC (2012, Original)
 
 | Field | Value |
 |---|---|
-| **Title** | Crash Time 5 — Undercover (Alarm für Cobra 11 Undercover) |
+| **Title** | Crash Time 5 (Alarm für Cobra 11) |
 | **Platform** | PC (Windows) |
 | **Developer** | Synetic GmbH (German) |
 | **Publisher** | RTL Games / dtp entertainment |
-| **Year** | 2012 |
-| **Engine** | Synetic 3D Landscape Engine (final evolution) |
-| **Middleware** | **Bink Video** (Rad Game Tools) — **ONLY licensed middleware** |
-| **Executable** | Missing from dump |
-| **Container** | Loose files (no archive) |
-| **Asset Formats** | `.mox`/`.mtl` (models/materials), `.trf` (track refs), `.cpo` (collision), `.ptx` (textures), `.xml` (weapons/HUD/evidence), `.bik` (Bink video), `.ogg` (audio), `.ptx` (textures), `.trf` (track refs), `.cpo` (collision) |
-| **Scripting** | None (C++ only) + XML data-driven (weapons/HUD/evidence) |
-| **Physics** | Custom (DAM_CRASH_*) + ODE Physics |
-| **Graphics** | DirectX 9 (D3DX9 Shader Compiler 9.12.589) |
-| **Audio** | DirectSound/DirectMusic (WAV, OGG) |
-| **Video** | **Bink Video** (`.bik`) — NEW in Undercover |
-| **Scripting** | None (C++ only) + XML data-driven (weapons/HUD/evidence) |
+| **Year** | 2012 (shipping exes Sep 2012) |
+| **Engine** | Synetic 3D Landscape Engine (final 32-bit iteration) |
+| **Middleware** | **FMOD Ex**, **Lua 5.1.2** (both exe-verified) |
+| **Executable** | CrashTime5Hi/Lo.exe (7.28 MB each) + stub + config tool (ISO-verified) |
+| **Container** | Installer + loose files |
+| **Asset Formats** | `.mox` (×54 refs), `.xml` (×84 refs), `.ptx`, `.trf`, `.cpo`, `.pam` video |
+| **Scripting** | **Lua 5.1.2** (version string in exe — lineage debut) |
+| **Physics** | Custom (DAM_CRASH_*) — no ODE (`ODEConfig`/`PHYSICS_*` absent) |
+| **Graphics** | DirectX 9 |
+| **Audio** | FMOD Ex (event system: traffic/autos/enginegeneric.fev) |
+| **Video** | `.pam` (Bink logo/shader traces only, playback unconfirmed) |
 
-**Key Finding:** Final evolution of Synetic 3D Landscape Engine. **Only licensed middleware: Bink Video**. XML-driven weapons/HUD/evidence systems. Bink Video for cutscenes. No Lua scripting. Weapons system (14 weapons), HUD system (7 elements), Evidence system (3 items). Bink Video for cutscenes (5 `.bik` files).
+**Key Finding:** FMOD + Lua 5.1.2 debut in Synetic tech (Hi/Lo detail-split builds). Distinct release from the Steam-era 64-bit Undercover rerelease (§60).
+
 
 ---
 
@@ -1512,6 +1530,122 @@ PlatinumGames Engine
 | **Developer** | -Z. (port); Studio Pixel (original) |
 | **Year** | 2007 |
 | **Engine** | Studio Pixel custom (1:1 logic port, data-compatible with Windows) |
+
+---
+
+## 60. Crash Time: Undercover (Steam Rerelease) — PC
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time: Undercover (product manifest; binary `CrashTime5.exe`) |
+| **Platform** | PC (Windows 64-bit, Steam AppID 1687700) |
+| **Developer** | Synetic GmbH (German) |
+| **Publisher** | Unknown (Steam) |
+| **Year** | Unknown (Steam era) |
+| **Engine** | Synetic 3D Landscape Engine (64-bit rerelease build) |
+| **Middleware** | **FMOD Ex 64-bit**, **Steamworks** |
+| **Executable** | CrashTime5.exe (5 MB) + Benchmark + SkiaSharp launcher |
+| **Container** | `.pak` (Data000–012) |
+| **Physics** | Custom (DAM_CRASH_*) — no ODE |
+| **Video** | No Bink (dropped vs original) |
+
+**Key Finding:** Rerelease-tier entry, distinct from Crash Time 5 (user-confirmed). `.pak` era, Steamworks, Bink/Lua dropped. https://store.steampowered.com/app/1687700/
+
+---
+
+## 61. 007 Legends — PC (2012)
+
+| Field | Value |
+|---|---|
+| **Title** | 007 Legends (`Bond2012PC.exe`) |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Eurocom (`EngineXT`, `X:\EngineXT` paths) |
+| **Publisher** | Activision |
+| **Year** | 2012 |
+| **Engine** | Eurocom EngineX (SM3.0 floor asserts) |
+| **Middleware** | **Bink**, **XAudio** (faction barks), **DemonWare**, **Steamworks** params |
+| **Container** | `filelist.000`–`.003` splits + `EUROSOUND_*` per-language archives |
+
+**Key Finding:** `Nx`/`Lua`/`CRI` = code noise. No Havok/PhysX/FMOD/Miles. Steam emu + FlawlessWidescreen mod in dump.
+
+---
+
+## 62. Burnout Legends — PSP (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout Legends (ULUS10025, v2.00) |
+| **Platform** | PlayStation Portable |
+| **Developer** | Criterion Games |
+| **Publisher** | Electronic Arts |
+| **Year** | 2005 |
+| **Engine** | Criterion PSP proprietary (decrypted BOOT.BIN) |
+| **Middleware** | **PMF Video** (localized paths), **ATRAC3** |
+| **Container** | UMD ISO (505 MB, 900 entries) |
+
+**Key Finding:** `Criterion` ×1 = UPnP junk; `Miles` ×1 = mileage units. No RW/Bink/Havok/Lua strings.
+
+---
+
+## 63. Crisis Core: Final Fantasy VII — PSP (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | CRISIS CORE -FINAL FANTASY VII- (ULUS10336, v1.00) |
+| **Platform** | PlayStation Portable |
+| **Developer** | Square Enix |
+| **Publisher** | Square Enix |
+| **Year** | 2008 (USA; FW 3.73) |
+| **Engine** | Square Enix proprietary PSP (packed BOOT.BIN) |
+| **Middleware** | **PMF Video**, **ATRAC3** |
+| **Container** | UMD ISO with 1.6 GB `discimg.pkg` |
+
+**Key Finding:** `CRI` ×1 = savefile label; `fmod` ×1 = CRT. String-sparse binary limits audit.
+
+---
+
+## 64. Cooking Mama 3 + Crafting Mama — NDS (2009–10)
+
+| Field | Value |
+|---|---|
+| **Title** | Cooking Mama 3: Shop & Chop (B3CE) + Crafting Mama (BQ8E) |
+| **Platform** | Nintendo DS |
+| **Developer** | Unknown (maker `5G`) |
+| **Engine** | CM3 Nitro-flavored (9,845 files) vs Crafting custom `.psrt` pipeline (2,389 files) |
+| **Middleware** | **NONE** (NitroSDK only) |
+
+**Key Finding:** Format break suggests different developers per title.
+
+---
+
+## 65. CTGP Nitro + Revolution — NDS (ROM Hacks)
+
+| Field | Value |
+|---|---|
+| **Title** | CT-GP Nitro (930 files) + Nitro Revolution (626 files) |
+| **Platform** | Nintendo DS (patched MKDS-EUR: `MARIOKARTDS`/AMCP/01) |
+| **Developer** | CTGP Nitro Team (community) |
+| **Engine** | Stock MKDS + custom `.carc` course archives |
+
+---
+
+## 66. DSi Mini-Apps Batch — NDS/DSi
+
+| Field | Value |
+|---|---|
+| **Titles** | FSPDS (devkitPro Flipnote player) · Zelda Four Swords AE (Grezzo likely) · DSi Browser (Opera) · 3DS Transfer Tool · Paper Plane · PictoChat |
+| **Middleware** | NONE (NitroSDK; Opera engine in Browser) |
+
+---
+
+## 67. Super Mario Advance 1–4 — GBA (2001–03)
+
+| Field | Value |
+|---|---|
+| **Titles** | SMA (AMAE) · SMA2 SMW (AA2E) · SMA3 Yoshi's Island (A3AE) · SMA4 SMB3 (AX4E) |
+| **Platform** | Game Boy Advance (4 MB each) |
+| **Developer** | Nintendo R&D2 |
+| **Year** | 2001 / 2001 / 2002 / 2003 |
 
 ---
 
