@@ -129,6 +129,8 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 119 | Pokemon White | NDS | 2010 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | IRAO DSi-enhanced; 235 extensionless + 3 NARC |
 | 120 | Pokemon White 2 | NDS | 2012 | GAME FREAK / Nintendo | GAME FREAK proprietary DS | NONE | IRDO; 512MB biggest DS ROM; 308 extensionless |
 | 121 | Pokemon Ranger: Guardian Signs | NDS | 2010 | Creatures Inc. / Nintendo | Creatures proprietary DS | NONE | B3RE; .acz ×382 (new container vs Almia .fsb) |
+| 122 | APB Reloaded | PC | 2011 | Reloaded Productions / GamersFirst | Unreal Engine 3 | Scaleform GFx, Bink, Vivox, Steamworks | AppID 113400; Nx/Ogg/CRI=noise; BattlEye dir, unlinked exe |
+| 123 | SAMSON (CJ project) | PC | 2023+ | Unknown / Unknown | Unreal Engine 5 | Wwise, Bink 2, DLSS/FSR/Reflex | 12.9GB IoStore; no exe in dump; key-art verified title |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1888,6 +1890,33 @@ Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Ste
 | **Title** | Welcome to Animal Crossing: Wild World (Nintendo EAD, 9,504 files) |
 | **Engine** | Nintendo EAD proprietary DS (`.nsbtx` 3,015, `.arc` 2,064, `.bmg` 1,791) |
 | **Middleware** | **NONE** |
+
+---
+
+## 87. APB Reloaded — PC (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | APB Reloaded (AppID 113400) |
+| **Platform** | PC (Windows, Steam) |
+| **Developer** | Reloaded Productions (GamersFirst) |
+| **Engine** | **Unreal Engine 3** (layout + Scaleform symbols; quiet strings) |
+| **Middleware** | **Scaleform GFx**, **Bink**, **Vivox**, **Steamworks** |
+| **Executable** | APB.exe (29.5 MB) |
+
+**Key Finding:** `Nx`/`Ogg`/`CRI` = noise. BattlEye dir present but unlinked in exe. No Havok/PhysX/FMOD/Lua.
+
+---
+
+## 88. SAMSON (CJ project) — PC (UE5, 2023+)
+
+| Field | Value |
+|---|---|
+| **Title** | SAMSON (key-art verified; project `CJ`) |
+| **Platform** | PC (Windows 64-bit) |
+| **Engine** | **Unreal Engine 5** (IoStore 12.9 GB, Bink 2, vc170, DLSS-G) |
+| **Middleware** | **Wwise** (40+ Ak DLLs), **Bink 2** (219 MB intro + localized warnings), **DLSS/FSR/Reflex** |
+| **Executable** | None in dump (data + engine only) |
 
 ---
 
