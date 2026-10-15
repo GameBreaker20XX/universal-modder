@@ -134,6 +134,17 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 124 | NIGHT-RUNNERS PROLOGUE | PC | Unknown (Unity 2018.4 era) | Planet Jem Software / Unknown | Unity 2018.4.26f1 (IL2CPP) | Unity standard | 20 levels; livery templates; version string verified |
 | 125 | Project Torque | PC | 2008 | Invictus Games Ltd. / Aeria Games | Invictus Engine (DFEngine.dll) | Bink, FMOD Ex, SpeedTree, Steamworks | Invictus copyright; Nx/Lua/Ogg/CRI=noise; no Havok/PhysX |
 | 126 | NASCAR Unleashed | PS3 | 2011 | Firebrand Games / Activision | Firebrand Octane | Bink, Firebrand Audio (.wavebatch/.MSF) | VFS.ZIP + VFS.BIN; TABW wavebatch; EBOOT stripped; Nx=noise |
+| 127 | Burnout Legends | NDS | 2005 | Criterion Games / Electronic Arts | Criterion custom / NitroSDK | CRI ADX, Nintendo SDAT | Game code ABOE; 6 SDAT banks; ARM9@FAT[0]; no Firebrand/Octane |
+| 128 | Burnout Legends | PSP | 2005 | Criterion Games / Electronic Arts | RenderWare (Criterion PSP) | PMF, ATRAC3, EA Music (.mus), VDB | ULUS10025; .txd/.kfs/.bin/.vdb.xml/.mus; 23 EATrax; no RW/Bink strings |
+| 129 | Burnout Dominator | PSP | 2007 | Criterion Games / Electronic Arts | FusionCore | EA Connect (EACN), PMF, ATRAC3+ | EBOOT header `FusionCore`; bundle.big; 85× EA strings; post-RW engine |
+| 130 | Crash Time II | PC | 2008 | Synetic GmbH / RTL Games | Synetic Engine | ODE, FMOD Ex, Lua 5.1 | BurningWheelsHi.exe; Synetic×3; mox×55; mtl×5; ODE×82; Steam 11390 |
+| 131 | Crash Time III | PC | 2009 | Synetic GmbH / RTL Games | Synetic Engine | ODE (minimal), FMOD Ex, Lua 5.1 | HighwayNightsHi.exe; Synetic×3; mox×47; ODE×2; Steam 33620; Hi/Lo builds |
+| 132 | Blur Overdrive | Android | 2011 | Marmalade / Activision | Marmalade SDK (S3E) | Flurry, Facebook, GPG, Billing | libblur.so: s3e×407; .group.bin packs; OBB DTRZ header; no Unity/Unreal |
+| 133 | Bully: Anniversary Edition | Android | 2016 | Rockstar Games / War Drum Studios | Rockstar RAGE | Flutter, OpenAL, mpg123, Sentry | libGame.so 19MB; RAGE×160; RenderWare×7; IMG/IPL/SCL refs; Flutter UI |
+| 134 | Bully: Anniversary Edition | iOS | 2016 | Rockstar Games / War Drum Studios | Rockstar RAGE | Custom .zip/.idx (2GB), MP4/M4V | Bully.zip 2GB + idx; BullyOrig.zip 236MB; no Flutter; native UIKit |
+| 135 | Respawnables | Android | 2014 | Digital Legends / Digital Legends | ShooterPunch | FMOD (minimal) | libshooterpunch.so 17MB; ShooterPunch×160; XAPK+OBB 788MB; unity=noise |
+| 136 | Respawnables | iOS | 2014 | Digital Legends / Digital Legends | ShooterPunch | Facebook, Tapjoy, OpenGL ES | Respawnables 14MB; ShooterPunch×12; Respawn×85; Crackalicious crack marker |
+| 137 | Synthwave Burnout | PC | 2021 | Unknown / Unknown | Unreal Engine 4 | PhysX/APEX, Steamworks, OpenVR, Oculus | UE4×174; 4.46GB .pak; PhysX×278; APEX; Aftermath; SteamUnlocked repack |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -2095,6 +2106,194 @@ Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Ste
 | **White/W2** | Gen V overlay redesign (235/308 extensionless, IRAO/IRDO; W2 = 512 MB biggest DS ROM) |
 | **Ranger GS** | Creatures `.acz` ×382 new container (vs Almia `.fsb`), B3RE |
 | **Middleware** | **NONE** throughout (NitroSDK only) |
+
+---
+
+## 97. Burnout Legends — NDS (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout Legends (USA, game code ABOE) |
+| **Platform** | Nintendo DS |
+| **Developer** | Criterion Games |
+| **Publisher** | Electronic Arts |
+| **Engine** | Criterion custom on Nintendo Nitro System SDK |
+| **Middleware** | **CRI ADX**, **Nintendo SDAT** (6 banks) |
+| **Executable** | ARM9 @ FAT[0] (2.2 MB, `Burnout DS` header) |
+| **Container** | Standard DS ROMFS (FAT/FNT), multiple SDAT audio banks |
+
+**Key Finding:** No Firebrand/Octane/RenderWare. Pure Criterion on NitroSDK. CRI ADX streaming + SDAT sequenced audio.
+
+---
+
+## 98. Burnout Legends — PSP (2005)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout Legends (ULUS10025) |
+| **Platform** | PSP |
+| **Developer** | Criterion Games |
+| **Publisher** | Electronic Arts |
+| **Engine** | RenderWare (Criterion PSP branch) |
+| **Middleware** | **PMF**, **ATRAC3**, **EA Music** (`.mus` ×23), **VDB** (`.vdb.xml`) |
+| **Executable** | EBOOT.BIN (5.1 MB, `Burnout` header, 71× `EA`) |
+| **Container** | Loose files: `.txd` (RenderWare textures), `.kfs` (Khao scenes), `.bin`, `.mus`, `.m2v`, `.pmf` |
+
+**Key Finding:** 23 licensed `EATrax` tracks. `.txd`/`.kfs` = RenderWare formats. No Bink/Havok/FMOD in EBOOT.
+
+---
+
+## 99. Burnout Dominator — PSP (2007)
+
+| Field | Value |
+|---|---|
+| **Title** | Burnout Dominator (USA) |
+| **Platform** | PSP |
+| **Developer** | Criterion Games |
+| **Publisher** | Electronic Arts |
+| **Engine** | **FusionCore** (Criterion post-RenderWare PSP engine) |
+| **Middleware** | **EA Connect** (EACN `bundle.big`), **PMF**, **ATRAC3+** |
+| **Executable** | EBOOT.BIN (5.15 MB, header `FusionCore`, 85× `EA`, 3× `lua`) |
+| **Container** | `EACN/bundle.big` (2.3 MB) + fonts/locale/PRX modules |
+
+**Key Finding:** Engine name `FusionCore` in EBOOT header. Post-RW Criterion engine. EA Connect integration via bundle.big.
+
+---
+
+## 100. Crash Time II — PC (2008)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time II (Burning Wheels) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH |
+| **Publisher** | RTL Games / dtp entertainment |
+| **Engine** | Synetic Engine v2 |
+| **Middleware** | **ODE** (82×), **FMOD Ex**, **Lua 5.1** |
+| **Executable** | BurningWheelsHi.exe (2.58 MB, `Synetic` ×3) |
+| **Formats** | `.mox` (models, 55×), `.mtl` (materials, 5×), `.ptx` (textures, 1×) |
+| **Steam** | AppID 11390 |
+
+**Key Finding:** ODE physics confirmed (82× strings) — retracts Havok claims. Lua scripting. Synetic formats match CT1/CT3.
+
+---
+
+## 101. Crash Time III — PC (2009)
+
+| Field | Value |
+|---|---|
+| **Title** | Crash Time III (Highway Nights) |
+| **Platform** | PC (Windows) |
+| **Developer** | Synetic GmbH |
+| **Publisher** | RTL Games / dtp entertainment |
+| **Engine** | Synetic Engine v3 |
+| **Middleware** | **ODE** (2×, minimal), **FMOD Ex**, **Lua 5.1** |
+| **Executable** | HighwayNightsHi.exe (2.56 MB, `Synetic` ×3) + HighwayNightsLow.exe (2.5 MB) |
+| **Formats** | `.mox` (47×), `.mtl` (5×), `.ptx` (1×) |
+| **Steam** | AppID 33620 |
+
+**Key Finding:** ODE references minimal (2× vs CT2's 82×) — physics more in-house. Hi/Lo exe builds. Same Synetic pipeline.
+
+---
+
+## 102. Blur Overdrive — Android (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | Blur Overdrive (v1.1.1) |
+| **Platform** | Android |
+| **Developer** | Marmalade / Activision (port of Bizarre Creations) |
+| **Publisher** | Activision |
+| **Engine** | **Marmalade SDK** (S3E) |
+| **Middleware** | **Flurry**, **Facebook**, **Google Play Games**, **Billing** |
+| **Executable** | `libblur.so` (789 KB, `s3e` ×407, `Marmalade` ×25) |
+| **Container** | APK: `.group.bin` packs (8–11 MB); OBB: custom `DTRZ` header (156 MB) |
+
+**Key Finding:** Marmalade S3E framework throughout. `.group.bin` asset packs in both APK and OBB. OBB uses `DTRZ` custom format (not ZIP). No Unity/Unreal.
+
+---
+
+## 103. Bully: Anniversary Edition — Android (2016)
+
+| Field | Value |
+|---|---|
+| **Title** | Bully: Anniversary Edition |
+| **Platform** | Android |
+| **Developer** | Rockstar Games (War Drum Studios port) |
+| **Publisher** | Rockstar Games |
+| **Engine** | **Rockstar RAGE** (PS2 RenderWare → RAGE port) |
+| **Middleware** | **Flutter** (UI), **OpenAL**, **mpg123**, **Sentry** |
+| **Executable** | `libGame.so` (19 MB ARM64, `RAGE` ×160, `Rockstar` ×95, `R*` ×492) |
+| **Formats** | `IMG`/`IPL`/`SCL` (PS2 archive/map/collision refs), `Bully` ×802 |
+
+**Key Finding:** RAGE engine with PS2 format strings retained. Flutter for UI shell, RAGE for gameplay. Split APKs per ABI/locale.
+
+---
+
+## 104. Bully: Anniversary Edition — iOS (2016)
+
+| Field | Value |
+|---|---|
+| **Title** | Bully: Anniversary Edition |
+| **Platform** | iOS |
+| **Developer** | Rockstar Games (War Drum Studios port) |
+| **Publisher** | Rockstar Games |
+| **Engine** | **Rockstar RAGE** |
+| **Middleware** | Custom `.zip`/`.idx` archives, MP4/M4V video |
+| **Container** | `Bully.zip` (2.06 GB) + `Bully.zip.idx` (1 MB), `BullyOrig.zip` (236 MB) |
+| **UI** | Native UIKit/XML (`MainMenu.xml`, `MainWindow.nib`), 11 fonts |
+
+**Key Finding:** Same RAGE core as Android, but monolithic `Bully.zip` + index (not split APKs). `BullyOrig.zip` = original PS2 assets? No Flutter — native iOS UI.
+
+---
+
+## 105. Respawnables — Android (2014+)
+
+| Field | Value |
+|---|---|
+| **Title** | Respawnables (v11.4.0) |
+| **Platform** | Android |
+| **Developer** | Digital Legends Entertainment |
+| **Publisher** | Digital Legends Entertainment |
+| **Engine** | **ShooterPunch** (proprietary) |
+| **Middleware** | **FMOD** (1×, minimal) |
+| **Executable** | `libshooterpunch.so` (17.6 MB ARM64, `ShooterPunch` ×160) |
+| **Container** | XAPK: APK (21 MB) + OBB (788 MB) |
+
+**Key Finding:** Engine name `ShooterPunch` pervasive (160×). Digital Legends proprietary. OBB 788 MB assets. `unity` = substring noise.
+
+---
+
+## 106. Respawnables — iOS (2014+)
+
+| Field | Value |
+|---|---|
+| **Title** | Respawnables (v2.3.0) |
+| **Platform** | iOS |
+| **Developer** | Digital Legends Entertainment |
+| **Publisher** | Digital Legends Entertainment |
+| **Engine** | **ShooterPunch** |
+| **Middleware** | **Facebook SDK**, **Tapjoy**, **OpenGL ES** |
+| **Executable** | `Respawnables` (14.2 MB Mach-O, `ShooterPunch` ×12, `Respawn` ×85) |
+| **Note** | `Crackalicious-AppAddict` marker in IPA (scene crack) |
+
+**Key Finding:** Same ShooterPunch engine as Android. Facebook + Tapjoy mobile stack (2014 era). OpenGL ES (no Metal). Crack artifact present.
+
+---
+
+## 107. Synthwave Burnout — PC (2021)
+
+| Field | Value |
+|---|---|
+| **Title** | Synthwave Burnout (v2021.11.24) |
+| **Platform** | PC (Windows 64-bit) |
+| **Engine** | **Unreal Engine 4** (IoStore) |
+| **Middleware** | **PhysX/APEX**, **Steamworks**, **OpenVR**, **Oculus**, **Ogg/Vorbis**, **NVIDIA Aftermath** |
+| **Executable** | `SynthwaveGame-Win64-Shipping.exe` (74.6 MB, `UE4` ×174, `Synthwave` ×2) |
+| **Container** | `SynthwaveGame-WindowsNoEditor.pak` (4.46 GB) |
+| **Physics** | PhysX ×278, APEX Clothing/Destructible/Legacy, NvCloth |
+
+**Key Finding:** UE4 IoStore (4.46 GB pak). Full PhysX/APEX stack. VR-ready (OpenVR + Oculus). Steamworks. Repack source: SteamUnlocked (cracked).
 
 ---
 
