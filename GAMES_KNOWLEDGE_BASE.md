@@ -133,6 +133,7 @@ Maintained from teardown analyses. Updated 2026-10-13 — synced with `Game_Engi
 | 123 | SAMSON (CJ project) | PC | 2023+ | Unknown / Unknown | Unreal Engine 5 | Wwise, Bink 2, DLSS/FSR/Reflex | 12.9GB IoStore; no exe in dump; key-art verified title |
 | 124 | NIGHT-RUNNERS PROLOGUE | PC | Unknown (Unity 2018.4 era) | Planet Jem Software / Unknown | Unity 2018.4.26f1 (IL2CPP) | Unity standard | 20 levels; livery templates; version string verified |
 | 125 | Project Torque | PC | 2008 | Invictus Games Ltd. / Aeria Games | Invictus Engine (DFEngine.dll) | Bink, FMOD Ex, SpeedTree, Steamworks | Invictus copyright; Nx/Lua/Ogg/CRI=noise; no Havok/PhysX |
+| 126 | NASCAR Unleashed | PS3 | 2011 | Firebrand Games / Activision | Firebrand Octane | Bink, Firebrand Audio (.wavebatch/.MSF) | VFS.ZIP + VFS.BIN; TABW wavebatch; EBOOT stripped; Nx=noise |
 
 > Detail sections below keep their original numbering (they predate the registry); the table above is authoritative for order, attributions, and engine names. Missing Crash Time 1–4 detail sections added as 9.1–9.4.
 
@@ -1949,6 +1950,23 @@ Covered in §9.4 (rewritten this round): FMOD Ex, WMV video, no ODE/Lua/Bink/Ste
 | **Executable** | ProjectTorque.exe (10.6 MB) |
 
 **Key Finding:** `Torque` = vehicle-physics terms, not Torque engine. `Nx`/`Lua`/`Ogg` = noise. No Havok/PhysX despite racing genre.
+
+---
+
+## 91. NASCAR Unleashed — PS3 (2011)
+
+| Field | Value |
+|---|---|
+| **Title** | NASCAR Unleashed (USA) |
+| **Platform** | PlayStation 3 |
+| **Developer** | Firebrand Games |
+| **Publisher** | Activision |
+| **Engine** | **Firebrand Octane** (VFS.ZIP + TABW wavebatch + .PSSG shaders) |
+| **Middleware** | **Bink Video**, **Firebrand Audio** (.wavebatch/.MSF) |
+| **Executable** | EBOOT.BIN (5.6 MB, stripped) |
+| **Container** | VFS.ZIP (680 MB) + VFS.BIN index |
+
+**Key Finding:** `Nx` ×94 = noise. No FMOD/Havok/PhysX/Lua/Scaleform/CRI/Wwise. Engine ID via container/shader/audio formats only.
 
 ---
 
