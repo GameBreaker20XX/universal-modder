@@ -4749,6 +4749,37 @@
   ]
  },
  {
+  "path": "games/saints-row-moneyshot/identifying-a-cancelled-xbla-prototype-from-its-container.md",
+  "kind": "game",
+  "title": "Identifying a cancelled XBLA prototype from its container",
+  "game": "Saints Row: Moneyshot",
+  "games_also": [],
+  "game_version": "Unreleased Xbox 360 Arcade prototype, 2011-era (container metadata only; no build distributed with this note)",
+  "platform": "console",
+  "engine": "unknown",
+  "route": "other",
+  "tools": [
+   "Python (one-off container header reader)"
+  ],
+  "anti_cheat": "none observed; offline console content with console-side encryption",
+  "status": "abandoned",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "xbox-360",
+   "stfs",
+   "prototype",
+   "cancelled",
+   "container-forensics"
+  ]
+ },
+ {
   "path": "games/schedule-i/qol-suite-and-stack-limits-on-the-schedule-i-0-4-7-il2cpp-be.md",
   "kind": "game",
   "title": "QoL suite and stack limits on the Schedule I 0.4.7 IL2CPP beta with MelonLoader",
