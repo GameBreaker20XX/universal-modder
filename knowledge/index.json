@@ -5033,6 +5033,41 @@
   ]
  },
  {
+  "path": "games/streetpass-mii-plaza/streetpass-mii-plaza-on-sd-one-game-three-title-ids.md",
+  "kind": "game",
+  "title": "StreetPass Mii Plaza on SD: one game, three title IDs",
+  "game": "StreetPass Mii Plaza",
+  "games_also": [],
+  "game_version": "SD install on my own 3DS (title 00040000-00022800, 94 MB update, separate DLC title)",
+  "platform": "console",
+  "engine": "native",
+  "route": "data",
+  "tools": [
+   "Nintendo 3DS console (software list)",
+   "SD card file listing"
+  ],
+  "anti_cheat": "system app; StreetPass/SpotPass is local radio, no online match was touched",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "nintendo-3ds",
+   "ctr-sdk",
+   "sd-install",
+   "dlc",
+   "extdata",
+   "encrypted-content",
+   "layeredfs",
+   "romfs"
+  ]
+ },
+ {
   "path": "games/super-smash-bros-melee/a-custom-fighter-in-super-smash-bros-melee-m-ex-dat-code-iso.md",
   "kind": "game",
   "title": "A custom fighter in Super Smash Bros. Melee: m-ex dat code, ISO patching and Dolphin verification",
