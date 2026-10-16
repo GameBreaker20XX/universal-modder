@@ -999,6 +999,41 @@
   ]
  },
  {
+  "path": "games/cave-story-psp/where-the-psp-port-keeps-its-data-and-saves.md",
+  "kind": "game",
+  "title": "Where the PSP port keeps its data and saves",
+  "game": "Cave Story PSP",
+  "games_also": [
+   "Cave Story"
+  ],
+  "game_version": "RC1 homebrew port by -Z., 8 July 2007 (freeware release archive)",
+  "platform": "console",
+  "engine": "native",
+  "route": "data",
+  "tools": [
+   "7-Zip",
+   "Python (one-off string and header reader)"
+  ],
+  "anti_cheat": "none; offline homebrew with no online layer",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "homebrew",
+   "psp",
+   "cave-story",
+   "data-pack",
+   "saves",
+   "widescreen"
+  ]
+ },
+ {
   "path": "games/caves-of-qud/external-game-master-bridge-save-identity-and-native-effects.md",
   "kind": "game",
   "title": "An external game master for Caves of Qud: a scripting-mod bridge, save identity and native effects",
