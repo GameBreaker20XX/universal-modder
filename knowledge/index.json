@@ -2258,6 +2258,39 @@
   ]
  },
  {
+  "path": "games/fspds/reading-flipnotes-with-fspds-a-homebrew-ds-player.md",
+  "kind": "game",
+  "title": "Reading flipnotes with FSPDS, a homebrew DS player",
+  "game": "FSPDS",
+  "games_also": [],
+  "game_version": "V1.0 homebrew build (FSPDS-V1.0.79212842R.nds, 749,568 bytes)",
+  "platform": "console",
+  "engine": "native",
+  "route": "data",
+  "tools": [
+   "7-Zip",
+   "Python (NDS header and string reader)"
+  ],
+  "anti_cheat": "none; offline homebrew",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "homebrew",
+   "nintendo-ds",
+   "flipnote",
+   "nitro-romfs",
+   "fat-storage",
+   "devkitpro"
+  ]
+ },
+ {
   "path": "games/gothic-ii/union-gd3d11-host-stack-minecraft-passthrough.md",
   "kind": "game",
   "title": "Gothic II NotR: Union plugin host stack for a passthrough (camera, ground raycasts, console, WS out)",
