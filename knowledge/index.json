@@ -901,6 +901,42 @@
   ]
  },
  {
+  "path": "games/blur-ds/firebrand-s-octane-pipeline-in-the-unreleased-ds-blur-beta.md",
+  "kind": "game",
+  "title": "Firebrand's Octane pipeline in the unreleased DS Blur beta",
+  "game": "Blur DS",
+  "games_also": [
+   "Blur"
+  ],
+  "game_version": "Unreleased European DS beta, ~2010 (the DS counterpart to the 2010 console racer; no build distributed with this note)",
+  "platform": "console",
+  "engine": "native",
+  "route": "data",
+  "tools": [
+   "7-Zip",
+   "Python (header and string reader)"
+  ],
+  "anti_cheat": "none; a single-player-capable handheld beta with no online service layer",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "nintendo-ds",
+   "unreleased-beta",
+   "firebrand",
+   "octane-engine",
+   "vfs-zip",
+   "mobiclip",
+   "lua"
+  ]
+ },
+ {
   "path": "games/borderlands-2/bl3-weapons-and-movement-in-borderlands-2-willow2-sdk-mods.md",
   "kind": "game",
   "title": "BL3 weapons and movement in Borderlands 2 (Willow2 SDK mods)",
