@@ -5899,6 +5899,42 @@
   ]
  },
  {
+  "path": "games/triad-wars/inside-a-cancelled-beta-client-archives-tiers-middleware.md",
+  "kind": "game",
+  "title": "Inside a cancelled beta client: archives, tiers, middleware",
+  "game": "Triad Wars",
+  "games_also": [
+   "Sleeping Dogs"
+  ],
+  "game_version": "Closed beta client, files dated Dec 2015 - Jan 2016 (service shut down before launch; no build distributed with this note)",
+  "platform": "windows",
+  "engine": "native",
+  "route": "data",
+  "tools": [
+   "7-Zip",
+   "Python (listing and string reader)"
+  ],
+  "anti_cheat": "none found in the listing; the service was shut down before release",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "pc",
+   "cancelled",
+   "sleeping-dogs",
+   "big-archives",
+   "wwise",
+   "nvidia-gameworks",
+   "solid-archive"
+  ]
+ },
+ {
   "path": "games/tunic/seamless-coop-bepinex6-native-hooks.md",
   "kind": "game",
   "title": "Seamless co-op for TUNIC (BepInEx 6 IL2CPP, native hooks, autonomous 2-PC testing)",
