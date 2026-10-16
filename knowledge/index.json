@@ -1345,6 +1345,42 @@
   ]
  },
  {
+  "path": "games/ctgp-7/how-ctgp-7-layers-custom-tracks-onto-mario-kart-7.md",
+  "kind": "game",
+  "title": "How CTGP-7 layers custom tracks onto Mario Kart 7",
+  "game": "CTGP-7",
+  "games_also": [
+   "Mario Kart 7"
+  ],
+  "game_version": "Public CTGP-7 distribution (free community release), LayeredFS layout",
+  "platform": "console",
+  "engine": "native",
+  "route": "data",
+  "tools": [
+   "7-Zip",
+   "Python (listing reader)"
+  ],
+  "anti_cheat": "none; offline LayeredFS mod, no Nintendo Network connection from the mod itself",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "nintendo-3ds",
+   "homebrew",
+   "layeredfs",
+   "romfs",
+   "custom-tracks",
+   "mario-kart-7",
+   "cfw"
+  ]
+ },
+ {
   "path": "games/cult-of-the-lamb/cult-of-the-lamb.md",
   "kind": "game",
   "title": "Cult of the Lamb recon: Unity Mono, and Doorstop files without a BepInEx folder (likely r2modman)",
