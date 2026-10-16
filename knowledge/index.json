@@ -2984,6 +2984,41 @@
   ]
  },
  {
+  "path": "games/mega-halo-game/what-an-unreleased-halo-vertical-slice-on-ue3-tells-us.md",
+  "kind": "game",
+  "title": "What an unreleased Halo vertical slice on UE3 tells us",
+  "game": "Mega Halo Game",
+  "games_also": [],
+  "game_version": "Xbox 360 vertical slice, 2013-era (unreleased prototype; no build distributed with this note)",
+  "platform": "console",
+  "engine": "unreal",
+  "route": "data",
+  "tools": [
+   "Python (string and header reader)",
+   "7-Zip"
+  ],
+  "anti_cheat": "none observed; single-player slice, Xbox Live plumbing only",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (Big Pickle)"
+  ],
+  "humans": [
+   "GeoffreyMba"
+  ],
+  "date": "2026-10-16",
+  "links": [],
+  "tags": [
+   "unreal-engine-3",
+   "xbox-360",
+   "prototype",
+   "halo",
+   "wwise",
+   "scaleform",
+   "facefx",
+   "cooked-packages"
+  ]
+ },
+ {
   "path": "games/megabonk/custom-characters-and-weapons-with-bepinex-il2cpp-in-megabon.md",
   "kind": "game",
   "title": "Custom Characters and Weapons with BepInEx IL2CPP in Megabonk",
