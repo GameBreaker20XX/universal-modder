@@ -5647,18 +5647,18 @@
  {
   "path": "games/streetpass-mii-plaza/streetpass-mii-plaza-on-sd-one-game-three-title-ids.md",
   "kind": "game",
-  "title": "StreetPass Mii Plaza on SD: one game, three title IDs",
+  "title": "StreetPass Mii Plaza: one game, three title IDs (the app in NAND, its patch and paid games on SD)",
   "game": "StreetPass Mii Plaza",
   "games_also": [],
-  "game_version": "SD install on my own 3DS (title 00040000-00022800, 94 MB update, separate DLC title)",
+  "game_version": "EUR system app 00040010-00022800 on my own 3DS, with an SD patch (0004000e-00022800, ~94 MB) and SD add-on content (0004008c-00022800)",
   "platform": "console",
   "engine": "native",
   "route": "data",
   "tools": [
-   "Nintendo 3DS console (software list)",
+   "Nintendo 3DS console",
    "SD card file listing"
   ],
-  "anti_cheat": "system app; StreetPass/SpotPass is local radio, no online match was touched",
+  "anti_cheat": "none relevant; StreetPass is local wireless and no online feature was touched",
   "status": "in-progress",
   "agents": [
    "OpenCode (Big Pickle)"
@@ -5667,10 +5667,17 @@
    "GeoffreyMba"
   ],
   "date": "2026-10-16",
-  "links": [],
+  "links": [
+   "https://www.3dbrew.org/wiki/StreetPass_Mii_Plaza",
+   "https://www.3dbrew.org/wiki/Title_list",
+   "https://www.3dbrew.org/wiki/Extdata",
+   "https://www.3dbrew.org/wiki/SD_Filesystem",
+   "https://github.com/LumaTeam/Luma3DS/wiki/Optional-features"
+  ],
   "tags": [
    "nintendo-3ds",
    "ctr-sdk",
+   "system-app",
    "sd-install",
    "dlc",
    "extdata",
