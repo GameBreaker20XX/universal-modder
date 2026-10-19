@@ -5899,6 +5899,45 @@
   ]
  },
  {
+  "path": "games/trackmania-build-to-race/firebrand-octane-on-wii-vfs-zip-vfs-bin-reversed-nw4r-assets.md",
+  "kind": "game",
+  "title": "Firebrand Octane on Wii: vfs.zip/vfs.bin reversed, NW4R assets through BrawlLib, three mods verified in TrackMania Build to Race",
+  "game": "TrackMania: Build to Race",
+  "games_also": [],
+  "game_version": "NTSC-U rev 0 (R6REJH), own RVZ dump, MD5 9cd5b30d2b7fb210de4333ba39480e2d",
+  "platform": "emulator",
+  "engine": "firebrand-octane",
+  "route": "asset-only",
+  "tools": [
+   "Dolphin 2609a + dolphin-tool-cli",
+   "wit 3.04a (Wiimm)",
+   "BrawlLib (x86, headless PowerShell)",
+   "Blender 4.2",
+   "unluac 1.2.3.569",
+   "Python 3 (zipfile/zlib)"
+  ],
+  "anti_cheat": "none \u2014 offline single-player Wii title; no online services exist to protect",
+  "status": "in-progress",
+  "agents": [
+   "OpenCode (MiMo-V2.6-Flash)"
+  ],
+  "humans": [],
+  "date": "2026-10-19",
+  "links": [],
+  "tags": [
+   "wii",
+   "firebrand-octane",
+   "nw4r",
+   "brawllib",
+   "vfs-zip",
+   "vfs-bin",
+   "strings",
+   "liveries",
+   "model-graft",
+   "lua51-float32"
+  ]
+ },
+ {
   "path": "games/tunic/seamless-coop-bepinex6-native-hooks.md",
   "kind": "game",
   "title": "Seamless co-op for TUNIC (BepInEx 6 IL2CPP, native hooks, autonomous 2-PC testing)",
